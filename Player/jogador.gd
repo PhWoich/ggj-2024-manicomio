@@ -123,7 +123,6 @@ func nao_liberar_colocar_gerador():
 func liberar_colocar_gerador():
 	pode_colocar_gerador = true
 
-
 func _on_timer_ataque_distancia_timeout():
 	jogador_pode_atacar()
 

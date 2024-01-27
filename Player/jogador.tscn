@@ -190,7 +190,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_c5m5h")
 hframes = 4
 vframes = 4
-frame = 7
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
@@ -232,3 +232,8 @@ parameters/idle/blend_position = Vector2(-0.00798839, 0.942257)
 parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
+[node name="Timer_ataque_distancia" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer_ataque_distancia" to="." method="_on_timer_ataque_distancia_timeout"]
