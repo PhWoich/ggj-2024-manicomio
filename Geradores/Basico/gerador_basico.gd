@@ -14,10 +14,6 @@ signal gerador_destruido(energia_gerador)
 func _ready():
 	$"Particula Eletricidade".emitir_particula(energia_gerada)
 
-
-func _physics_process(_delta):
-	atualizar_vida(-1)
-
 func _on_body_entered(body):
 	if body.has_method("nao_liberar_colocar_gerador"):
 		body.nao_liberar_colocar_gerador()
