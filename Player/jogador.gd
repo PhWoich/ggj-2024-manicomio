@@ -101,12 +101,14 @@ func liberar_colocar_gerador():
 
 func update_animation_parameter(move_input: Vector2):
 	if(move_input != Vector2.ZERO):
-		animation_tree.set('parameters/walk/blend_position', move_input)
-		animation_tree.set('parameters/idle/blend_position', move_input)
+		animation_tree['parameters/walk/blend_position'] = move_input
+		animation_tree['parameters/idle/blend_position'] = move_input
 		
-func pick_new_state():
+func pick_new_state():	
 	if(velocity != Vector2.ZERO):		
-		state_machine.travel("walk")		
+		animation_tree['parameters/conditions/idle'] = false
+		animation_tree['parameters/conditions/is_moving'] = true
 	else:
-		state_machine.travel("idle")		
+		animation_tree['parameters/conditions/idle'] = true
+		animation_tree['parameters/conditions/is_moving'] = false
 	
