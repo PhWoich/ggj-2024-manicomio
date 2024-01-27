@@ -3,3 +3,7 @@
 [node name="Cena Principal" type="Node2D"]
 
 [node name="Nós basico de teste" type="Node2D" parent="."]
+
+[node name="NodeEduardo" type="Node2D" parent="."]
+
+[node name="123" type="Node2D" parent="."]
