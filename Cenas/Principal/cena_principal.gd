@@ -6,6 +6,9 @@ var energia_atual_gerada:float = 0.0
 var energia_atual_consumida:float = 0.0
 var energia_atual_disponivel:float = 0.0
 
+var custo_adicional:int
+var recurso:int = 100
+
 @onready var jogador = preload("res://Player/jogador.tscn")
 #Torta na cara que sai do jogador
 @onready var torta_na_cara_jogador = preload("res://Player/Tota na Cara/torta_na_cara.tscn")
@@ -18,6 +21,7 @@ func _ready():
 	instancia_jogador.atirar_torta.connect(gerar_ataque_dist_jogador)
 	add_child(instancia_jogador)
 	$AudioStreamPlayer.play()
+	custo_adicional = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,10 +30,15 @@ func _process(_delta):
 
 func add_gerador(gerador:PackedScene, posicao:Vector2):
 	var instancia_gerador:Gerador_Basico = gerador.instantiate()
-	instancia_gerador.position = posicao
-	energia_atual_gerada = energia_atual_gerada+instancia_gerador.energia_gerada
-	add_child(instancia_gerador)
-	print(energia_atual_gerada)
+	if recurso >= instancia_gerador.custo_base + custo_adicional:
+		instancia_gerador.position = posicao
+		energia_atual_gerada = energia_atual_gerada+instancia_gerador.energia_gerada
+		recurso = recurso-(instancia_gerador.custo_base + custo_adicional)
+		custo_adicional = custo_adicional+1
+		add_child(instancia_gerador)
+		print(recurso)
+	else :
+		print(instancia_gerador.custo_base + custo_adicional)
 
 func gerar_ataque_dist_jogador(posicao, movimento, rotacao):
 	var instancia_torta = torta_na_cara_jogador.instantiate()

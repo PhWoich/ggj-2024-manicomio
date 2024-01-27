@@ -2,7 +2,7 @@ extends Area2D
 class_name Gerador_Basico
 
 @export var energia_gerada:float = 5.0
-
+@export var custo_base:int = 15
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
