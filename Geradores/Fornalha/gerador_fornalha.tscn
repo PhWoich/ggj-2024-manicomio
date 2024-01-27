@@ -1,32 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://c081oxfu2co6r"]
+[gd_scene load_steps=7 format=3 uid="uid://c081oxfu2co6r"]
 
 [ext_resource type="Script" path="res://Geradores/Fornalha/gerador_fornalha.gd" id="1_ui8bx"]
-[ext_resource type="Texture2D" uid="uid://cpq35llo8qkpi" path="res://Geradores/Esteira/Esteira.png" id="2_6pblk"]
+[ext_resource type="Texture2D" uid="uid://v5eo7ewmpbfs" path="res://Geradores/Fornalha/sprite_0.png" id="2_ncogn"]
 [ext_resource type="PackedScene" uid="uid://bsgntaaiuef38" path="res://Particulas/Eletricidade/particula_eletricidade.tscn" id="3_8x6wc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_le2wa"]
-atlas = ExtResource("2_6pblk")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2uldv"]
-atlas = ExtResource("2_6pblk")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8cq30"]
-atlas = ExtResource("2_6pblk")
-region = Rect2(0, 64, 64, 64)
+[ext_resource type="Texture2D" uid="uid://cni0y2ke8jjd2" path="res://Geradores/Fornalha/sprite_1.png" id="3_dftof"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tav5g"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_le2wa")
+"texture": ExtResource("2_ncogn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2uldv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8cq30")
+"texture": ExtResource("3_dftof")
 }],
 "loop": true,
 "name": &"default",
@@ -44,6 +30,7 @@ custo_base = 25
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tav5g")
+frame_progress = 0.508802
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 20.5)
@@ -53,7 +40,7 @@ shape = SubResource("RectangleShape2D_3qswj")
 position = Vector2(-32, 56)
 
 [node name="Ponto Popup Dano" type="Marker2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, -40)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
