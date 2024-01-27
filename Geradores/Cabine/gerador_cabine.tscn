@@ -1,0 +1,84 @@
+[gd_scene load_steps=17 format=3 uid="uid://dyjabb52i4020"]
+
+[ext_resource type="Script" path="res://Geradores/Inalador SA/gerador_inalador_sa.gd" id="1_lqe7y"]
+[ext_resource type="Texture2D" uid="uid://cyirxwq57ppr2" path="res://Geradores/Inalador SA/sprite_00.png" id="2_hvctc"]
+[ext_resource type="Texture2D" uid="uid://qpk4kcut3qhd" path="res://Geradores/Inalador SA/sprite_01.png" id="3_ggrpt"]
+[ext_resource type="Texture2D" uid="uid://b2r2f3uw0et7b" path="res://Geradores/Inalador SA/sprite_02.png" id="4_oiiv8"]
+[ext_resource type="Texture2D" uid="uid://bsdmg3lbjca7c" path="res://Geradores/Inalador SA/sprite_03.png" id="5_3bpq8"]
+[ext_resource type="Texture2D" uid="uid://cnbxl5bkqxr0w" path="res://Geradores/Inalador SA/sprite_04.png" id="6_86xxc"]
+[ext_resource type="Texture2D" uid="uid://cdtgcd1o8u68h" path="res://Geradores/Inalador SA/sprite_05.png" id="7_6aml7"]
+[ext_resource type="Texture2D" uid="uid://cvabkiues4y6o" path="res://Geradores/Inalador SA/sprite_06.png" id="8_bh27l"]
+[ext_resource type="Texture2D" uid="uid://cbdllwvy1fa3b" path="res://Geradores/Inalador SA/sprite_07.png" id="9_oteun"]
+[ext_resource type="Texture2D" uid="uid://4jh6ndbll1l4" path="res://Geradores/Inalador SA/sprite_08.png" id="10_5worw"]
+[ext_resource type="Texture2D" uid="uid://df76tinn5kb3f" path="res://Geradores/Inalador SA/sprite_09.png" id="11_6mvvv"]
+[ext_resource type="Texture2D" uid="uid://bfy38arh5jp5u" path="res://Geradores/Inalador SA/sprite_10.png" id="12_hd2p3"]
+[ext_resource type="Texture2D" uid="uid://dytak8r4h2wb8" path="res://Geradores/Inalador SA/sprite_11.png" id="13_4qui6"]
+[ext_resource type="PackedScene" uid="uid://bsgntaaiuef38" path="res://Particulas/Eletricidade/particula_eletricidade.tscn" id="14_m8ppo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tav5g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hvctc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ggrpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oiiv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3bpq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_86xxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6aml7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bh27l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oteun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5worw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6mvvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hd2p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4qui6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qswj"]
+size = Vector2(120, 112)
+
+[node name="Inalador" type="Area2D"]
+script = ExtResource("1_lqe7y")
+energia_gerada = 60.0
+custo_base = 90
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_tav5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3qswj")
+
+[node name="Particula Eletricidade" parent="." instance=ExtResource("14_m8ppo")]
+position = Vector2(-16, 1)
+
+[node name="Ponto Popup Dano" type="Marker2D" parent="."]
+position = Vector2(0, -24)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

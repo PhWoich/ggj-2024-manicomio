@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name Jogador
 
-signal atirar_torta(posicao_inicial,movimento,rotacao)
-
 #1. Controles dos movimentos
 @export var velocidade:float = 300.0
 @export var starting_direction : Vector2 = Vector2(0, 1)
@@ -10,34 +8,54 @@ var input_jogador
 var ultimo_movimento:Vector2
 
 #2. Controles dos ataques
+@export var cooldown_ataque: float = 0.5
+@export var cooldown_atirar: float = 1
+signal atacar(posicao_inicial, movimento, rotacao, cooldown_ataque)
+signal atirar(posicao_inicial, movimento, rotacao, cooldown_atirar)
+
+var pode_atacar:bool = true
+var pode_atirar:bool = true
+@onready var timerAtacar = $Timer_atacar
+@onready var timerAtirar = $Timer_atirar
+
 @onready var inicio_ataque_cima = $Inicio_ataque_cima
 @onready var inicio_ataque_direita = $Inicio_ataque_direita
 @onready var inicio_ataque_baixo = $Inicio_ataque_baixo
 @onready var inicio_ataque_esquerda = $Inicio_ataque_esquerda
 var ultima_direcao_olhada:Node2D
 var girar_animacao_ataque:bool
-var pode_atacar:bool = true
 var ataque_dist_rotacao = 0.0
+
 #  2.1 Carregar espada penas
 @onready var espada_pena = preload("res://Player/Espada Pena/espada_pena.tscn")
 
-#parameters/idle/blend_position
+#3. Controles de Geradores
+var cena_jogo
+#var gerador_basico = preload("res://Geradores/Basico/gerador_basico.tscn")
+signal selecionar_estrutura(value: int)
+var estrutura_selecionada: int = 0
+var pode_colocar_gerador:bool
+
+#4. Controle de animacoes
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
 
-#3. Controles de Geradores
-var cena_jogo
-var gerador_basico = preload("res://Geradores/Basico/gerador_basico.tscn")
-var pode_colocar_gerador:bool
+#5. Vida do jogador
+@export var vida_maxima: float = 100
+var vida_atual: float = 100
+signal atualizar_vida_jogador(vida_atual: float, vida_maxima: float);
 
 func _ready():
+	timerAtacar.wait_time = cooldown_ataque
+	timerAtirar.wait_time = cooldown_atirar
 	jogador_pode_atacar()
+	jogador_pode_atirar()
 	ultima_direcao_olhada = inicio_ataque_direita
-	girar_animacao_ataque=false
-	pode_colocar_gerador=true
+	girar_animacao_ataque= false
+	pode_colocar_gerador= true
 	
 	update_animation_parameter(starting_direction)
-	
+	atualizar_vida(0)
 
 func inicializar_jogador(cena_atual, camera):
 	cena_jogo = cena_atual
@@ -88,37 +106,66 @@ func _physics_process(_delta):
 		ataque_corpo_a_corpo()
 	
 	
-	if Input.is_action_just_released("Jogador_ataque_distancia") and pode_atacar:
+	if Input.is_action_just_released("Jogador_ataque_distancia") and pode_atirar:
 		ataque_a_distancia()
 	
 	#Add Gerador
+	if Input.is_action_just_released("selecionar_prox_gerador"):
+		selecionar_prox_estrutura()
+	
+	if Input.is_action_just_released("selecionar_gerador_anterior"):
+		selecionar_estrutura_anterior()
+	
 	if Input.is_action_just_released("jogador_adicionar_gerador") and pode_colocar_gerador:
 		add_gerador()
+		
+	if Input.is_action_just_released("jogador_destruir_estrutura"):
+		destruir_estrutura()
 
 func ataque_corpo_a_corpo():
+	emit_signal("atacar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_ataque)
 	var instancia_espada_pena = espada_pena.instantiate()
 	instancia_espada_pena.inicializar(ultima_direcao_olhada, girar_animacao_ataque)
-	instancia_espada_pena.ataque_encerrado.connect(jogador_pode_atacar)
-	pode_atacar = false
-		
 	ultima_direcao_olhada.add_child(instancia_espada_pena)
+	
+	pode_atacar = false
+	timerAtacar.start()	
 
 func ataque_a_distancia():
-	emit_signal("atirar_torta", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao)
-	pode_atacar = false
-	$Timer_ataque_distancia.start()
+	emit_signal("atirar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_atirar)
+	pode_atirar = false
+	timerAtirar.start()
 
 func jogador_pode_atacar():
 	pode_atacar = true
+	
+func jogador_pode_atirar():
+	pode_atirar = true
 
+func selecionar_prox_estrutura():
+	estrutura_selecionada = estrutura_selecionada+1
+	
+	if estrutura_selecionada == 6:
+		estrutura_selecionada = 0
+		
+	emit_signal("selecionar_estrutura", estrutura_selecionada)
+
+func selecionar_estrutura_anterior():
+	estrutura_selecionada = estrutura_selecionada-1
+	
+	if estrutura_selecionada < 0:
+		estrutura_selecionada = 5
+		
+	emit_signal("selecionar_estrutura", estrutura_selecionada)
 
 func add_gerador():
-	cena_jogo.add_gerador(gerador_basico, position)
-
+	cena_jogo.add_gerador(estrutura_selecionada, position)
+	
+func destruir_estrutura():
+	print('destruir')
 
 func nao_liberar_colocar_gerador():
 	pode_colocar_gerador = false
-
 
 func liberar_colocar_gerador():
 	pode_colocar_gerador = true
@@ -138,4 +185,8 @@ func pick_new_state():
 	else:
 		animation_tree['parameters/conditions/idle'] = true
 		animation_tree['parameters/conditions/is_moving'] = false
+		
+func atualizar_vida(value: float):
+	vida_atual = max(min(vida_maxima, vida_atual + value), 0)
+	emit_signal('atualizar_vida_jogador', vida_atual, vida_maxima)
 	

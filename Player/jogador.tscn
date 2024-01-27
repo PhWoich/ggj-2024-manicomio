@@ -183,14 +183,17 @@ graph_offset = Vector2(50.43, 0)
 
 [node name="Jogador" type="CharacterBody2D"]
 script = ExtResource("1_dk5mm")
+cooldown_ataque = 5.0
+cooldown_atirar = 10.0
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
+position = Vector2(1, 2)
+scale = Vector2(1.6875, 1.6875)
 texture = ExtResource("2_c5m5h")
 hframes = 4
 vframes = 4
-frame = 7
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
@@ -233,7 +236,11 @@ parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 
-[node name="Timer_ataque_distancia" type="Timer" parent="."]
+[node name="Timer_atacar" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="Timer_ataque_distancia" to="." method="_on_timer_ataque_distancia_timeout"]
+[node name="Timer_atirar" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer_atacar" to="." method="jogador_pode_atacar"]
+[connection signal="timeout" from="Timer_atirar" to="." method="jogador_pode_atirar"]

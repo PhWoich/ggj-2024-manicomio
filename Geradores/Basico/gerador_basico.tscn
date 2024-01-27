@@ -11,7 +11,7 @@ size = Vector2(81, 70)
 script = ExtResource("1_lvh0m")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
+scale = Vector2(2, 2)
 texture = ExtResource("1_yr7as")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -20,6 +20,9 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_3qswj")
 
 [node name="Particula Eletricidade" parent="." instance=ExtResource("3_2xj1r")]
+
+[node name="Ponto Popup Dano" type="Marker2D" parent="."]
+position = Vector2(0, -40)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
