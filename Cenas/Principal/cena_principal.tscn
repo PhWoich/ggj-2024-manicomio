@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6cmu060r4vq8"]
+[gd_scene load_steps=3 format=3 uid="uid://c6cmu060r4vq8"]
 
 [ext_resource type="PackedScene" uid="uid://cic8m47pqbt1j" path="res://Player/jogador.tscn" id="1_w8x3n"]
+[ext_resource type="PackedScene" uid="uid://bafr61rb37eua" path="res://Map/map.tscn" id="2_wltyv"]
 
 [node name="Cena Principal" type="Node2D"]
 
+[node name="Map" parent="." instance=ExtResource("2_wltyv")]
+
 [node name="Jogador" parent="." instance=ExtResource("1_w8x3n")]
-position = Vector2(290, 174)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Jogador"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

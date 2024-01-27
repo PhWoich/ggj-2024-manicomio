@@ -4,32 +4,32 @@
 [ext_resource type="Script" path="res://Player/jogador.gd" id="1_dk5mm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gd1f3"]
-size = Vector2(96, 36)
+size = Vector2(34, 31)
 
 [node name="Jogador" type="CharacterBody2D"]
 script = ExtResource("1_dk5mm")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(6, 6)
+scale = Vector2(2, 2)
 texture = ExtResource("1_04ko4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 30)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_gd1f3")
 
 [node name="Inicio_ataque_cima" type="Node2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(0, -20)
 rotation = 3.66519
 
 [node name="Inicio_ataque_direita" type="Node2D" parent="."]
-position = Vector2(64, 0)
+position = Vector2(20, 0)
 rotation = -0.349066
 
 [node name="Inicio_ataque_baixo" type="Node2D" parent="."]
-position = Vector2(0, 64)
+position = Vector2(0, 20)
 rotation = 0.349066
 
 [node name="Inicio_ataque_esquerda" type="Node2D" parent="."]
-position = Vector2(-64, 0)
+position = Vector2(-20, 0)
 rotation = 2.70526
