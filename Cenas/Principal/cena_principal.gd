@@ -8,10 +8,6 @@ var energia_atual_consumida:float = 0.0
 var custo_adicional:int
 var recurso:int = 100
 
-var custo_t1: float = 20
-var custo_t2: float = 50
-var custo_t3: float = 100
-
 @onready var jogador = preload("res://Player/jogador.tscn")
 @onready var gui = $GUI
 #Torta na cara que sai do jogador
@@ -22,10 +18,21 @@ var custo_t3: float = 100
 @onready var g1: PackedScene = preload("res://Geradores/Esteira/gerador_esteira.tscn")
 @onready var g2: PackedScene = preload("res://Geradores/Fornalha/gerador_fornalha.tscn")
 @onready var g3: PackedScene = preload("res://Geradores/Inalador SA/gerador_inalador_sa.tscn")
-@onready var lista_geradores = [g1, g2, g3]
 var custo_g1: float = 0
 var custo_g2: float = 0
 var custo_g3: float = 0
+
+#Torres
+#TODO
+@onready var t1: PackedScene = preload("res://Geradores/Esteira/gerador_esteira.tscn")
+@onready var t2: PackedScene = preload("res://Geradores/Fornalha/gerador_fornalha.tscn")
+@onready var t3: PackedScene = preload("res://Geradores/Inalador SA/gerador_inalador_sa.tscn")
+@onready var lista_torres = [t1, t2, t3]
+var custo_t1: float = 20
+var custo_t2: float = 50
+var custo_t3: float = 100
+
+@onready var lista_estruturas = [t1, t2, t3, g1, g2, g3]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +42,7 @@ func _ready():
 	instancia_jogador.atacar.connect(gui.fire_p1)
 	instancia_jogador.atirar.connect(gui.fire_p2)
 	instancia_jogador.atualizar_vida_jogador.connect(gui.set_new_health_value)
+	instancia_jogador.selecionar_estrutura.connect(gui.set_new_selected_estructure)
 	add_child(instancia_jogador)
 	$AudioStreamPlayer.play()
 	custo_adicional = 0
@@ -55,7 +63,7 @@ func _process(_delta):
 	pass
 
 func add_gerador(geradorSelecionado: int, posicao:Vector2):
-	var instancia_gerador:Gerador_Basico = lista_geradores[geradorSelecionado].instantiate()
+	var instancia_gerador:Gerador_Basico = lista_estruturas[geradorSelecionado].instantiate()
 	if recurso >= instancia_gerador.custo_base + custo_adicional:
 		instancia_gerador.position = posicao
 		instancia_gerador.gerador_destruido.connect(atualizar_energia_gerada)

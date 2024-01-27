@@ -32,7 +32,8 @@ var ataque_dist_rotacao = 0.0
 #3. Controles de Geradores
 var cena_jogo
 #var gerador_basico = preload("res://Geradores/Basico/gerador_basico.tscn")
-var gerador_selecionado_idx: int = 0
+signal selecionar_estrutura(value: int)
+var estrutura_selecionada: int = 0
 var pode_colocar_gerador:bool
 
 #4. Controle de animacoes
@@ -110,13 +111,16 @@ func _physics_process(_delta):
 	
 	#Add Gerador
 	if Input.is_action_just_released("selecionar_prox_gerador"):
-		selecionar_prox_gerador()
+		selecionar_prox_estrutura()
 	
 	if Input.is_action_just_released("selecionar_gerador_anterior"):
-		selecionar_gerador_anterior()
+		selecionar_estrutura_anterior()
 	
 	if Input.is_action_just_released("jogador_adicionar_gerador") and pode_colocar_gerador:
 		add_gerador()
+		
+	if Input.is_action_just_released("jogador_destruir_estrutura"):
+		destruir_estrutura()
 
 func ataque_corpo_a_corpo():
 	emit_signal("atacar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_ataque)
@@ -138,21 +142,27 @@ func jogador_pode_atacar():
 func jogador_pode_atirar():
 	pode_atirar = true
 
-
-func selecionar_prox_gerador():
-	gerador_selecionado_idx = gerador_selecionado_idx+1
+func selecionar_prox_estrutura():
+	estrutura_selecionada = estrutura_selecionada+1
 	
-	if gerador_selecionado_idx == 3:
-		gerador_selecionado_idx = 0
+	if estrutura_selecionada == 6:
+		estrutura_selecionada = 0
+		
+	emit_signal("selecionar_estrutura", estrutura_selecionada)
 
-func selecionar_gerador_anterior():
-	gerador_selecionado_idx = gerador_selecionado_idx-1
+func selecionar_estrutura_anterior():
+	estrutura_selecionada = estrutura_selecionada-1
 	
-	if gerador_selecionado_idx < 0:
-		gerador_selecionado_idx = 2
+	if estrutura_selecionada < 0:
+		estrutura_selecionada = 5
+		
+	emit_signal("selecionar_estrutura", estrutura_selecionada)
 
 func add_gerador():
-	cena_jogo.add_gerador(gerador_selecionado_idx, position)
+	cena_jogo.add_gerador(estrutura_selecionada, position)
+	
+func destruir_estrutura():
+	print('destruir')
 
 func nao_liberar_colocar_gerador():
 	pode_colocar_gerador = false

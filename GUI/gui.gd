@@ -2,6 +2,14 @@ extends CanvasLayer
 
 @onready var resourceLabel = $MarginContainer/MainHBox/Rows/TopRow/ResourceContainer/ResourceLabel
 
+@onready var t1 = $MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3/T1
+@onready var t2 = $MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3/T2
+@onready var t3 = $MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3/T3
+@onready var g1 = $MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3/G1
+@onready var g2 = $MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3/G2
+@onready var g3 = $MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3/G3
+@onready var list_estruturas = [t1, t2, t3, g1, g2, g3]
+
 @onready var tower1Img = $MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer/Tower1Img
 @onready var tower1Cost = $MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer/Tower1Img/T1Cost
 @onready var tower2Img = $MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer/Tower2Img
@@ -44,6 +52,11 @@ var g1Cost = 30
 var g2Cost = 30
 var g3Cost = 30
 
+func set_new_selected_estructure(value):
+	for e in list_estruturas:
+		e.hide()
+		
+	list_estruturas[value].show()
 	
 func set_new_health_value(new_health: float, new_max_health: float):
 	max_health = new_max_health

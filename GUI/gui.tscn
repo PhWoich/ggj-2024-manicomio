@@ -125,6 +125,70 @@ theme_override_constants/separation = 5
 layout_mode = 2
 mouse_filter = 2
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="T1" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_c62ko")
+
+[node name="T2" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_bncc0")
+
+[node name="T3" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_bncc0")
+
+[node name="G1" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_c62ko")
+
+[node name="G2" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_bncc0")
+
+[node name="G3" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_bncc0")
+
+[node name="padding" type="HBoxContainer" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
