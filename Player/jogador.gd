@@ -31,7 +31,8 @@ var cena_jogo
 var gerador_selecionado
 var gerador_selecionado_idx = 0
 var lista_geradores = [preload("res://Geradores/Esteira/gerador_esteira.tscn"), 
-	preload("res://Geradores/Fornalha/gerador_fornalha.tscn"), 
+	preload("res://Geradores/Fornalha/gerador_fornalha.tscn"),
+	preload("res://Geradores/Cabine/gerador_cabine.tscn"),
 	preload("res://Geradores/Inalador SA/gerador_inalador_sa.tscn")]
 var pode_colocar_gerador:bool
 
