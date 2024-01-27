@@ -135,13 +135,11 @@ func set_generators_cost_values(new_G1Cost: int, new_G2Cost: int, new_G3Cost: in
 	#power2CD.max_value = new_P2_maxTime
 
 func fire_p1(a, b, c, cooldown):
-	print('salve')	
 	power1Timer.wait_time = cooldown
 	power1CD.max_value = cooldown
 	power1Timer.start()
 	
 func fire_p2(a, b, c, cooldown):
-	print('torta')
 	power2Timer.wait_time = cooldown
 	power2CD.max_value = cooldown
 	power2Timer.start()
