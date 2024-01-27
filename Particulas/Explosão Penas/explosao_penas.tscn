@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6hfy0jfvjoi4"]
+
+[ext_resource type="Texture2D" uid="uid://bbnqg555mkfjm" path="res://Particulas/Explosão Penas/pena.png" id="1_l8cmn"]
+
+[sub_resource type="Curve" id="Curve_t2yvk"]
+_data = [Vector2(0.00561798, 1), 0.0, 0.0, 0, 0, Vector2(0.988764, 0.175824), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Explosao Penas" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 10
+explosiveness = 1.0
+texture = ExtResource("1_l8cmn")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+angle_max = 359.0
+scale_amount_curve = SubResource("Curve_t2yvk")
