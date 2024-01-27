@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsgntaaiuef38"]
+
+[ext_resource type="Texture2D" uid="uid://dxcusmroa8jom" path="res://Particulas/Eletricidade/Icone_eletricidade.png" id="1_b6hur"]
+
+[sub_resource type="Curve" id="Curve_qcmkc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.988764, 0.186813), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Particula Eletricidade" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture = ExtResource("1_b6hur")
+gravity = Vector2(0, -150)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_qcmkc")
