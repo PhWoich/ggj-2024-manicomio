@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cljwq7pk8mkqn"
-path="res://.godot/imported/pena.png-de85f821666d909ded7157bcab0f620b.ctex"
+uid="uid://p374tycf0yk"
+path="res://.godot/imported/espada pena.png-0667a1fa399c2c45eefff341a156aeee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Espada Pena/pena.png"
-dest_files=["res://.godot/imported/pena.png-de85f821666d909ded7157bcab0f620b.ctex"]
+source_file="res://Player/Espada Pena/espada pena.png"
+dest_files=["res://.godot/imported/espada pena.png-0667a1fa399c2c45eefff341a156aeee.ctex"]
 
 [params]
 
