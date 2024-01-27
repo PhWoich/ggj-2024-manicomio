@@ -1,26 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://3oqwoiw8afex"]
+[gd_scene load_steps=10 format=3 uid="uid://3oqwoiw8afex"]
 
 [ext_resource type="Script" path="res://Geradores/Inalador SA/gerador_inalador_sa.gd" id="1_ltg6v"]
-[ext_resource type="Texture2D" uid="uid://2uafefgxv0gb" path="res://Geradores/Inalador SA/sprites/cabine1.png" id="2_a556d"]
-[ext_resource type="Texture2D" uid="uid://eapdoa6bh8s4" path="res://Geradores/Inalador SA/sprites/cabine2.png" id="3_r6h76"]
+[ext_resource type="Texture2D" uid="uid://djmq5u2bvjows" path="res://Geradores/Cabine/Cabine.png" id="2_hoaag"]
 [ext_resource type="PackedScene" uid="uid://bsgntaaiuef38" path="res://Particulas/Eletricidade/particula_eletricidade.tscn" id="3_wlwc1"]
 [ext_resource type="Texture2D" uid="uid://c380vjil7rkv8" path="res://Geradores/Inalador SA/sprites/cabine3.png" id="4_qyh7r"]
 [ext_resource type="Texture2D" uid="uid://cmd2cfo1aem1w" path="res://Geradores/Inalador SA/sprites/cabine4.png" id="5_f50n3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlf0o"]
+atlas = ExtResource("2_hoaag")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrsxr"]
+atlas = ExtResource("2_hoaag")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tntp4"]
+atlas = ExtResource("2_hoaag")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjr20"]
+atlas = ExtResource("2_hoaag")
+region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tav5g"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_a556d")
+"texture": SubResource("AtlasTexture_jlf0o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_r6h76")
+"texture": SubResource("AtlasTexture_qrsxr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_qyh7r")
+"texture": SubResource("AtlasTexture_tntp4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_f50n3")
+"texture": SubResource("AtlasTexture_kjr20")
 }],
 "loop": true,
 "name": &"default",
@@ -28,7 +43,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qswj"]
-size = Vector2(144, 145)
+size = Vector2(120, 112)
 
 [node name="Inalador" type="Area2D"]
 script = ExtResource("1_ltg6v")
@@ -36,17 +51,16 @@ energia_gerada = 45.0
 custo_base = 60
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_tav5g")
 frame = 3
 frame_progress = 0.56874
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_3qswj")
 
 [node name="Particula Eletricidade" parent="." instance=ExtResource("3_wlwc1")]
-position = Vector2(-32, 56)
+position = Vector2(-16, 1)
 
 [node name="Ponto Popup Dano" type="Marker2D" parent="."]
 position = Vector2(0, -24)
