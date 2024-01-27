@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy4ae"]
 size = Vector2(51, 60)
 
-[node name="Torta na cara" type="CharacterBody2D"]
+[node name="Torta na cara" type="Area2D"]
 script = ExtResource("1_7mecm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
