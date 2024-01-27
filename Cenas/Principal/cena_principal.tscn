@@ -6,4 +6,4 @@
 
 [node name="NodeEduardo" type="Node2D" parent="."]
 
-[node name="123" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
