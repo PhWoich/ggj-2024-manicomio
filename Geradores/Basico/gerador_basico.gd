@@ -5,8 +5,8 @@ class_name Gerador_Basico
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _ready():
+	$"Particula Eletricidade".emitir_particula(energia_gerada)
 
 
 func _on_body_entered(body):
