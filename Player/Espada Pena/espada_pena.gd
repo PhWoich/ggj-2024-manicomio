@@ -19,10 +19,10 @@ func _process(_delta):
 	if girar_animacao:
 		rotation = rotation-velocidade_rotacao
 		# Quando a tiver rodado 180° em radiano
-		if rotation-rotacao_inicial <= -3.14159:
+		if rotation-rotacao_inicial <= -1.5708:
 			queue_free()
 	else:
 		rotation = rotation+velocidade_rotacao
 		# Quando a tiver rodado 180° em radiano
-		if rotation-rotacao_inicial >= 3.14159:
+		if rotation-rotacao_inicial >= 1.5708:
 			queue_free()
