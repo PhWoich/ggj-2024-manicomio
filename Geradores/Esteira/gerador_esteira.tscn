@@ -52,5 +52,8 @@ shape = SubResource("RectangleShape2D_3qswj")
 [node name="Particula Eletricidade" parent="." instance=ExtResource("3_24knv")]
 position = Vector2(-32, 56)
 
+[node name="Ponto Popup Dano" type="Marker2D" parent="."]
+position = Vector2(0, -24)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
