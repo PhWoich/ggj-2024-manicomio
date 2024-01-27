@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6cmu060r4vq8"]
+[gd_scene load_steps=4 format=3 uid="uid://c6cmu060r4vq8"]
 
 [ext_resource type="Script" path="res://Cenas/Principal/cena_principal.gd" id="1_ptal3"]
+[ext_resource type="PackedScene" uid="uid://t7civ2atacxb" path="res://GUI/gui.tscn" id="2_gu4d2"]
+[ext_resource type="AudioStream" uid="uid://bipgv2l8udbix" path="res://Audio/Musica/TD_Gameplay_Loop.mp3" id="2_sl5a4"]
 
 [node name="Cena Principal" type="Node2D"]
 script = ExtResource("1_ptal3")
+
+[node name="GUI" parent="." instance=ExtResource("2_gu4d2")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sl5a4")
+volume_db = -20.0
+bus = &"Musica"

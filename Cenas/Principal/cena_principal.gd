@@ -13,6 +13,7 @@ func _ready():
 	var instancia_jogador = jogador.instantiate()
 	instancia_jogador.inicializar_jogador(self)
 	add_child(instancia_jogador)
+	$AudioStreamPlayer.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

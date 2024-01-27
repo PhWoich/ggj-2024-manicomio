@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7jqjv0r1pmkl"]
+
+[ext_resource type="Script" path="res://Player/Tota na Cara/torta_na_cara.gd" id="1_7mecm"]
+[ext_resource type="Texture2D" uid="uid://to88eph0enp0" path="res://Player/Tota na Cara/Cream pie.png" id="2_ayvoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy4ae"]
+size = Vector2(51, 60)
+
+[node name="Torta na cara" type="CharacterBody2D"]
+script = ExtResource("1_7mecm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, 0)
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_ayvoc")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16.5, 0)
+shape = SubResource("RectangleShape2D_xy4ae")
+
+[node name="Timer_vida_ataque" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer_vida_ataque" to="." method="_on_timer_vida_ataque_timeout"]
