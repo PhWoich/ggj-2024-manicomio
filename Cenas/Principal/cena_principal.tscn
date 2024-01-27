@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6cmu060r4vq8"]
+[gd_scene load_steps=5 format=3 uid="uid://c6cmu060r4vq8"]
 
 [ext_resource type="Script" path="res://Cenas/Principal/cena_principal.gd" id="1_ptal3"]
+[ext_resource type="PackedScene" uid="uid://t7civ2atacxb" path="res://GUI/gui.tscn" id="2_gu4d2"]
+[ext_resource type="AudioStream" uid="uid://bipgv2l8udbix" path="res://Audio/Musica/TD_Gameplay_Loop.mp3" id="2_sl5a4"]
 [ext_resource type="PackedScene" uid="uid://bafr61rb37eua" path="res://Map/map.tscn" id="2_wltyv"]
 
 [node name="Cena Principal" type="Node2D"]
@@ -10,3 +12,9 @@ script = ExtResource("1_ptal3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="GUI" parent="." instance=ExtResource("2_gu4d2")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sl5a4")
+volume_db = -20.0

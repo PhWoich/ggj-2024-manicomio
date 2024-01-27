@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://yp4accwh2xbv"]
+
+[ext_resource type="FontFile" uid="uid://b52d734n6gsn1" path="res://GUI/Fontes/SingleDay-Regular.ttf" id="1_bukns"]
+
+[resource]
+base_font = ExtResource("1_bukns")

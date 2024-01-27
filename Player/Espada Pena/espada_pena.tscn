@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cduto665g4wf3"]
 
-[ext_resource type="Texture2D" uid="uid://cljwq7pk8mkqn" path="res://Player/Espada Pena/pena.png" id="1_108sg"]
 [ext_resource type="Script" path="res://Player/Espada Pena/espada_pena.gd" id="1_v40fw"]
+[ext_resource type="Texture2D" uid="uid://p374tycf0yk" path="res://Player/Espada Pena/espada pena.png" id="2_oq2tj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21g6g"]
 height = 73.5863
@@ -12,7 +12,7 @@ script = ExtResource("1_v40fw")
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(32, -32)
 scale = Vector2(2, 2)
-texture = ExtResource("1_108sg")
+texture = ExtResource("2_oq2tj")
 
 [node name="Espada Pena" type="CollisionShape2D" parent="."]
 position = Vector2(32, -32)
