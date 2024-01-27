@@ -1,3 +1,5 @@
 [gd_scene format=3 uid="uid://c6cmu060r4vq8"]
 
 [node name="Cena Principal" type="Node2D"]
+
+[node name="Nós basico de teste" type="Node2D" parent="."]
