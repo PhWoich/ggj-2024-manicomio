@@ -5,10 +5,6 @@ var threshold = 1
 @export var jogador: Node2D
 @export var speed: int = 25
 @export var vida: int = 1000
-@onready var navegacao := $NavigationAgent2D as NavigationAgent2D
-
-func _ready() -> void:	
-	fazer_caminho()
 
 func inicializar(jogador_: Node2D):
 	jogador = jogador_
@@ -19,7 +15,6 @@ func _physics_process(_delta):
 	var x = int(direcao.x)/32
 	var y = int(direcao.y)/32
 
-	print("direccao", direcao)
 	if abs(x) > abs(y):
 		if x > threshold:
 			movimento = Vector2.RIGHT
@@ -33,12 +28,8 @@ func _physics_process(_delta):
 
 	velocity = movimento * speed
 	
+	$AnimationTree['parameters/walk/blend_position'] = direcao
+	
 	move_and_slide()
 
-func fazer_caminho() -> void:
-	navegacao.set_target_position(jogador.global_position)
-	
-
-func _on_timer_timeout() -> void:
-	fazer_caminho()
 
