@@ -44,12 +44,10 @@ var g1Cost = 30
 var g2Cost = 30
 var g3Cost = 30
 
-func set_max_health_value(new_max_health: int):
+	
+func set_new_health_value(new_health: float, new_max_health: float):
 	max_health = new_max_health
 	healthBar.max_value = max_health
-	healthLabel.text = "%3d / %3d" % [actual_health, max_health]
-	
-func set_new_health_value(new_health: int):
 	actual_health = new_health
 	healthLabel.text = "%3d / %3d" % [actual_health, max_health]
 	healthBar.value = actual_health
@@ -125,14 +123,6 @@ func set_generators_cost_values(new_G1Cost: int, new_G2Cost: int, new_G3Cost: in
 		gen3Img.modulate = Color(0.5,0.5,0.5)
 	else:
 		gen3Img.modulate = Color(1,1,1)
-	
-#func set_powers_max_time_values(new_P1_maxTime: float, new_P2_maxTime: float):
-	#p1MaxTime = new_P1_maxTime
-	#p2MaxTime = new_P2_maxTime
-	#power1Timer.wait_time = new_P1_maxTime
-	#power2Timer.wait_time = new_P2_maxTime
-	#power1CD.max_value = new_P1_maxTime
-	#power2CD.max_value = new_P2_maxTime
 
 func fire_p1(a, b, c, cooldown):
 	power1Timer.wait_time = cooldown

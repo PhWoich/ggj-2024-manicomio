@@ -25,17 +25,23 @@ var pode_atirar:bool = true
 var ultima_direcao_olhada:Node2D
 var girar_animacao_ataque:bool
 var ataque_dist_rotacao = 0.0
+
 #  2.1 Carregar espada penas
 @onready var espada_pena = preload("res://Player/Espada Pena/espada_pena.tscn")
-
-#parameters/idle/blend_position
-@onready var animation_tree = $AnimationTree
-@onready var state_machine = animation_tree.get("parameters/playback")
 
 #3. Controles de Geradores
 var cena_jogo
 var gerador_basico = preload("res://Geradores/Basico/gerador_basico.tscn")
 var pode_colocar_gerador:bool
+
+#4. Controle de animacoes
+@onready var animation_tree = $AnimationTree
+@onready var state_machine = animation_tree.get("parameters/playback")
+
+#5. Vida do jogador
+@export var vida_maxima: float = 100
+var vida_atual: float = 100
+signal atualizar_vida_jogador(vida_atual: float, vida_maxima: float);
 
 func _ready():
 	timerAtacar.wait_time = cooldown_ataque
@@ -47,7 +53,7 @@ func _ready():
 	pode_colocar_gerador= true
 	
 	update_animation_parameter(starting_direction)
-	
+	atualizar_vida(0)
 
 func inicializar_jogador(cena_atual, camera):
 	cena_jogo = cena_atual
@@ -149,4 +155,8 @@ func pick_new_state():
 	else:
 		animation_tree['parameters/conditions/idle'] = true
 		animation_tree['parameters/conditions/is_moving'] = false
-
+		
+func atualizar_vida(value: float):
+	vida_atual = max(min(vida_maxima, vida_atual + value), 0)
+	emit_signal('atualizar_vida_jogador', vida_atual, vida_maxima)
+	

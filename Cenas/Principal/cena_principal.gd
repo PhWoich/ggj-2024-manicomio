@@ -19,6 +19,7 @@ func _ready():
 	instancia_jogador.atirar.connect(gerar_ataque_dist_jogador)
 	instancia_jogador.atacar.connect(gui.fire_p1)
 	instancia_jogador.atirar.connect(gui.fire_p2)
+	instancia_jogador.atualizar_vida_jogador.connect(gui.set_new_health_value)
 	add_child(instancia_jogador)
 	$AudioStreamPlayer.play()
 
