@@ -7,3 +7,15 @@
 [node name="NodeEduardo" type="Node2D" parent="."]
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="123" type="Node2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+
+[node name="Control" type="Control" parent="123"]
+light_mask = 5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+tooltip_text = "blabla"
