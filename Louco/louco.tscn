@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cued8klctc7w"]
+
+[ext_resource type="Script" path="res://Louco/louco.gd" id="1_vtbp4"]
+[ext_resource type="Texture2D" uid="uid://c0bnb5jrg6ysw" path="res://Player/tile_0085.png" id="2_tatu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd1f3"]
+size = Vector2(96, 36)
+
+[node name="Louco" type="CharacterBody2D"]
+position = Vector2(201, 86)
+script = ExtResource("1_vtbp4")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+texture = ExtResource("2_tatu3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_gd1f3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

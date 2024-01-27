@@ -11,6 +11,8 @@ var energia_atual_disponivel:float = 0.0
 @onready var torta_na_cara_jogador = preload("res://Player/Tota na Cara/torta_na_cara.tscn")
 @onready var camera = $Camera2D
 
+@onready var louco = preload("res://Louco/louco.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var instancia_jogador = jogador.instantiate()
@@ -18,6 +20,10 @@ func _ready():
 	instancia_jogador.atirar_torta.connect(gerar_ataque_dist_jogador)
 	add_child(instancia_jogador)
 	$AudioStreamPlayer.play()
+
+	var instancia_louco = louco.instantiate()
+	instancia_louco.inicializar(instancia_jogador)
+	add_child(instancia_louco)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
