@@ -1,12 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://t7civ2atacxb"]
+[gd_scene load_steps=19 format=3 uid="uid://t7civ2atacxb"]
 
 [ext_resource type="Texture2D" uid="uid://c0bnb5jrg6ysw" path="res://Player/tile_0085.png" id="1_ds3ek"]
 [ext_resource type="Script" path="res://GUI/gui.gd" id="1_y6usf"]
 [ext_resource type="FontVariation" uid="uid://yp4accwh2xbv" path="res://GUI/Fontes/gui.tres" id="2_qn50h"]
 [ext_resource type="Texture2D" uid="uid://p374tycf0yk" path="res://Player/Espada Pena/espada pena.png" id="4_3m22x"]
+[ext_resource type="Texture2D" uid="uid://b0qwo1iywunb6" path="res://GUI/icons/taca_torta_icon.png" id="4_aa2f6"]
 [ext_resource type="Texture2D" uid="uid://cghlj2d8b7duk" path="res://GUI/icons/esteira_icon.png" id="4_c62ko"]
+[ext_resource type="Texture2D" uid="uid://d0m6flxoes7nc" path="res://GUI/icons/gas_icon.png" id="5_aj4b4"]
 [ext_resource type="Texture2D" uid="uid://cni0y2ke8jjd2" path="res://Geradores/Fornalha/sprite_1.png" id="5_bncc0"]
 [ext_resource type="Texture2D" uid="uid://d4mikx18lbhqt" path="res://GUI/pie_icon.png" id="5_xuyyk"]
+[ext_resource type="Texture2D" uid="uid://cmd2cfo1aem1w" path="res://Geradores/Inalador SA/sprites/cabine4.png" id="8_bquae"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv2ha"]
 bg_color = Color(0.494118, 0.494118, 0.494118, 1)
@@ -136,7 +139,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("4_c62ko")
+texture = ExtResource("4_aa2f6")
 
 [node name="T2" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
 visible = false
@@ -145,7 +148,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("5_bncc0")
+texture = ExtResource("4_aa2f6")
 
 [node name="T3" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
 visible = false
@@ -154,7 +157,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("5_bncc0")
+texture = ExtResource("5_aj4b4")
 
 [node name="G1" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
 visible = false
@@ -181,7 +184,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("5_bncc0")
+texture = ExtResource("8_bquae")
 
 [node name="padding" type="HBoxContainer" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -199,7 +202,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("1_ds3ek")
+texture = ExtResource("4_aa2f6")
 
 [node name="T1Cost" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer/Tower1Img"]
 layout_mode = 1
@@ -228,7 +231,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("1_ds3ek")
+texture = ExtResource("4_aa2f6")
 
 [node name="T2Cost" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer/Tower2Img"]
 layout_mode = 1
@@ -257,7 +260,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("1_ds3ek")
+texture = ExtResource("5_aj4b4")
 
 [node name="T3Cost" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer/Tower3Img"]
 layout_mode = 1
@@ -348,7 +351,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("1_ds3ek")
+texture = ExtResource("8_bquae")
 
 [node name="Gen3Cost" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer2/Gen3Img"]
 layout_mode = 1
