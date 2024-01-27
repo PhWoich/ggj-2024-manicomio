@@ -20,11 +20,11 @@ shape = SubResource("RectangleShape2D_gd1f3")
 
 [node name="Inicio_ataque_cima" type="Node2D" parent="."]
 position = Vector2(0, -64)
-rotation = 4.10152
+rotation = 3.66519
 
 [node name="Inicio_ataque_direita" type="Node2D" parent="."]
 position = Vector2(64, 0)
-rotation = -0.785398
+rotation = -0.349066
 
 [node name="Inicio_ataque_baixo" type="Node2D" parent="."]
 position = Vector2(0, 64)

@@ -21,7 +21,7 @@ func _ready():
 	ultima_direcao_olhada = inicio_ataque_direita
 	girar_animacao_ataque=false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	#Movimento jogador
 	input_jogador = Vector2(
 		Input.get_action_strength("Jogador_direita") - Input.get_action_strength("Jogador_esquerda"),

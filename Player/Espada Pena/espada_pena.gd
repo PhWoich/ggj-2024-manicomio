@@ -17,7 +17,7 @@ func inicializar(ponto_partida:Node2D, girar_anim:bool):
 	ponto_partida_ataque = ponto_partida
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if girar_animacao:
 		rotation = rotation-velocidade_rotacao
 		# Quando a tiver rodado 180° em radiano
