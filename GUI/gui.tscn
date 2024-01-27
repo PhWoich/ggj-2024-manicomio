@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://t7civ2atacxb"]
+[gd_scene load_steps=16 format=3 uid="uid://t7civ2atacxb"]
 
 [ext_resource type="Texture2D" uid="uid://c0bnb5jrg6ysw" path="res://Player/tile_0085.png" id="1_ds3ek"]
 [ext_resource type="Script" path="res://GUI/gui.gd" id="1_y6usf"]
 [ext_resource type="FontVariation" uid="uid://yp4accwh2xbv" path="res://GUI/Fontes/gui.tres" id="2_qn50h"]
 [ext_resource type="Texture2D" uid="uid://p374tycf0yk" path="res://Player/Espada Pena/espada pena.png" id="4_3m22x"]
+[ext_resource type="Texture2D" uid="uid://cghlj2d8b7duk" path="res://GUI/icons/esteira_icon.png" id="4_c62ko"]
+[ext_resource type="Texture2D" uid="uid://cni0y2ke8jjd2" path="res://Geradores/Fornalha/sprite_1.png" id="5_bncc0"]
 [ext_resource type="Texture2D" uid="uid://d4mikx18lbhqt" path="res://GUI/pie_icon.png" id="5_xuyyk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv2ha"]
@@ -224,7 +226,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("1_ds3ek")
+texture = ExtResource("4_c62ko")
 
 [node name="Gen1Cost" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer2/Gen1Img"]
 layout_mode = 1
@@ -253,7 +255,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("1_ds3ek")
+texture = ExtResource("5_bncc0")
 
 [node name="Gen2Cost" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer2/Gen2Img"]
 layout_mode = 1
