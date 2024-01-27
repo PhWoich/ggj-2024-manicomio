@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name Jogador
 
-signal atirar_torta(posicao_inicial,movimento,rotacao)
-
 #1. Controles dos movimentos
 @export var velocidade:float = 300.0
 @export var starting_direction : Vector2 = Vector2(0, 1)
@@ -10,13 +8,22 @@ var input_jogador
 var ultimo_movimento:Vector2
 
 #2. Controles dos ataques
+@export var cooldown_ataque: float = 0.5
+@export var cooldown_atirar: float = 1
+signal atacar(posicao_inicial, movimento, rotacao, cooldown_ataque)
+signal atirar(posicao_inicial, movimento, rotacao, cooldown_atirar)
+
+var pode_atacar:bool = true
+var pode_atirar:bool = true
+@onready var timerAtacar = $Timer_atacar
+@onready var timerAtirar = $Timer_atirar
+
 @onready var inicio_ataque_cima = $Inicio_ataque_cima
 @onready var inicio_ataque_direita = $Inicio_ataque_direita
 @onready var inicio_ataque_baixo = $Inicio_ataque_baixo
 @onready var inicio_ataque_esquerda = $Inicio_ataque_esquerda
 var ultima_direcao_olhada:Node2D
 var girar_animacao_ataque:bool
-var pode_atacar:bool = true
 var ataque_dist_rotacao = 0.0
 #  2.1 Carregar espada penas
 @onready var espada_pena = preload("res://Player/Espada Pena/espada_pena.tscn")
@@ -31,10 +38,13 @@ var gerador_basico = preload("res://Geradores/Basico/gerador_basico.tscn")
 var pode_colocar_gerador:bool
 
 func _ready():
+	timerAtacar.wait_time = cooldown_ataque
+	timerAtirar.wait_time = cooldown_atirar
 	jogador_pode_atacar()
+	jogador_pode_atirar()
 	ultima_direcao_olhada = inicio_ataque_direita
-	girar_animacao_ataque=false
-	pode_colocar_gerador=true
+	girar_animacao_ataque= false
+	pode_colocar_gerador= true
 	
 	update_animation_parameter(starting_direction)
 	
@@ -88,7 +98,7 @@ func _physics_process(_delta):
 		ataque_corpo_a_corpo()
 	
 	
-	if Input.is_action_just_released("Jogador_ataque_distancia") and pode_atacar:
+	if Input.is_action_just_released("Jogador_ataque_distancia") and pode_atirar:
 		ataque_a_distancia()
 	
 	#Add Gerador
@@ -96,29 +106,30 @@ func _physics_process(_delta):
 		add_gerador()
 
 func ataque_corpo_a_corpo():
+	emit_signal("atacar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_ataque)
 	var instancia_espada_pena = espada_pena.instantiate()
 	instancia_espada_pena.inicializar(ultima_direcao_olhada, girar_animacao_ataque)
-	instancia_espada_pena.ataque_encerrado.connect(jogador_pode_atacar)
-	pode_atacar = false
-		
 	ultima_direcao_olhada.add_child(instancia_espada_pena)
+	
+	pode_atacar = false
+	timerAtacar.start()	
 
 func ataque_a_distancia():
-	emit_signal("atirar_torta", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao)
-	pode_atacar = false
-	$Timer_ataque_distancia.start()
+	emit_signal("atirar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_atirar)
+	pode_atirar = false
+	timerAtirar.start()
 
 func jogador_pode_atacar():
 	pode_atacar = true
-
+	
+func jogador_pode_atirar():
+	pode_atirar = true
 
 func add_gerador():
 	cena_jogo.add_gerador(gerador_basico, position)
 
-
 func nao_liberar_colocar_gerador():
 	pode_colocar_gerador = false
-
 
 func liberar_colocar_gerador():
 	pode_colocar_gerador = true
@@ -138,4 +149,4 @@ func pick_new_state():
 	else:
 		animation_tree['parameters/conditions/idle'] = true
 		animation_tree['parameters/conditions/is_moving'] = false
-	
+

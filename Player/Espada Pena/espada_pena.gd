@@ -1,8 +1,6 @@
 extends Area2D
 class_name Espada_Pena
 
-signal ataque_encerrado
-
 var direcao_jogador_olhando
 @export var velocidade_rotacao = 0.1 
 # -45° em radianos
@@ -22,11 +20,9 @@ func _process(_delta):
 		rotation = rotation-velocidade_rotacao
 		# Quando a tiver rodado 180° em radiano
 		if rotation-rotacao_inicial <= -3.14159:
-			emit_signal("ataque_encerrado")
 			queue_free()
 	else:
 		rotation = rotation+velocidade_rotacao
 		# Quando a tiver rodado 180° em radiano
 		if rotation-rotacao_inicial >= 3.14159:
-			emit_signal("ataque_encerrado")
 			queue_free()

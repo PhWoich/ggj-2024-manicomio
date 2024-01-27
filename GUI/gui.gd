@@ -44,10 +44,6 @@ var g1Cost = 30
 var g2Cost = 30
 var g3Cost = 30
 
-var p1MaxTime = 1.
-var p2MaxTime = 1.
-
-
 func set_max_health_value(new_max_health: int):
 	max_health = new_max_health
 	healthBar.max_value = max_health
@@ -130,18 +126,24 @@ func set_generators_cost_values(new_G1Cost: int, new_G2Cost: int, new_G3Cost: in
 	else:
 		gen3Img.modulate = Color(1,1,1)
 	
-func set_powers_max_time_values(new_P1_maxTime: float, new_P2_maxTime: float):
-	p1MaxTime = new_P1_maxTime
-	p2MaxTime = new_P2_maxTime
-	power1Timer.wait_time = new_P1_maxTime
-	power2Timer.wait_time = new_P2_maxTime
-	power1CD.max_value = new_P1_maxTime
-	power2CD.max_value = new_P2_maxTime
+#func set_powers_max_time_values(new_P1_maxTime: float, new_P2_maxTime: float):
+	#p1MaxTime = new_P1_maxTime
+	#p2MaxTime = new_P2_maxTime
+	#power1Timer.wait_time = new_P1_maxTime
+	#power2Timer.wait_time = new_P2_maxTime
+	#power1CD.max_value = new_P1_maxTime
+	#power2CD.max_value = new_P2_maxTime
 
-func fire_p1():
+func fire_p1(a, b, c, cooldown):
+	print('salve')	
+	power1Timer.wait_time = cooldown
+	power1CD.max_value = cooldown
 	power1Timer.start()
 	
-func fire_p2():
+func fire_p2(a, b, c, cooldown):
+	print('torta')
+	power2Timer.wait_time = cooldown
+	power2CD.max_value = cooldown
 	power2Timer.start()
 
 func set_max_energy_value(new_maxEnergy: int):
@@ -165,5 +167,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	power1CD.value = p1MaxTime - power1Timer.time_left
-	power2CD.value = p2MaxTime - power2Timer.time_left
+	power1CD.value = power1Timer.time_left
+	power2CD.value = power2Timer.time_left

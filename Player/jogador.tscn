@@ -6,6 +6,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gd1f3"]
 size = Vector2(34, 31)
 
+[sub_resource type="Animation" id="Animation_hph3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
 [sub_resource type="Animation" id="Animation_bd14m"]
 resource_name = "idle"
 length = 0.5
@@ -91,21 +106,6 @@ tracks/0/keys = {
 "values": [11, 12]
 }
 
-[sub_resource type="Animation" id="Animation_hph3x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4nn2v"]
 _data = {
 "RESET": SubResource("Animation_hph3x"),
@@ -183,10 +183,13 @@ graph_offset = Vector2(50.43, 0)
 
 [node name="Jogador" type="CharacterBody2D"]
 script = ExtResource("1_dk5mm")
+cooldown_ataque = 5.0
+cooldown_atirar = 10.0
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
+position = Vector2(1, 2)
+scale = Vector2(1.6875, 1.6875)
 texture = ExtResource("2_c5m5h")
 hframes = 4
 vframes = 4
@@ -233,7 +236,11 @@ parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 
-[node name="Timer_ataque_distancia" type="Timer" parent="."]
+[node name="Timer_atacar" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="Timer_ataque_distancia" to="." method="_on_timer_ataque_distancia_timeout"]
+[node name="Timer_atirar" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer_atacar" to="." method="jogador_pode_atacar"]
+[connection signal="timeout" from="Timer_atirar" to="." method="jogador_pode_atirar"]
