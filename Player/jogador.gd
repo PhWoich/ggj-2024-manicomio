@@ -3,6 +3,7 @@ class_name Jogador
 
 #1. Controles dos movimentos
 @export var velocidade:float = 300.0
+@export var starting_direction : Vector2 = Vector2(0, 1)
 var input_jogador
 
 #2. Controles dos ataques
@@ -16,10 +17,17 @@ var pode_atacar:bool = true
 #  2.1 Carregar espada penas
 var espada_pena = preload("res://Player/Espada Pena/espada_pena.tscn")
 
+#parameters/idle/blend_position
+@onready var animation_tree = $AnimationTree
+@onready var state_machine = animation_tree.get("parameters/playback")
+
 func _ready():
 	jogador_pode_atacar()
 	ultima_direcao_olhada = inicio_ataque_direita
 	girar_animacao_ataque=false
+	
+	update_animation_parameter(starting_direction)
+	
 
 func _physics_process(_delta):
 	#Movimento jogador
@@ -27,6 +35,9 @@ func _physics_process(_delta):
 		Input.get_action_strength("Jogador_direita") - Input.get_action_strength("Jogador_esquerda"),
 		Input.get_action_strength("Jogador_baixo") - Input.get_action_strength("Jogador_cima")
 	)
+	
+	update_animation_parameter(input_jogador)
+	
 	if input_jogador.x > 0:
 		ultima_direcao_olhada = inicio_ataque_direita
 		girar_animacao_ataque=false
@@ -58,3 +69,12 @@ func ataque_corpo_a_corpo():
 
 func jogador_pode_atacar():
 	pode_atacar = true
+
+func update_animation_parameter(move_input: Vector2):		
+	if(move_input != Vector2.ZERO):
+		animation_tree.set('parameters/walk/blend_position', move_input)
+		animation_tree.set('parameters/idle/blend_position', move_input)
+		state_machine.travel("walk")
+	else:
+		state_machine.travel("idle")
+	
