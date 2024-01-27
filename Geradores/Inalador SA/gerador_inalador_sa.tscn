@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://Geradores/Inalador SA/gerador_inalador_sa.gd" id="1_ltg6v"]
 [ext_resource type="Texture2D" uid="uid://djmq5u2bvjows" path="res://Geradores/Cabine/Cabine.png" id="2_hoaag"]
 [ext_resource type="PackedScene" uid="uid://bsgntaaiuef38" path="res://Particulas/Eletricidade/particula_eletricidade.tscn" id="3_wlwc1"]
+[ext_resource type="Texture2D" uid="uid://c380vjil7rkv8" path="res://Geradores/Inalador SA/sprites/cabine3.png" id="4_qyh7r"]
+[ext_resource type="Texture2D" uid="uid://cmd2cfo1aem1w" path="res://Geradores/Inalador SA/sprites/cabine4.png" id="5_f50n3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlf0o"]
 atlas = ExtResource("2_hoaag")
@@ -51,6 +53,8 @@ custo_base = 60
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_tav5g")
+frame = 3
+frame_progress = 0.56874
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3qswj")

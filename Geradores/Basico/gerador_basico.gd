@@ -31,5 +31,5 @@ func atualizar_vida(valor_atualizacao):
 	ponto_popup.add_child(instancia_popup)
 	
 	if vida_gerador <= 0:
-		emit_signal("gerador_destruido", energia_gerada)
+		emit_signal("gerador_destruido", -energia_gerada)
 		queue_free()
