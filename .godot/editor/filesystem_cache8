@@ -1,7 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706317571
-icon.svg::CompressedTexture2D::9202242696702423187::1706317413::1706317418::1::::<><>::
-::res://Cenas/::1706317571
-::res://Loucos/::1706317543
-::res://Player/::1706317538
-::res://Torres/::1706317560
+::res://::1706319173
+icon.svg::CompressedTexture2D::9202242696702423187::1706319112::1706319112::1::::<><>::
+::res://Cenas/::1706319112
+::res://Cenas/Principal/::1706319112
+cena_principal.tscn::PackedScene::6953589957597079533::1706319112::0::1::::<><>::

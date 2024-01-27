@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://c6cmu060r4vq8"]
 
 [node name="Cena Principal" type="Node2D"]
+
+[node name="NodeEduardo" type="Node2D" parent="."]
+
+[node name="123" type="Node2D" parent="."]
