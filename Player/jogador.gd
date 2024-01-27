@@ -36,20 +36,25 @@ func _physics_process(_delta):
 		Input.get_action_strength("Jogador_direita") - Input.get_action_strength("Jogador_esquerda"),
 		Input.get_action_strength("Jogador_baixo") - Input.get_action_strength("Jogador_cima")
 	)
+	var movimento:Vector2
 	if input_jogador.x > 0:
+		movimento = Vector2(1.0, 0.0)
 		ultima_direcao_olhada = inicio_ataque_direita
 		girar_animacao_ataque=false
 	elif input_jogador.x < 0:
+		movimento = Vector2(-1.0, 0.0)
 		ultima_direcao_olhada = inicio_ataque_esquerda
 		girar_animacao_ataque=true
 	elif input_jogador.y < 0:
+		movimento = Vector2(0.0, -1.0)
 		ultima_direcao_olhada = inicio_ataque_cima
 		girar_animacao_ataque = true
 	elif input_jogador.y > 0:
+		movimento = Vector2(0.0, 1.0)
 		ultima_direcao_olhada = inicio_ataque_baixo
 		girar_animacao_ataque = false
 	
-	velocity = input_jogador * velocidade
+	velocity = movimento * velocidade
 	
 	move_and_slide()
 	
