@@ -32,11 +32,7 @@ var ataque_dist_rotacao = 0.0
 #3. Controles de Geradores
 var cena_jogo
 #var gerador_basico = preload("res://Geradores/Basico/gerador_basico.tscn")
-var gerador_selecionado
-var gerador_selecionado_idx = 0
-var lista_geradores = [preload("res://Geradores/Esteira/gerador_esteira.tscn"), 
-	preload("res://Geradores/Fornalha/gerador_fornalha.tscn"), 
-	preload("res://Geradores/Inalador SA/gerador_inalador_sa.tscn")]
+var gerador_selecionado_idx: int = 0
 var pode_colocar_gerador:bool
 
 #4. Controle de animacoes
@@ -53,7 +49,6 @@ func _ready():
 	timerAtirar.wait_time = cooldown_atirar
 	jogador_pode_atacar()
 	jogador_pode_atirar()
-	gerador_selecionado = lista_geradores[gerador_selecionado_idx]
 	ultima_direcao_olhada = inicio_ataque_direita
 	girar_animacao_ataque= false
 	pode_colocar_gerador= true
@@ -147,24 +142,17 @@ func jogador_pode_atirar():
 func selecionar_prox_gerador():
 	gerador_selecionado_idx = gerador_selecionado_idx+1
 	
-	if gerador_selecionado_idx == lista_geradores.size():
+	if gerador_selecionado_idx == 3:
 		gerador_selecionado_idx = 0
-	
-	gerador_selecionado = lista_geradores[gerador_selecionado_idx]
-	print(gerador_selecionado_idx)
 
 func selecionar_gerador_anterior():
 	gerador_selecionado_idx = gerador_selecionado_idx-1
 	
 	if gerador_selecionado_idx < 0:
-		gerador_selecionado_idx = lista_geradores.size()-1
-	
-	gerador_selecionado = lista_geradores[gerador_selecionado_idx]
-	print(gerador_selecionado_idx)
-
+		gerador_selecionado_idx = 2
 
 func add_gerador():
-	cena_jogo.add_gerador(gerador_selecionado, position)
+	cena_jogo.add_gerador(gerador_selecionado_idx, position)
 
 func nao_liberar_colocar_gerador():
 	pode_colocar_gerador = false

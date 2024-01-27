@@ -33,8 +33,8 @@ var resource = 10
 
 var max_health = 100
 var actual_health = 100
-var available_energy = 10
-var used_energy = 5
+var available_energy = 0
+var used_energy = 0
 
 var t1Cost = 30
 var t2Cost = 30
@@ -124,12 +124,12 @@ func set_generators_cost_values(new_G1Cost: int, new_G2Cost: int, new_G3Cost: in
 	else:
 		gen3Img.modulate = Color(1,1,1)
 
-func fire_p1(a, b, c, cooldown):
+func fire_p1(_a, _b, _c, cooldown):
 	power1Timer.wait_time = cooldown
 	power1CD.max_value = cooldown
 	power1Timer.start()
 	
-func fire_p2(a, b, c, cooldown):
+func fire_p2(_a, _b, _c, cooldown):
 	power2Timer.wait_time = cooldown
 	power2CD.max_value = cooldown
 	power2Timer.start()
