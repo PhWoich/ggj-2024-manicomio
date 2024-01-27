@@ -1,16 +1,17 @@
-extends CharacterBody2D
+extends Area2D
 
-@export var velocidade_torta:float = 600
+@export var velocidade_torta:float = 10
+var movimento_torta
 
 func inicializar(posicao_inicial:Vector2,direcao_movimento, rotacao):
 	position = posicao_inicial
 	rotation = rotacao
-	velocity = direcao_movimento * velocidade_torta
+	movimento_torta = direcao_movimento * velocidade_torta
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	move_and_slide()
+	position = position+movimento_torta
 
 
 func _on_timer_vida_ataque_timeout():
