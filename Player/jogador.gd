@@ -27,11 +27,17 @@ var ataque_dist_rotacao = 0.0
 
 #3. Controles de Geradores
 var cena_jogo
-var gerador_basico = preload("res://Geradores/Basico/gerador_basico.tscn")
+#var gerador_basico = preload("res://Geradores/Basico/gerador_basico.tscn")
+var gerador_selecionado
+var gerador_selecionado_idx = 0
+var lista_geradores = [preload("res://Geradores/Esteira/gerador_esteira.tscn"), 
+	preload("res://Geradores/Fornalha/gerador_fornalha.tscn"), 
+	preload("res://Geradores/Inalador SA/gerador_inalador_sa.tscn")]
 var pode_colocar_gerador:bool
 
 func _ready():
 	jogador_pode_atacar()
+	gerador_selecionado = lista_geradores[gerador_selecionado_idx]
 	ultima_direcao_olhada = inicio_ataque_direita
 	girar_animacao_ataque=false
 	pode_colocar_gerador=true
@@ -92,6 +98,12 @@ func _physics_process(_delta):
 		ataque_a_distancia()
 	
 	#Add Gerador
+	if Input.is_action_just_released("selecionar_prox_gerador"):
+		selecionar_prox_gerador()
+	
+	if Input.is_action_just_released("selecionar_gerador_anterior"):
+		selecionar_gerador_anterior()
+	
 	if Input.is_action_just_released("jogador_adicionar_gerador") and pode_colocar_gerador:
 		add_gerador()
 
@@ -112,8 +124,27 @@ func jogador_pode_atacar():
 	pode_atacar = true
 
 
+func selecionar_prox_gerador():
+	gerador_selecionado_idx = gerador_selecionado_idx+1
+	
+	if gerador_selecionado_idx == lista_geradores.size():
+		gerador_selecionado_idx = 0
+	
+	gerador_selecionado = lista_geradores[gerador_selecionado_idx]
+	print(gerador_selecionado_idx)
+
+func selecionar_gerador_anterior():
+	gerador_selecionado_idx = gerador_selecionado_idx-1
+	
+	if gerador_selecionado_idx < 0:
+		gerador_selecionado_idx = lista_geradores.size()-1
+	
+	gerador_selecionado = lista_geradores[gerador_selecionado_idx]
+	print(gerador_selecionado_idx)
+
+
 func add_gerador():
-	cena_jogo.add_gerador(gerador_basico, position)
+	cena_jogo.add_gerador(gerador_selecionado, position)
 
 
 func nao_liberar_colocar_gerador():
