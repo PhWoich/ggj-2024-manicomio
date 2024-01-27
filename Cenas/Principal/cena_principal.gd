@@ -9,11 +9,12 @@ var energia_atual_disponivel:float = 0.0
 @onready var jogador = preload("res://Player/jogador.tscn")
 #Torta na cara que sai do jogador
 @onready var torta_na_cara_jogador = preload("res://Player/Tota na Cara/torta_na_cara.tscn")
+@onready var camera = $Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var instancia_jogador = jogador.instantiate()
-	instancia_jogador.inicializar_jogador(self)
+	instancia_jogador.inicializar_jogador(self, camera)
 	instancia_jogador.atirar_torta.connect(gerar_ataque_dist_jogador)
 	add_child(instancia_jogador)
 	$AudioStreamPlayer.play()

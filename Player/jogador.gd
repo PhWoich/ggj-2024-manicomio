@@ -5,6 +5,7 @@ signal atirar_torta(posicao_inicial,movimento,rotacao)
 
 #1. Controles dos movimentos
 @export var velocidade:float = 300.0
+@export var starting_direction : Vector2 = Vector2(0, 1)
 var input_jogador
 var ultimo_movimento:Vector2
 
@@ -20,6 +21,10 @@ var ataque_dist_rotacao = 0.0
 #  2.1 Carregar espada penas
 @onready var espada_pena = preload("res://Player/Espada Pena/espada_pena.tscn")
 
+#parameters/idle/blend_position
+@onready var animation_tree = $AnimationTree
+@onready var state_machine = animation_tree.get("parameters/playback")
+
 #3. Controles de Geradores
 var cena_jogo
 var gerador_basico = preload("res://Geradores/Basico/gerador_basico.tscn")
@@ -30,9 +35,13 @@ func _ready():
 	ultima_direcao_olhada = inicio_ataque_direita
 	girar_animacao_ataque=false
 	pode_colocar_gerador=true
+	
+	update_animation_parameter(starting_direction)
+	
 
-func inicializar_jogador(cena_atual):
+func inicializar_jogador(cena_atual, camera):
 	cena_jogo = cena_atual
+	$RemoteTransform2D.remote_path = camera.get_path()
 
 func _physics_process(_delta):
 	#Movimento jogador
@@ -41,6 +50,9 @@ func _physics_process(_delta):
 		Input.get_action_strength("Jogador_baixo") - Input.get_action_strength("Jogador_cima")
 	)
 	var movimento:Vector2
+	
+	update_animation_parameter(input_jogador)
+	
 	if input_jogador.x > 0:
 		movimento = Vector2(1.0, 0.0)
 		ultimo_movimento = movimento
@@ -69,6 +81,7 @@ func _physics_process(_delta):
 	velocity = movimento * velocidade
 	
 	move_and_slide()
+	pick_new_state()
 	
 	#Ataques
 	if Input.is_action_just_released("Jogador_ataque_melee") and pode_atacar:
@@ -110,6 +123,19 @@ func nao_liberar_colocar_gerador():
 func liberar_colocar_gerador():
 	pode_colocar_gerador = true
 
-
 func _on_timer_ataque_distancia_timeout():
 	jogador_pode_atacar()
+
+func update_animation_parameter(move_input: Vector2):
+	if(move_input != Vector2.ZERO):
+		animation_tree['parameters/walk/blend_position'] = move_input
+		animation_tree['parameters/idle/blend_position'] = move_input
+		
+func pick_new_state():	
+	if(velocity != Vector2.ZERO):		
+		animation_tree['parameters/conditions/idle'] = false
+		animation_tree['parameters/conditions/is_moving'] = true
+	else:
+		animation_tree['parameters/conditions/idle'] = true
+		animation_tree['parameters/conditions/is_moving'] = false
+	
