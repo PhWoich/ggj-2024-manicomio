@@ -164,6 +164,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	power1CD.value = p1MaxTime - power1Timer.time_left
 	power2CD.value = p2MaxTime - power2Timer.time_left

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Jogador
 
+signal atirar_torta(posicao_inicial,movimento,rotacao)
+
 #1. Controles dos movimentos
 @export var velocidade:float = 300.0
 var input_jogador
@@ -11,13 +13,12 @@ var ultimo_movimento:Vector2
 @onready var inicio_ataque_direita = $Inicio_ataque_direita
 @onready var inicio_ataque_baixo = $Inicio_ataque_baixo
 @onready var inicio_ataque_esquerda = $Inicio_ataque_esquerda
-var ultima_direcao_olhada
+var ultima_direcao_olhada:Node2D
 var girar_animacao_ataque:bool
 var pode_atacar:bool = true
 var ataque_dist_rotacao = 0.0
 #  2.1 Carregar espada penas
 @onready var espada_pena = preload("res://Player/Espada Pena/espada_pena.tscn")
-@onready var torta_na_cara = preload("res://Player/Tota na Cara/torta_na_cara.tscn")
 
 #3. Controles de Geradores
 var cena_jogo
@@ -45,25 +46,25 @@ func _physics_process(_delta):
 		ultimo_movimento = movimento
 		ultima_direcao_olhada = inicio_ataque_direita
 		girar_animacao_ataque=false
-		ataque_dist_rotacao = 0.0-inicio_ataque_direita.rotation
+		ataque_dist_rotacao = 0.0
 	elif input_jogador.x < 0:
 		movimento = Vector2(-1.0, 0.0)
 		ultimo_movimento = movimento
 		ultima_direcao_olhada = inicio_ataque_esquerda
 		girar_animacao_ataque=true
-		ataque_dist_rotacao = 3.14159-inicio_ataque_esquerda.rotation
+		ataque_dist_rotacao = 3.14159
 	elif input_jogador.y < 0:
 		movimento = Vector2(0.0, -1.0)
 		ultimo_movimento = movimento
 		ultima_direcao_olhada = inicio_ataque_cima
 		girar_animacao_ataque = true
-		ataque_dist_rotacao = 4.71239-inicio_ataque_cima.rotation
+		ataque_dist_rotacao = 4.71239
 	elif input_jogador.y > 0:
 		movimento = Vector2(0.0, 1.0)
 		ultimo_movimento = movimento
 		ultima_direcao_olhada = inicio_ataque_baixo
 		girar_animacao_ataque = false
-		ataque_dist_rotacao = 1.5708-inicio_ataque_baixo.rotation
+		ataque_dist_rotacao = 1.5708
 	
 	velocity = movimento * velocidade
 	
@@ -90,12 +91,9 @@ func ataque_corpo_a_corpo():
 	ultima_direcao_olhada.add_child(instancia_espada_pena)
 
 func ataque_a_distancia():
-	var instancia_torta = torta_na_cara.instantiate()
-	instancia_torta.inicializar(ultimo_movimento, ataque_dist_rotacao)
+	emit_signal("atirar_torta", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao)
 	pode_atacar = false
 	$Timer_ataque_distancia.start()
-		
-	ultima_direcao_olhada.add_child(instancia_torta)
 
 func jogador_pode_atacar():
 	pode_atacar = true
