@@ -39,12 +39,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmlyk"]
-size = Vector2(171, 176.25)
+size = Vector2(51, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tg3my"]
 radius = 200.105
 
-[node name="torre_pie" type="Area2D"]
+[node name="torre_pie" type="StaticBody2D"]
 script = ExtResource("1_7bc3h")
 energia = -15.0
 custo_base = 30
@@ -58,6 +58,7 @@ animation = &"jogar"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 34)
 shape = SubResource("RectangleShape2D_vmlyk")
 
 [node name="torre" type="Area2D" parent="."]

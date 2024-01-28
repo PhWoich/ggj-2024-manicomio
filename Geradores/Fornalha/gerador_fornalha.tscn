@@ -20,11 +20,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qswj"]
-size = Vector2(165, 165)
+size = Vector2(1, 1)
 
-[node name="Fornalha" type="Area2D"]
+[node name="Fornalha" type="StaticBody2D"]
 script = ExtResource("1_ui8bx")
-
 energia = 30.0
 custo_base = 50
 
@@ -34,6 +33,7 @@ sprite_frames = SubResource("SpriteFrames_tav5g")
 frame_progress = 0.104741
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, 48)
 shape = SubResource("RectangleShape2D_3qswj")
 
 [node name="Particula Eletricidade" parent="." instance=ExtResource("3_8x6wc")]
@@ -41,6 +41,3 @@ position = Vector2(-32, 56)
 
 [node name="Ponto Popup Dano" type="Marker2D" parent="."]
 position = Vector2(0, -40)
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
