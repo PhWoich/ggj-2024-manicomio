@@ -24,7 +24,6 @@ size = Vector2(165, 165)
 
 [node name="Fornalha" type="Area2D"]
 script = ExtResource("1_ui8bx")
-energia_gerada = 30.0
 custo_base = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
