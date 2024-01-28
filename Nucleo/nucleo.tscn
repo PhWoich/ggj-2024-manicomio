@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxusqsboxdfvv"]
+[gd_scene load_steps=9 format=3 uid="uid://bxusqsboxdfvv"]
 
 [ext_resource type="Script" path="res://Nucleo/nucleo.gd" id="1_1tee7"]
 [ext_resource type="Texture2D" uid="uid://li6ch7ltf1bq" path="res://Nucleo/Antena.png" id="1_fd80e"]
@@ -44,6 +44,18 @@ _data = {
 "antena_animation": SubResource("Animation_ljvbc")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xe7jx"]
+animation = &"antena_animation"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nvlij"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ln4ti"]
+states/antena_animation/node = SubResource("AnimationNodeAnimation_xe7jx")
+states/antena_animation/position = Vector2(432.2, 84.9725)
+transitions = ["Start", "antena_animation", SubResource("AnimationNodeStateMachineTransition_nvlij")]
+graph_offset = Vector2(103.2, -13.0275)
+
 [node name="Nucleo" type="StaticBody2D"]
 script = ExtResource("1_1tee7")
 
@@ -60,3 +72,10 @@ vframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_dtdx7")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dtdx7")
+}
+tree_root = SubResource("AnimationNodeStateMachine_ln4ti")
+anim_player = NodePath("../AnimationPlayer")
