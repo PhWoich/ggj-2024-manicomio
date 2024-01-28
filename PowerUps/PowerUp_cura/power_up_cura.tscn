@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgxltitx72rmg"]
 
 [ext_resource type="Script" path="res://PowerUps/PowerUp_cura/power_up_cura.gd" id="1_kpnxf"]
-[ext_resource type="Texture2D" uid="uid://c13rwyjuk8olh" path="res://PowerUps/PowerUp_cura/tile_0115.png" id="2_72m6k"]
+[ext_resource type="Texture2D" uid="uid://bija3ypa6mahs" path="res://PowerUps/PowerUp_cura/firts aid.png" id="2_1w41q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imhtp"]
 
@@ -9,8 +9,7 @@
 script = ExtResource("1_kpnxf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("2_72m6k")
+texture = ExtResource("2_1w41q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_imhtp")

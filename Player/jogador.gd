@@ -201,7 +201,7 @@ func add_forca_pena():
 
 func add_velocidade_jogador():
 	velocidade = velocidade+25
-	var penas = preload("res://Particulas/Explosão Penas/explosao_penas.tscn")
+	var penas = preload("res://Particulas/UpSpeed/UpSpeed.tscn")
 	var instance_penas = penas.instantiate()
 	$Ponto_partida_particulas.add_child(instance_penas)
 	instance_penas.emitir_particula()
