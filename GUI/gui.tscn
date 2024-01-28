@@ -125,6 +125,12 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 5
 
+[node name="padding" type="HBoxContainer" parent="MarginContainer/MainHBox/Rows/BottomRow"]
+custom_minimum_size = Vector2(25, 10)
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainHBox/Rows/BottomRow"]
 layout_mode = 2
 mouse_filter = 2
@@ -135,7 +141,7 @@ mouse_filter = 2
 alignment = 1
 
 [node name="T1" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -144,7 +150,7 @@ texture = ExtResource("4_aa2f6")
 
 [node name="T2" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
 visible = false
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -153,7 +159,7 @@ texture = ExtResource("5_rgi25")
 
 [node name="T3" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
 visible = false
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -162,7 +168,7 @@ texture = ExtResource("5_aj4b4")
 
 [node name="G1" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
 visible = false
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -171,7 +177,7 @@ texture = ExtResource("4_c62ko")
 
 [node name="G2" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
 visible = false
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -180,7 +186,7 @@ texture = ExtResource("5_bncc0")
 
 [node name="G3" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer3"]
 visible = false
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -198,7 +204,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="Tower1Img" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -221,13 +227,13 @@ grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_qn50h")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 64
 text = "30"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tower2Img" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -250,13 +256,13 @@ grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_qn50h")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 64
 text = "30"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tower3Img" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -279,7 +285,7 @@ grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_qn50h")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 64
 text = "30"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -289,7 +295,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="Gen1Img" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -312,13 +318,13 @@ grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_qn50h")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 64
 text = "30"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Gen2Img" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -341,13 +347,13 @@ grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_qn50h")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 64
 text = "30"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Gen3Img" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -370,15 +376,23 @@ grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_qn50h")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 64
 text = "30"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="padding2" type="HBoxContainer" parent="MarginContainer/MainHBox/Rows/BottomRow/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
 [node name="HealthContainer" type="VBoxContainer" parent="MarginContainer/MainHBox/Rows/BottomRow"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
+size_flags_vertical = 4
 mouse_filter = 2
+alignment = 1
 
 [node name="HealthLabel" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/HealthContainer"]
 layout_mode = 2
@@ -403,7 +417,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Power1Img" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -426,8 +440,29 @@ show_percentage = false
 [node name="P1Timer" type="Timer" parent="MarginContainer/MainHBox/Rows/BottomRow/Power1Img"]
 one_shot = true
 
+[node name="P1Damage" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/Power1Img"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -18.5
+offset_right = 16.0
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_qn50h")
+theme_override_font_sizes/font_size = 64
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Power2Img" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -449,6 +484,27 @@ show_percentage = false
 
 [node name="P2Timer" type="Timer" parent="MarginContainer/MainHBox/Rows/BottomRow/Power2Img"]
 one_shot = true
+
+[node name="P2Damage" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/Power2Img"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -18.5
+offset_right = 16.0
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_qn50h")
+theme_override_font_sizes/font_size = 64
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/MainHBox/Rows/BottomRow"]
 custom_minimum_size = Vector2(20, 0)
