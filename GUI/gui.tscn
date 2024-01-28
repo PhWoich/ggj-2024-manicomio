@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cghlj2d8b7duk" path="res://GUI/icons/esteira_icon.png" id="4_c62ko"]
 [ext_resource type="Texture2D" uid="uid://d0m6flxoes7nc" path="res://GUI/icons/gas_icon.png" id="5_aj4b4"]
 [ext_resource type="Texture2D" uid="uid://cni0y2ke8jjd2" path="res://Geradores/Fornalha/sprite_1.png" id="5_bncc0"]
-[ext_resource type="Texture2D" uid="uid://d4mikx18lbhqt" path="res://GUI/pie_icon.png" id="5_xuyyk"]
 [ext_resource type="Texture2D" uid="uid://cmd2cfo1aem1w" path="res://Geradores/Inalador SA/sprites/cabine4.png" id="8_bquae"]
+[ext_resource type="Texture2D" uid="uid://d0aaadfi3hq6o" path="res://GUI/icons/pie_icon.png" id="10_4kwti"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv2ha"]
 bg_color = Color(0.494118, 0.494118, 0.494118, 1)
@@ -431,7 +431,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("5_xuyyk")
+texture = ExtResource("10_4kwti")
 
 [node name="P2Cooldown" type="ProgressBar" parent="MarginContainer/MainHBox/Rows/BottomRow/Power2Img"]
 layout_mode = 1
