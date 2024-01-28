@@ -159,3 +159,6 @@ func estrutura_destruida_gui(energia):
 		atualizar_energia_gerada(-energia)
 	else:
 		atualizar_energia_consumida(energia)
+		
+func tem_energia():
+	return energia_atual_gerada-energia_atual_consumida > 0

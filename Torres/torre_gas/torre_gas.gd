@@ -10,19 +10,22 @@ var gas_active = false
 var tempList
 @export var forca: float = 20
 
+@onready var cena = find_parent('CenaPrincipal')
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_on_timer_timeout(true)
 	pass # Replace with function body.
 
 func activate_spray(lado_animated, node):
-	gas_active = true
-	lado_animated.play("spray")
-	timerSpray.start()
-	
-	var currLoucos = get_node(node).get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
-	for loucos in currLoucos:
-		loucos.atualizar_vida(-forca)
+	if(cena.tem_energia()):
+		gas_active = true
+		lado_animated.play("spray")
+		timerSpray.start()
+		
+		var currLoucos = get_node(node).get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
+		for loucos in currLoucos:
+			loucos.atualizar_vida(-forca)
 		
 func entrou_area_gas(lado_animated, node, body):
 	if(body.has_method('getTeam')):

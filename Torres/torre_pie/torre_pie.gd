@@ -7,13 +7,16 @@ var currTargets = []
 var curr
 var target
 
+@onready var cena = find_parent('CenaPrincipal')
+
 func fire():
-	if target != null:
-		var tempPie = pie.instantiate()
-		tempPie.target = target
-		tempPie.target_position = target.global_position
-		$PieContainer.add_child(tempPie)
-		tempPie.global_position = $Aim.global_position
+	if(cena.tem_energia()):
+		if target != null:
+			var tempPie = pie.instantiate()
+			tempPie.target = target
+			tempPie.target_position = target.global_position
+			$PieContainer.add_child(tempPie)
+			tempPie.global_position = $Aim.global_position
 
 func _ready():
 	$AnimatedSprite2D.play("jogar")
