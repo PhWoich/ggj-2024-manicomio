@@ -6,7 +6,7 @@ var energia_atual_gerada:float = 0.0
 var energia_atual_consumida:float = 0.0
 
 var custo_adicional:int
-var recurso:int = 100
+var recurso:int = 1000
 
 @onready var jogador = preload("res://Player/jogador.tscn")
 @onready var gui = $GUI
@@ -27,8 +27,8 @@ var custo_g3: float = 0
 #Torres
 #TODO
 @onready var t1: PackedScene = preload("res://Torres/torre_pie/torre_pie.tscn")
-@onready var t2: PackedScene = preload("res://Geradores/Fornalha/gerador_fornalha.tscn")
-@onready var t3: PackedScene = preload("res://Geradores/Inalador SA/gerador_inalador_sa.tscn")
+@onready var t2: PackedScene = preload("res://Torres/torre_pena/torre_pena.tscn")
+@onready var t3: PackedScene = preload("res://Torres/torre_gas/torre_gas.tscn")
 @onready var lista_torres = [t1, t2, t3]
 var custo_t1: float = 20
 var custo_t2: float = 50
@@ -65,8 +65,8 @@ func _getInitialCustos():
 	custo_g3 = g3.instantiate().custo_base
 	
 	custo_t1 = t1.instantiate().custo_base
-	#custo_t2 = t2.instantiate().custo_base
-	#custo_t3 = t3.instantiate().custo_base
+	custo_t2 = t2.instantiate().custo_base
+	custo_t3 = t3.instantiate().custo_base
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

@@ -38,7 +38,8 @@ size = Vector2(144, 145)
 
 [node name="Gerador" type="Area2D"]
 script = ExtResource("1_35hcc")
-custo_base = 10
+energia = 15.0
+custo_base = 30
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)

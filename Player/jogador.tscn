@@ -231,6 +231,8 @@ graph_offset = Vector2(50.43, 0)
 
 [node name="Jogador" type="CharacterBody2D"]
 script = ExtResource("1_dk5mm")
+cooldown_ataque = 5.0
+cooldown_atirar = 10.0
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1

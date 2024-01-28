@@ -16,13 +16,9 @@ func fire():
 		tempPie.target_position = target_position
 		$PieContainer.add_child(tempPie)
 		tempPie.global_position = $Aim.global_position
-		tempPie.entrou_louco()
-	
 
 func _ready():
 	$AnimatedSprite2D.play("jogar")
-	custo_base = 25
-	energia = -15
 	super()
 
 

@@ -34,3 +34,6 @@ func atualizar_vida(value):
 	if vida_atual == 0:
 		emit_signal("estrutura_destruida", -energia)
 		queue_free()
+
+func getType():
+	return 'player'
