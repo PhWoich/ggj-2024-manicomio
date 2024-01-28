@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwyyb2uhx2pys"
-path="res://.godot/imported/sprite_2.png-3fe9f6c5980b14fcfa02283a0b5189d1.ctex"
+uid="uid://bk7o5uvvdsgsc"
+path="res://.godot/imported/sprite_3.png-813f21fbdb4d40da3de8fa1c4b8e7c31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Torre/torre_pena/sprite_2.png"
-dest_files=["res://.godot/imported/sprite_2.png-3fe9f6c5980b14fcfa02283a0b5189d1.ctex"]
+source_file="res://Torres/torre_pena/sprite_3.png"
+dest_files=["res://.godot/imported/sprite_3.png-813f21fbdb4d40da3de8fa1c4b8e7c31.ctex"]
 
 [params]
 

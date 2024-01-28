@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://ox3fe7kurtq3"]
 
-[ext_resource type="Texture2D" uid="uid://dcyf6v5hcu8qy" path="res://Torre/torre_pena/sprite_0.png" id="1_fjexh"]
-[ext_resource type="Script" path="res://Torre/torre_pena/torre_pena.gd" id="1_x06c1"]
-[ext_resource type="Texture2D" uid="uid://bg2wvkg6ft7y6" path="res://Torre/torre_pena/sprite_1.png" id="2_qcjai"]
-[ext_resource type="Texture2D" uid="uid://bwyyb2uhx2pys" path="res://Torre/torre_pena/sprite_2.png" id="3_3uwvt"]
-[ext_resource type="Texture2D" uid="uid://bk7o5uvvdsgsc" path="res://Torre/torre_pena/sprite_3.png" id="4_8ecbn"]
+[ext_resource type="Texture2D" uid="uid://dcyf6v5hcu8qy" path="res://Torres/torre_pena/sprite_0.png" id="1_fjexh"]
+[ext_resource type="Script" path="res://Torres/torre_pena/torre_pena.gd" id="1_x06c1"]
+[ext_resource type="Texture2D" uid="uid://bg2wvkg6ft7y6" path="res://Torres/torre_pena/sprite_1.png" id="2_qcjai"]
+[ext_resource type="Texture2D" uid="uid://bwyyb2uhx2pys" path="res://Torres/torre_pena/sprite_2.png" id="3_3uwvt"]
+[ext_resource type="Texture2D" uid="uid://bk7o5uvvdsgsc" path="res://Torres/torre_pena/sprite_3.png" id="4_8ecbn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vn6lx"]
 radius = 27.0

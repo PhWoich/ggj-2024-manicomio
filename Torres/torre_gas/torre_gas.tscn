@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cfl6jj7vskdxx"]
 
-[ext_resource type="Texture2D" uid="uid://cfphkv7b73mwj" path="res://Torres/GasDoRiso/sprite_gas.png" id="1_8fyil"]
-[ext_resource type="Script" path="res://Torre/torre_gas/torre_gas.gd" id="1_yuf0c"]
+[ext_resource type="Texture2D" path="res://Torres/GasDoRiso/sprite_gas.png" id="1_8fyil"]
+[ext_resource type="Script" path="res://Torres/torre_gas/torre_gas.gd" id="1_yuf0c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bsr1"]
 radius = 5.0

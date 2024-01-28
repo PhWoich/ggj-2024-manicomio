@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4xqtxwg58c4c"
-path="res://.godot/imported/Cream pie.png-1148fe5f69e6e6273dc30835cd3c766b.ctex"
+uid="uid://li6ch7ltf1bq"
+path="res://.godot/imported/Antena.png-e075868b97a3fedca76a122b6caf518c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Torre/torre_pie/Cream pie.png"
-dest_files=["res://.godot/imported/Cream pie.png-1148fe5f69e6e6273dc30835cd3c766b.ctex"]
+source_file="res://Nucleo/Antena.png"
+dest_files=["res://.godot/imported/Antena.png-e075868b97a3fedca76a122b6caf518c.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://duvo4pbrt14je"]
 
-[ext_resource type="Script" path="res://Torre/torre_pena/penas.gd" id="1_islqo"]
+[ext_resource type="Script" path="res://Torres/torre_pena/penas.gd" id="1_islqo"]
 
 [sub_resource type="Gradient" id="Gradient_5anv7"]
 offsets = PackedFloat32Array(0, 0.00460829, 1)
