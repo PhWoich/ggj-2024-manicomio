@@ -28,6 +28,7 @@ var ataque_dist_rotacao = 0.0
 
 #  2.1 Carregar espada penas
 @onready var espada_pena = preload("res://Player/Espada Pena/espada_pena.tscn")
+var forca_pena:int = 15
 
 #3. Controles de Geradores
 var cena_jogo
@@ -123,7 +124,7 @@ func _physics_process(_delta):
 func ataque_corpo_a_corpo():
 	emit_signal("atacar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_ataque)
 	var instancia_espada_pena = espada_pena.instantiate()
-	instancia_espada_pena.inicializar(ultima_direcao_olhada, girar_animacao_ataque)
+	instancia_espada_pena.inicializar(ultima_direcao_olhada, girar_animacao_ataque, forca_pena)
 	ultima_direcao_olhada.add_child(instancia_espada_pena)
 	
 	pode_atacar = false
@@ -188,3 +189,10 @@ func atualizar_vida(value: float):
 func getType():
 	return 'player'
 	
+
+func curar_vida_jogador():
+	vida_atual = vida_maxima
+	emit_signal('atualizar_vida_jogador', vida_atual, vida_maxima)
+
+func add_forca_pena():
+	forca_pena = forca_pena+5

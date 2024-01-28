@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6cmu060r4vq8"]
+[gd_scene load_steps=8 format=3 uid="uid://c6cmu060r4vq8"]
 
 [ext_resource type="Script" path="res://Cenas/Principal/cena_principal.gd" id="1_ptal3"]
 [ext_resource type="PackedScene" uid="uid://t7civ2atacxb" path="res://GUI/gui.tscn" id="2_gu4d2"]
 [ext_resource type="AudioStream" uid="uid://bipgv2l8udbix" path="res://Audio/Musica/TD_Gameplay_Loop.mp3" id="2_sl5a4"]
-[ext_resource type="PackedScene" uid="uid://bafr61rb37eua" path="res://Map/map.tscn" id="2_wltyv"]
 [ext_resource type="PackedScene" uid="uid://bxusqsboxdfvv" path="res://Nucleo/nucleo.tscn" id="5_al4hr"]
+[ext_resource type="PackedScene" uid="uid://cn10rq5ycgrsq" path="res://Cenas/Jadim/jardim.tscn" id="6_0y4ir"]
+[ext_resource type="PackedScene" uid="uid://bxcfcf6bbfojr" path="res://PowerUps/PowerUp_pena/power_up_pena.tscn" id="6_2rxlc"]
+[ext_resource type="PackedScene" uid="uid://dgxltitx72rmg" path="res://PowerUps/PowerUp_cura/power_up_cura.tscn" id="7_phiqv"]
 
 [node name="Cena Principal" type="Node2D"]
 script = ExtResource("1_ptal3")
 
-[node name="Map" parent="." instance=ExtResource("2_wltyv")]
+[node name="Jardim" parent="." instance=ExtResource("6_0y4ir")]
+scale = Vector2(3, 3)
 
 [node name="TileMap" parent="Map" index="0"]
 position = Vector2(-20, 0)
@@ -26,6 +29,25 @@ stream = ExtResource("2_sl5a4")
 volume_db = -20.0
 
 [node name="Nucleo" parent="." instance=ExtResource("5_al4hr")]
-position = Vector2(-18, -73)
+position = Vector2(0, -57)
 
-[editable path="Map"]
+[node name="PowerUp_pena" parent="." instance=ExtResource("6_2rxlc")]
+position = Vector2(-770, 714)
+
+[node name="PowerUp_pena2" parent="." instance=ExtResource("6_2rxlc")]
+position = Vector2(477, -386)
+
+[node name="PowerUp_pena3" parent="." instance=ExtResource("6_2rxlc")]
+position = Vector2(-1339, -191)
+
+[node name="PowerUp_cura" parent="." instance=ExtResource("7_phiqv")]
+position = Vector2(436, 426)
+
+[node name="PowerUp_cura2" parent="." instance=ExtResource("7_phiqv")]
+position = Vector2(-763, -581)
+
+[node name="PowerUp_cura3" parent="." instance=ExtResource("7_phiqv")]
+position = Vector2(241, 1244)
+
+[node name="PowerUp_cura4" parent="." instance=ExtResource("7_phiqv")]
+position = Vector2(383, -1205)
