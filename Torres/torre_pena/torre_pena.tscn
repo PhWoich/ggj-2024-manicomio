@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bwyyb2uhx2pys" path="res://Torres/torre_pena/sprite_2.png" id="3_3uwvt"]
 [ext_resource type="Texture2D" uid="uid://bk7o5uvvdsgsc" path="res://Torres/torre_pena/sprite_3.png" id="4_8ecbn"]
 
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_slgj2"]
 animations = [{
 "frames": [{
