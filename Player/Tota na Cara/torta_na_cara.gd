@@ -17,7 +17,7 @@ func _on_timer_vida_ataque_timeout():
 	queue_free()
 
 func _onBodyEntered(body: Node2D):
-	if(body.has_method('getType')):
-		if(body.getType() == 'louco' && body.has_method('atualizar_vida')):
+	if(body.has_method('getTeam')):
+		if(body.getTeam() == 'louco' && body.has_method('atualizar_vida')):
 			body.atualizar_vida(-forca)
 			queue_free()

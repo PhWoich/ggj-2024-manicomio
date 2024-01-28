@@ -117,6 +117,9 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_released("jogador_adicionar_gerador") and pode_colocar_estrutura:
 		add_estrutura()
+	
+	if Input.is_action_just_released("Delete_estrutura"):
+		delete_estrutura()
 
 func ataque_corpo_a_corpo():
 	emit_signal("atacar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_ataque)
@@ -137,6 +140,25 @@ func jogador_pode_atacar():
 	
 func jogador_pode_atirar():
 	pode_atirar = true
+
+func delete_estrutura():
+	match ultima_direcao_olhada:
+		inicio_ataque_baixo:
+			var body = $ShapeCast2D_down.get_collider(0)
+			if body and body.has_method("getType") and body.getType() == "estrutura":
+				body.queue_free()
+		inicio_ataque_cima:
+			var body = $ShapeCast2D_up.get_collider(0)
+			if body and body.has_method("getType") and body.getType() == "estrutura":
+				body.queue_free()
+		inicio_ataque_direita:
+			var body = $ShapeCast2D_right.get_collider(0)
+			if body and body.has_method("getType") and body.getType() == "estrutura":
+				body.queue_free()
+		inicio_ataque_esquerda:
+			var body = $ShapeCast2D_left.get_collider(0)
+			if body and body.has_method("getType") and body.getType() == "estrutura":
+				body.queue_free()
 
 func selecionar_prox_estrutura():
 	estrutura_selecionada = estrutura_selecionada+1
@@ -180,7 +202,7 @@ func atualizar_vida(value: float):
 	vida_atual = max(min(vida_maxima, vida_atual + value), 0)
 	emit_signal('atualizar_vida_jogador', vida_atual, vida_maxima)
 
-func getType():
+func getTeam():
 	return 'player'
 	
 

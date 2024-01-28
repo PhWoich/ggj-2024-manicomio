@@ -60,12 +60,12 @@ func _physics_process(_delta):
 	#if(shouldWalk):
 	move_and_slide()
 	
-func getType():
+func getTeam():
 	return 'louco'
 	
 func _onBodyEntered(body: Node2D):
-	if(body.has_method('getType')):
-		if(body.getType() != 'louco'):
+	if(body.has_method('getTeam')):
+		if(body.getTeam() != 'louco'):
 			target = body
 			aplicarDano()
 
@@ -76,7 +76,7 @@ func _onBodyExited(_body: Node2D):
 	shouldWalk = true
 	if(!bodies.is_empty()):
 		for body in bodies:
-			if(body.getType() != 'louco'):
+			if(body.getTeam() != 'louco'):
 				shouldWalk = false
 				target = body
 				break
@@ -97,7 +97,7 @@ func atualizar_vida(value: float):
 		queue_free()
 
 func _on_vision_area_2d_body_entered(body):
-	if body.has_method("getType") &&  body.getType() == "player":
+	if body.has_method("getTeam") &&  body.getTeam() == "player":
 		targets.append(body)
 
 func _on_vision_area_2d_body_exited(body):

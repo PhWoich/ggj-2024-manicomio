@@ -36,4 +36,7 @@ func atualizar_vida(value):
 		queue_free()
 
 func getType():
+	return 'estrutura'
+
+func getTeam():
 	return 'player'

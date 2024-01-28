@@ -16,8 +16,8 @@ func _physics_process(_delta):
 		global_position = global_position + direcao_movimento
 
 func _on_area_2d_body_entered(body):
-	if(body.has_method('getType')):
-		if(body.getType() == 'louco' && body.has_method('atualizar_vida')):
+	if(body.has_method('getTeam')):
+		if(body.getTeam() == 'louco' && body.has_method('atualizar_vida')):
 			body.atualizar_vida(-forca)
 			queue_free()
 
