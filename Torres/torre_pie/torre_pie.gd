@@ -5,15 +5,13 @@ extends Estrutura
 
 var currTargets = []
 var curr
-var target_position
 var target
-var tipo_alvo = "Jogador"
 
 func fire():
 	if target != null:
 		var tempPie = pie.instantiate()
 		tempPie.target = target
-		tempPie.target_position = target_position
+		tempPie.target_position = target.global_position
 		$PieContainer.add_child(tempPie)
 		tempPie.global_position = $Aim.global_position
 
@@ -21,19 +19,18 @@ func _ready():
 	$AnimatedSprite2D.play("jogar")
 	super()
 
-
 func _on_tower_body_entered(body):
-	if tipo_alvo in body.name:
-		currTargets = get_node("torre").get_overlapping_bodies()
+	if(body.has_method('getType')):
+		if(body.getType() == 'louco' && body.has_method('atualizar_vida')):
+			currTargets = get_node("torre").get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
 
 func _on_tower_body_exited(body):
-	if tipo_alvo in body.name:
-		currTargets = get_node("torre").get_overlapping_bodies()
+	if(body.has_method('getType')):
+		if(body.getType() == 'louco' && body.has_method('atualizar_vida')):
+			currTargets = get_node("torre").get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
 
 func _on_timer_timeout():
 	for i in currTargets:
 		if i != null:
-			if tipo_alvo in i.name:
-				target_position = i.global_position
-				target = i
-				fire()
+			target = i
+			fire()
