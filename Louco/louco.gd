@@ -17,11 +17,7 @@ var target: Node2D
 var vida_atual: float = vida_maxima
 signal atualizar_vida_jogador(vida_atual: float, vida_maxima: float);
 
-var cena: Cena_Principal
-
-func inicializar(jogador_: Node2D, cena_):
-	jogador = jogador_
-	cena = cena_
+@onready var cena = find_parent('CenaPrincipal')
 	
 func _ready():
 	timer.wait_time = cooldown

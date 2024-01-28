@@ -37,7 +37,6 @@ var custo_t3: float = 100
 
 @onready var lista_estruturas = [t1, t2, t3, g1, g2, g3]
 
-
 #Spawners
 @onready var spawnerEast: Spawner = $Spawner_east
 @onready var spawnerWest: Spawner = $Spawner_west
@@ -64,15 +63,12 @@ func _ready():
 	atualizar_custos(0)
 
 	var instancia_louco = louco.instantiate()
-	instancia_louco.inicializar(instancia_jogador, self)
 	add_child(instancia_louco)
 	
 	var instancia_louco_mickey = louco_mickey.instantiate()
-	instancia_louco_mickey.inicializar(instancia_jogador, self)
 	add_child(instancia_louco_mickey)
 	
 	var instancia_louco_esbugalhada = louco_esbugalhada.instantiate()
-	instancia_louco_esbugalhada.inicializar(instancia_jogador, self)
 	add_child(instancia_louco_esbugalhada)
 	
 	#Spawner

@@ -39,7 +39,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmlyk"]
-size = Vector2(1, 1)
+size = Vector2(37, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tg3my"]
 radius = 200.105
@@ -58,8 +58,9 @@ animation = &"jogar"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 0)
+position = Vector2(1.5, 29)
 shape = SubResource("RectangleShape2D_vmlyk")
+debug_color = Color(0.388235, 0.47451, 1, 0.419608)
 
 [node name="torre" type="Area2D" parent="."]
 position = Vector2(40, 20)
@@ -77,7 +78,7 @@ position = Vector2(1, -32)
 autostart = true
 
 [node name="Ponto Popup Dano" type="Marker2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, -58)
 
 [connection signal="body_entered" from="torre" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="torre" to="." method="_on_tower_body_exited"]
