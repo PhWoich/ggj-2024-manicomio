@@ -19,7 +19,7 @@ func _on_torre_pena_body_entered(body):
 		if(body.getTeam() == 'louco' && body.has_method('atualizar_vida')):
 			fire()
 
-func _on_torre_pena_body_exited(body):
+func _on_torre_pena_body_exited(_body):
 	print('')
 
 

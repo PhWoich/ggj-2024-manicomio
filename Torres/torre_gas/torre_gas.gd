@@ -29,7 +29,7 @@ func entrou_area_gas(lado_animated, node, body):
 				_on_timer_timeout(true)
 			activate_spray(lado_animated, node)
 
-func saiu_area_gas(body):
+func saiu_area_gas(_body):
 	print('')
 
 func _on_gas_body_exited(body):

@@ -30,11 +30,11 @@ func _physics_process(_delta):
 	
 	var targetPos = Vector2.ZERO
 	var minDist = Vector2.ZERO.distance_to(global_position)
-	for target in targets:
-		if target:
-			var dist = target.global_position.distance_to(global_position)
+	for target_ in targets:
+		if target_:
+			var dist = target_.global_position.distance_to(global_position)
 			if dist < minDist:
-				targetPos = target.global_position
+				targetPos = target_.global_position
 				minDist = dist
 	
 	var direcao = (targetPos - global_position)
