@@ -57,8 +57,8 @@ func _physics_process(_delta):
 	
 	$AnimationTree['parameters/walk/blend_position'] = direcao
 	
-	if(shouldWalk):
-		move_and_slide()
+	#if(shouldWalk):
+	move_and_slide()
 	
 func getType():
 	return 'louco'
@@ -70,7 +70,7 @@ func _onBodyEntered(body: Node2D):
 			aplicarDano()
 
 func _onBodyExited(_body: Node2D):
-	var bodies = $Area2D.get_overlapping_bodies()
+	var bodies = $HitboxArea2D.get_overlapping_bodies()
 	if(!bodies.is_empty()):
 		target = bodies[0]
 	else:

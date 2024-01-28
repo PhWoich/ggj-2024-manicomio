@@ -15,6 +15,7 @@ var recurso:int = 1000
 @onready var camera = $Camera2D
 
 @onready var louco = preload("res://Louco/louco.tscn")
+@onready var louco_mickey = preload("res://Louco/louco_mickey.tscn")
 
 #Geradores
 @onready var g1: PackedScene = preload("res://Geradores/Esteira/gerador_esteira.tscn")
@@ -58,6 +59,10 @@ func _ready():
 	var instancia_louco = louco.instantiate()
 	instancia_louco.inicializar(instancia_jogador, self)
 	add_child(instancia_louco)
+	
+	var instancia_louco_mickey = louco_mickey.instantiate()
+	instancia_louco_mickey.inicializar(instancia_jogador, self)
+	add_child(instancia_louco_mickey)
 
 func _getInitialCustos():
 	custo_g1 = g1.instantiate().custo_base
