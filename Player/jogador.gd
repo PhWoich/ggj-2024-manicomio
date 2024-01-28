@@ -117,9 +117,6 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_released("jogador_adicionar_gerador") and pode_colocar_estrutura:
 		add_estrutura()
-		
-	if Input.is_action_just_released("jogador_destruir_estrutura"):
-		destruir_estrutura()
 
 func ataque_corpo_a_corpo():
 	emit_signal("atacar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_ataque)
@@ -159,9 +156,6 @@ func selecionar_estrutura_anterior():
 
 func add_estrutura():
 	cena_jogo.add_estrutura(estrutura_selecionada, position)
-	
-func destruir_estrutura():
-	print('destruir')
 
 func permitir_colocar_estrutura(value: bool):
 	pode_colocar_estrutura = value
