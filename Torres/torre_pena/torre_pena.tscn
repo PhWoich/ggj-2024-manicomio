@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://ox3fe7kurtq3"]
+
+[ext_resource type="Texture2D" uid="uid://dcyf6v5hcu8qy" path="res://Torres/torre_pena/sprite_0.png" id="1_fjexh"]
+[ext_resource type="Script" path="res://Torres/torre_pena/torre_pena.gd" id="1_x06c1"]
+[ext_resource type="Texture2D" uid="uid://bg2wvkg6ft7y6" path="res://Torres/torre_pena/sprite_1.png" id="2_qcjai"]
+[ext_resource type="Texture2D" uid="uid://bwyyb2uhx2pys" path="res://Torres/torre_pena/sprite_2.png" id="3_3uwvt"]
+[ext_resource type="Texture2D" uid="uid://bk7o5uvvdsgsc" path="res://Torres/torre_pena/sprite_3.png" id="4_8ecbn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vn6lx"]
+radius = 27.0
+height = 54.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_slgj2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fjexh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qcjai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3uwvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8ecbn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yoiwt"]
+radius = 148.084
+
+[node name="TorrePena" type="StaticBody2D"]
+script = ExtResource("1_x06c1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_vn6lx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, -7)
+sprite_frames = SubResource("SpriteFrames_slgj2")
+frame = 2
+frame_progress = 0.311916
+
+[node name="area_torre_pena" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_torre_pena"]
+shape = SubResource("CircleShape2D_yoiwt")
+one_way_collision_margin = 0.0
+
+[node name="Bolinhas" type="Marker2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="body_entered" from="area_torre_pena" to="." method="_on_torre_pena_body_entered"]
+[connection signal="body_exited" from="area_torre_pena" to="." method="_on_torre_pena_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

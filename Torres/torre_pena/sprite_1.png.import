@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfphkv7b73mwj"
-path="res://.godot/imported/sprite_gas.png-dfba657ae653b8e8e7ba82c8128e36dc.ctex"
+uid="uid://bg2wvkg6ft7y6"
+path="res://.godot/imported/sprite_1.png-e6cda942a75f2b38d0d98de73c0aa680.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Torres/GasDoRiso/sprite_gas.png"
-dest_files=["res://.godot/imported/sprite_gas.png-dfba657ae653b8e8e7ba82c8128e36dc.ctex"]
+source_file="res://Torres/torre_pena/sprite_1.png"
+dest_files=["res://.godot/imported/sprite_1.png-e6cda942a75f2b38d0d98de73c0aa680.ctex"]
 
 [params]
 
