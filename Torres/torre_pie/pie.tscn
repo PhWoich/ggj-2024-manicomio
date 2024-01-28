@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cugxxwviu488q"]
 
-[ext_resource type="Script" path="res://Torre/torre_pie/pie.gd" id="1_ww45d"]
-[ext_resource type="Texture2D" uid="uid://b4xqtxwg58c4c" path="res://Torre/torre_pie/Cream pie.png" id="2_8ysif"]
+[ext_resource type="Script" path="res://Torres/torre_pie/pie.gd" id="1_ww45d"]
+[ext_resource type="Texture2D" uid="uid://b4xqtxwg58c4c" path="res://Torres/torre_pie/Cream pie.png" id="2_8ysif"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3kaic"]
 atlas = ExtResource("2_8ysif")

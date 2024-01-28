@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5o2474mw3wwm"]
 
-[ext_resource type="PackedScene" uid="uid://dmne5rhxiuvef" path="res://Torre/torre_pie/torre_pie.tscn" id="1_s0jqv"]
-[ext_resource type="Script" path="res://Torre/cena_torre/cena_torre.gd" id="1_s56fv"]
+[ext_resource type="PackedScene" uid="uid://dmne5rhxiuvef" path="res://Torres/torre_pie/torre_pie.tscn" id="1_s0jqv"]
+[ext_resource type="Script" path="res://Torres/cena_torre/cena_torre.gd" id="1_s56fv"]
 [ext_resource type="PackedScene" uid="uid://cic8m47pqbt1j" path="res://Player/jogador.tscn" id="4_vecnk"]
 
 [node name="cena_torre" type="Node2D"]

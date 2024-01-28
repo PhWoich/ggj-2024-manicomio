@@ -65,19 +65,23 @@ func _getInitialCustos():
 	custo_g2 = g2.instantiate().custo_base
 	custo_g3 = g3.instantiate().custo_base
 	
+	#custo_t1 = t1.instantiate().custo_base
+	#custo_t2 = t2.instantiate().custo_base
+	#custo_t3 = t3.instantiate().custo_base
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-func add_gerador(geradorSelecionado: int, posicao:Vector2):
-	var instancia_gerador:Gerador_Basico = lista_estruturas[geradorSelecionado].instantiate()
-	if recurso >= instancia_gerador.custo_base + custo_adicional:
-		instancia_gerador.position = posicao
-		instancia_gerador.gerador_destruido.connect(atualizar_energia_gerada)
-		atualizar_energia_gerada(instancia_gerador.energia_gerada)
-		atualizar_recurso(-(instancia_gerador.custo_base + custo_adicional))
+func add_estrutura(estruturaSelecionada: int, posicao:Vector2):
+	var estrutura:Estrutura = lista_estruturas[estruturaSelecionada].instantiate()
+	if recurso >= estrutura.custo_base + custo_adicional:
+		estrutura.position = posicao
+		estrutura.estrutura_destruida.connect(atualizar_energia_gerada)
+		atualizar_energia_gerada(estrutura.energia)
+		atualizar_recurso(-(estrutura.custo_base + custo_adicional))
 		atualizar_custos(1)
-		add_child(instancia_gerador)
+		add_child(estrutura)
 
 func gerar_ataque_dist_jogador(posicao, movimento, rotacao, _cd):
 	var instancia_torta = torta_na_cara_jogador.instantiate()

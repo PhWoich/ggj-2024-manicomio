@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dmne5rhxiuvef"]
 
-[ext_resource type="Script" path="res://Torre/torre_pie/torre_pie.gd" id="1_7bc3h"]
-[ext_resource type="Texture2D" uid="uid://u52rotimyvw7" path="res://Torre/torre_pie/Cream pie Tower.png" id="2_ejgn4"]
+[ext_resource type="Script" path="res://Torres/torre_pie/torre_pie.gd" id="1_7bc3h"]
+[ext_resource type="Texture2D" uid="uid://u52rotimyvw7" path="res://Torres/torre_pie/Cream pie Tower.png" id="2_ejgn4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmlyk"]
 size = Vector2(63, 91)
