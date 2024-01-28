@@ -10,6 +10,7 @@ var recurso:int = 1000
 
 @onready var jogador = preload("res://Player/jogador.tscn")
 @onready var gui = $GUI
+@onready var nucleo = $Nucleo
 #Torta na cara que sai do jogador
 @onready var torta_na_cara_jogador = preload("res://Player/Tota na Cara/torta_na_cara.tscn")
 @onready var camera = $Camera2D
@@ -55,6 +56,8 @@ func _ready():
 	add_child(instancia_jogador)
 	$AudioStreamPlayer.play()
 	custo_adicional = 0
+	
+	nucleo.nucleo_danificado.connect(gui.set_central_tower_health)
 	
 	atualizar_recurso(0)
 	atualizar_energia_gerada(0)
@@ -142,3 +145,5 @@ func atualizar_custos(quantidade: int):
 	gui.set_towers_cost_values(custo_g1+custo_adicional, custo_t2+custo_adicional, custo_t3+custo_adicional)
 	gui.set_generators_cost_values(custo_g1+custo_adicional, custo_g2+custo_adicional, custo_g3+custo_adicional)
 	
+func atualizar_vida_nucleo(max, value):
+	gui.set_central_tower_health(max, value)

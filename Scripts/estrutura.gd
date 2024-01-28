@@ -13,6 +13,7 @@ var vida_atual:int = vida_maxima
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
+	vida_atual = vida_maxima
 	if(energia > 0):
 		$"Particula Eletricidade".emitir_particula(energia)
 
