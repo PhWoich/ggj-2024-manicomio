@@ -13,7 +13,8 @@ var vida_atual:int = vida_maxima
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
-	$"Particula Eletricidade".emitir_particula(energia)
+	if(energia > 0):
+		$"Particula Eletricidade".emitir_particula(energia)
 
 func _on_body_entered(body):
 	if body.has_method("permitir_colocar_estrutura"):

@@ -26,7 +26,7 @@ var custo_g3: float = 0
 
 #Torres
 #TODO
-@onready var t1: PackedScene = preload("res://Geradores/Esteira/gerador_esteira.tscn")
+@onready var t1: PackedScene = preload("res://Torres/torre_pie/torre_pie.tscn")
 @onready var t2: PackedScene = preload("res://Geradores/Fornalha/gerador_fornalha.tscn")
 @onready var t3: PackedScene = preload("res://Geradores/Inalador SA/gerador_inalador_sa.tscn")
 @onready var lista_torres = [t1, t2, t3]
@@ -65,7 +65,7 @@ func _getInitialCustos():
 	custo_g2 = g2.instantiate().custo_base
 	custo_g3 = g3.instantiate().custo_base
 	
-	#custo_t1 = t1.instantiate().custo_base
+	custo_t1 = t1.instantiate().custo_base
 	#custo_t2 = t2.instantiate().custo_base
 	#custo_t3 = t3.instantiate().custo_base
 

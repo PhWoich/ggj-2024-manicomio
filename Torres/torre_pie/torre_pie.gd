@@ -1,13 +1,12 @@
-extends StaticBody2D
+extends Estrutura
 
-@onready var pie = preload("res://Torre/torre_pie/pie.tscn")
+@onready var pie = preload("res://Torres/torre_pie/pie.tscn")
 @onready var timer = $Timer
 
 var currTargets = []
 var curr
 var target_position
 var target
-
 var tipo_alvo = "Jogador"
 
 func fire():
@@ -22,20 +21,18 @@ func fire():
 
 func _ready():
 	$AnimatedSprite2D.play("jogar")
+	custo_base = 25
+	energia = -15
+	super()
+
 
 func _on_tower_body_entered(body):
 	if tipo_alvo in body.name:
-		print("Entrou")
 		currTargets = get_node("torre").get_overlapping_bodies()
-	pass 
-
 
 func _on_tower_body_exited(body):
 	if tipo_alvo in body.name:
-		print("Saiu")
 		currTargets = get_node("torre").get_overlapping_bodies()
-	pass 
-
 
 func _on_timer_timeout():
 	for i in currTargets:
@@ -43,5 +40,4 @@ func _on_timer_timeout():
 			if tipo_alvo in i.name:
 				target_position = i.global_position
 				target = i
-				print("Atirou")
 				fire()
