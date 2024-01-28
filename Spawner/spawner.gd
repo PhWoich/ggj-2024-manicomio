@@ -29,6 +29,7 @@ var chances: Array[int]
 var totalChance: int = 0
 var running = true
 var num_entities = 0
+var max_entities = 30
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -51,8 +52,9 @@ func stop():
 		timer.stop()
 		running = false
 	
-func initialize_entityHolder(entityHolder):
+func initialize_entityHolder(entityHolder, max_entities):
 	self.entityHolder = entityHolder
+	self.max_entities = max_entities
 
 func sum(accum, number):
 	return accum + number
@@ -71,7 +73,7 @@ func spawn():
 		if sorteado < acc:
 			sorteado = i
 			break
-	if entityHolder and num_entities>0:
+	if entityHolder and num_entities>0 and entityHolder.get_child_count()<max_entities:
 		var entity_instance = Entitys[sorteado].instantiate()
 		entityHolder.add_child(entity_instance)
 		entity_instance.global_position = global_position + Vector2(randf_range(-radius,+radius), randf_range(-radius,+radius))
