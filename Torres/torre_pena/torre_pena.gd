@@ -3,28 +3,32 @@ extends Estrutura
 @onready var bolinhas = preload("res://Torres/torre_pena/penas.tscn")
 @onready var timer = $Timer
 
-var currTargets = []
-
-var tipo_alvo = "Jogador"
+#var currTargets = []
+var currLoucos
+@export var forca: float = 20
+#var tipo_alvo = "Jogador"
 
 func fire():
-	if not(currTargets.is_empty()):
+	currLoucos = get_node("area_torre_pena").get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
+	if not(currLoucos.is_empty()):
 		var tempBolinhas = bolinhas.instantiate()
 		$Bolinhas.add_child(tempBolinhas)
+		for louco in currLoucos:
+			louco.atualizar_vida(-forca)
 
 func _on_torre_pena_body_entered(body):
-	if tipo_alvo in body.name:
-		currTargets = get_node("area_torre_pena").get_overlapping_bodies()
-		fire()
-
+	if(body.has_method('getType')):
+		if(body.getType() == 'louco' && body.has_method('atualizar_vida')):
+			fire()
+		#currTargets = get_node("area_torre_pena").get_overlapping_bodies()
 
 func _on_torre_pena_body_exited(body):
-	if tipo_alvo in body.name:
-		currTargets = get_node("area_torre_pena").get_overlapping_bodies()
+	#if tipo_alvo in body.name:
+	pass
+		#currTargets = get_node("area_torre_pena").get_overlapping_bodies()
 
 
 func _on_timer_timeout():
-	for i in currTargets:
-		if i != null:
-			if tipo_alvo in i.name:
-				fire()
+	currLoucos = get_node("area_torre_pena").get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
+	if not(currLoucos.is_empty()):
+		fire()

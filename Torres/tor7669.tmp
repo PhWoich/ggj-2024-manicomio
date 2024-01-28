@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0lk0626hipyh"]
+
+[ext_resource type="PackedScene" uid="uid://cued8klctc7w" path="res://Louco/louco.tscn" id="2_hai30"]
+[ext_resource type="PackedScene" uid="uid://cfl6jj7vskdxx" path="res://Torres/torre_gas/torre_gas.tscn" id="3_csg1x"]
+[ext_resource type="PackedScene" uid="uid://cic8m47pqbt1j" path="res://Player/jogador.tscn" id="4_0soyc"]
+
+[node name="Torres-test" type="Node2D"]
+
+[node name="Louco" parent="." instance=ExtResource("2_hai30")]
+position = Vector2(271, 695)
+
+[node name="Jogador" parent="." instance=ExtResource("4_0soyc")]
+position = Vector2(439, 486)
+
+[node name="TorreGas" parent="." instance=ExtResource("3_csg1x")]
+position = Vector2(244, 330)
