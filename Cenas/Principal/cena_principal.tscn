@@ -45,37 +45,37 @@ radius = 96.0
 
 [node name="Spawner_S_power_up" parent="." instance=ExtResource("9_0rsdr")]
 position = Vector2(239, 1248)
-radius = 64.0
-cooldown = 60.0
+radius = 60.0
+cooldown = 20.0
 
 [node name="Spawner_SW_power_up" parent="." instance=ExtResource("9_0rsdr")]
 position = Vector2(-768, 721)
-radius = 64.0
-cooldown = 60.0
+radius = 60.0
+cooldown = 20.0
 
 [node name="Spawner_SE_power_up" parent="." instance=ExtResource("9_0rsdr")]
 position = Vector2(432, 437)
-radius = 64.0
-cooldown = 60.0
+radius = 60.0
+cooldown = 20.0
 
 [node name="Spawner_NE_power_up" parent="." instance=ExtResource("9_0rsdr")]
 position = Vector2(480, -379)
-radius = 64.0
-cooldown = 60.0
+radius = 60.0
+cooldown = 20.0
 
 [node name="Spawner_N_power_up" parent="." instance=ExtResource("9_0rsdr")]
 position = Vector2(388, -1199)
-radius = 64.0
-cooldown = 60.0
+radius = 60.0
+cooldown = 20.0
 
 [node name="Spawner_NW_power_up" parent="." instance=ExtResource("9_0rsdr")]
-position = Vector2(-768, -571)
-radius = 64.0
-cooldown = 60.0
+position = Vector2(-770, -576)
+radius = 60.0
+cooldown = 20.0
 
 [node name="Spawner_W_power_up" parent="." instance=ExtResource("9_0rsdr")]
 position = Vector2(-1342, -194)
-radius = 64.0
-cooldown = 60.0
+radius = 60.0
+cooldown = 20.0
 
 [node name="powerUpHolder" type="Node" parent="."]

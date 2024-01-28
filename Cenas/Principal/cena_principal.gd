@@ -111,7 +111,7 @@ func _ready():
 	spawnerSouth.start()
 
 	#Spawner de recursos
-	var max_entities_power = 1
+	var max_entities_power = 7
 	spawner_S_power_up.initialize_entityHolder($powerUpHolder, max_entities_power)
 	spawner_S_power_up.add_entity(cura_power_up, 1)
 	spawner_S_power_up.add_entity(pena_power_up, 1)
