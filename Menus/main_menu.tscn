@@ -60,7 +60,8 @@ A DISTÂNCIA:   L
 
 
 SELECIONAR ESTRUTURAS:   Q OU R
-CONSTRUIR ESTRUTURA:   E"
+CONSTRUIR ESTRUTURA:   E
+QUEBRAR ESTRUTURA:   P"
 script = ExtResource("2_ef33s")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

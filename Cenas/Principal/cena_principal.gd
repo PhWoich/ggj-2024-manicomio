@@ -17,6 +17,9 @@ var recurso:int = 1000
 @onready var louco = preload("res://Louco/louco.tscn")
 @onready var louco_mickey = preload("res://Louco/louco_mickey.tscn")
 @onready var louco_esbugalhada = preload("res://Louco/louco_esbugalhada.tscn")
+@onready var cura_power_up = preload("res://PowerUps/PowerUp_cura/power_up_cura.tscn")
+@onready var pena_power_up = preload("res://PowerUps/PowerUp_pena/power_up_pena.tscn")
+@onready var speed_power_up = preload("res://PowerUps/PowerUp_speed/power_up_speed.tscn")
 #Geradores
 @onready var g1: PackedScene = preload("res://Geradores/Esteira/gerador_esteira.tscn")
 @onready var g2: PackedScene = preload("res://Geradores/Fornalha/gerador_fornalha.tscn")
@@ -37,11 +40,21 @@ var custo_t3: float = 100
 
 @onready var lista_estruturas = [t1, t2, t3, g1, g2, g3]
 
-#Spawners
+#Spawners de inimigos
 @onready var spawnerEast: Spawner = $Spawner_east
 @onready var spawnerWest: Spawner = $Spawner_west
 @onready var spawnerNorth: Spawner = $Spawner_north
 @onready var spawnerSouth: Spawner = $Spawner_south
+
+#Spawners de recursos
+@onready var spawner_S_power_up: Spawner = $Spawner_S_power_up
+@onready var spawner_SW_power_up: Spawner = $Spawner_SW_power_up
+@onready var spawner_SE_power_up: Spawner = $Spawner_SE_power_up
+@onready var spawner_N_power_up: Spawner = $Spawner_N_power_up
+@onready var spawner_NW_power_up: Spawner = $Spawner_NW_power_up
+@onready var spawner_NE_power_up: Spawner = $Spawner_NE_power_up
+@onready var spawner_W_power_up: Spawner = $Spawner_W_power_up
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -71,30 +84,75 @@ func _ready():
 	var instancia_louco_esbugalhada = louco_esbugalhada.instantiate()
 	add_child(instancia_louco_esbugalhada)
 	
-	#Spawner
-	spawnerEast.initialize_entityHolder($enemyHolder) #pode ser compartilhado entre todos os spawners
+	#Spawner de inimigos
+	var max_entities_enemies = 50
+	spawnerEast.initialize_entityHolder($enemyHolder, max_entities_enemies) #pode ser compartilhado entre todos os spawners
 	spawnerEast.add_entity(louco, 3)
 	spawnerEast.add_entity(louco_esbugalhada, 2)
 	spawnerEast.add_entity(louco_mickey, 1)
 	spawnerEast.start()
 
-	spawnerWest.initialize_entityHolder($enemyHolder)
+	spawnerWest.initialize_entityHolder($enemyHolder, max_entities_enemies)
 	spawnerWest.add_entity(louco, 3)
 	spawnerWest.add_entity(louco_esbugalhada, 2)
 	spawnerWest.add_entity(louco_mickey, 1)
 	spawnerWest.start()
 
-	spawnerNorth.initialize_entityHolder($enemyHolder)
+	spawnerNorth.initialize_entityHolder($enemyHolder, max_entities_enemies)
 	spawnerNorth.add_entity(louco, 3)
 	spawnerNorth.add_entity(louco_esbugalhada, 2)
 	spawnerNorth.add_entity(louco_mickey, 1)
 	spawnerNorth.start()
 
-	spawnerSouth.initialize_entityHolder($enemyHolder)
+	spawnerSouth.initialize_entityHolder($enemyHolder, max_entities_enemies)
 	spawnerSouth.add_entity(louco, 3)
 	spawnerSouth.add_entity(louco_esbugalhada, 2)
 	spawnerSouth.add_entity(louco_mickey, 1)
 	spawnerSouth.start()
+
+	#Spawner de recursos
+	var max_entities_power = 1
+	spawner_S_power_up.initialize_entityHolder($powerUpHolder, max_entities_power)
+	spawner_S_power_up.add_entity(cura_power_up, 1)
+	spawner_S_power_up.add_entity(pena_power_up, 1)
+	spawner_S_power_up.add_entity(speed_power_up, 1)
+	spawner_S_power_up.start()
+
+	spawner_SW_power_up.initialize_entityHolder($powerUpHolder, max_entities_power)
+	spawner_SW_power_up.add_entity(cura_power_up, 1)
+	spawner_SW_power_up.add_entity(pena_power_up, 1)
+	spawner_SW_power_up.add_entity(speed_power_up, 1)
+	spawner_SW_power_up.start()
+
+	spawner_SE_power_up.initialize_entityHolder($powerUpHolder, max_entities_power)
+	spawner_SE_power_up.add_entity(cura_power_up, 1)
+	spawner_SE_power_up.add_entity(pena_power_up, 1)
+	spawner_SE_power_up.add_entity(speed_power_up, 1)
+	spawner_SE_power_up.start()
+
+	spawner_N_power_up.initialize_entityHolder($powerUpHolder, max_entities_power)
+	spawner_N_power_up.add_entity(cura_power_up, 1)
+	spawner_N_power_up.add_entity(pena_power_up, 1)
+	spawner_N_power_up.add_entity(speed_power_up, 1)
+	spawner_N_power_up.start()
+
+	spawner_NW_power_up.initialize_entityHolder($powerUpHolder, max_entities_power)
+	spawner_NW_power_up.add_entity(cura_power_up, 1)
+	spawner_NW_power_up.add_entity(pena_power_up, 1)
+	spawner_NW_power_up.add_entity(speed_power_up, 1)
+	spawner_NW_power_up.start()
+
+	spawner_NE_power_up.initialize_entityHolder($powerUpHolder, max_entities_power)
+	spawner_NE_power_up.add_entity(cura_power_up, 1)
+	spawner_NE_power_up.add_entity(pena_power_up, 1)
+	spawner_NE_power_up.add_entity(speed_power_up, 1)
+	spawner_NE_power_up.start()
+
+	spawner_W_power_up.initialize_entityHolder($powerUpHolder, max_entities_power)
+	spawner_W_power_up.add_entity(cura_power_up, 1)
+	spawner_W_power_up.add_entity(pena_power_up, 1)
+	spawner_W_power_up.add_entity(speed_power_up, 1)
+	spawner_W_power_up.start()
 	
 
 func _getInitialCustos():
