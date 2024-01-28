@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxcfcf6bbfojr"]
+
+[ext_resource type="Script" path="res://PowerUps/PowerUp_pena/power_up_pena.gd" id="1_gdfux"]
+[ext_resource type="Texture2D" uid="uid://caoci0coxser8" path="res://PowerUps/PowerUp_pena/tile_0116.png" id="2_yhina"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imhtp"]
+
+[node name="PowerUp_pena" type="Area2D"]
+script = ExtResource("1_gdfux")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_yhina")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_imhtp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
