@@ -193,6 +193,14 @@ func getType():
 func curar_vida_jogador():
 	vida_atual = vida_maxima
 	emit_signal('atualizar_vida_jogador', vida_atual, vida_maxima)
+	var penas = preload("res://Particulas/Coracao/explosao_coracao.tscn")
+	var instance_penas = penas.instantiate()
+	$Ponto_partida_particulas.add_child(instance_penas)
+	instance_penas.emitir_particula()
 
 func add_forca_pena():
 	forca_pena = forca_pena+5
+	var penas = preload("res://Particulas/Explosão Penas/explosao_penas.tscn")
+	var instance_penas = penas.instantiate()
+	$Ponto_partida_particulas.add_child(instance_penas)
+	instance_penas.emitir_particula()

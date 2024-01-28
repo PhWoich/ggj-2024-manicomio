@@ -1,24 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6hfy0jfvjoi4"]
+[gd_scene load_steps=4 format=3 uid="uid://80mu5mscmpxw"]
 
-[ext_resource type="Script" path="res://Particulas/Explosão Penas/explosao_penas.gd" id="1_k6b6c"]
-[ext_resource type="Texture2D" uid="uid://bbnqg555mkfjm" path="res://Particulas/Explosão Penas/pena.png" id="1_l8cmn"]
+[ext_resource type="Script" path="res://Particulas/Coracao/explosao_coracao.gd" id="1_xr5i0"]
+[ext_resource type="Texture2D" uid="uid://bw14t330x7fc1" path="res://Particulas/Coracao/Coracao.png" id="2_ysqsb"]
 
 [sub_resource type="Curve" id="Curve_t2yvk"]
 _data = [Vector2(0.00561798, 1), 0.0, 0.0, 0, 0, Vector2(0.988764, 0.175824), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="Explosao Penas" type="Node2D"]
-script = ExtResource("1_k6b6c")
+[node name="Explosao Coracao" type="Node2D"]
+script = ExtResource("1_xr5i0")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 10
+lifetime = 1.5
 one_shot = true
 explosiveness = 1.0
-texture = ExtResource("1_l8cmn")
+texture = ExtResource("2_ysqsb")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 70.0
-angle_max = 359.0
 scale_amount_curve = SubResource("Curve_t2yvk")

@@ -1,14 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsgntaaiuef38"]
+[gd_scene load_steps=3 format=3 uid="uid://bsgntaaiuef38"]
 
 [ext_resource type="Texture2D" uid="uid://dxcusmroa8jom" path="res://Particulas/Eletricidade/Icone_eletricidade.png" id="1_b6hur"]
-[ext_resource type="Script" path="res://Particulas/Eletricidade/particula_eletricidade.gd" id="1_mgbbh"]
 
 [sub_resource type="Curve" id="Curve_qcmkc"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.988764, 0.186813), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="Particula Eletricidade" type="Node2D"]
-script = ExtResource("1_mgbbh")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
