@@ -59,7 +59,7 @@ graph_offset = Vector2(103.2, -13.0275)
 [node name="Nucleo" type="StaticBody2D"]
 script = ExtResource("1_1tee7")
 custo_base = 0
-vida_maxima = 10
+vida_maxima = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 58)
