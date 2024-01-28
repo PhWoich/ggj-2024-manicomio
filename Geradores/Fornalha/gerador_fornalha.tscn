@@ -24,6 +24,7 @@ size = Vector2(165, 165)
 
 [node name="Fornalha" type="Area2D"]
 script = ExtResource("1_ui8bx")
+
 energia = 30.0
 custo_base = 50
 

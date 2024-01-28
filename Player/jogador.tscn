@@ -241,7 +241,7 @@ scale = Vector2(1.6875, 1.6875)
 texture = ExtResource("2_c5m5h")
 hframes = 4
 vframes = 4
-frame = 6
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
@@ -289,6 +289,8 @@ one_shot = true
 
 [node name="Timer_atirar" type="Timer" parent="."]
 one_shot = true
+
+[node name="Ponto_partida_particulas" type="Marker2D" parent="."]
 
 [connection signal="timeout" from="Timer_atacar" to="." method="jogador_pode_atacar"]
 [connection signal="timeout" from="Timer_atirar" to="." method="jogador_pode_atirar"]
