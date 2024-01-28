@@ -4,7 +4,6 @@ var threshold = 0
 @export var forca: int = 10
 @export var cooldown: float = 2
 var targets = []
-@export var forca: int = 1
 @export var jogador: Node2D
 @export var speed: int = 25
 @export var recursoRecompensa: int = 5
@@ -23,7 +22,7 @@ var cena: Cena_Principal
 func inicializar(jogador_: Node2D, cena_):
 	jogador = jogador_
 	cena = cena_
-    
+	
 func _ready():
 	timer.wait_time = cooldown
 

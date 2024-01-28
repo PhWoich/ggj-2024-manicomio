@@ -120,9 +120,6 @@ func _physics_process(_delta):
 	if Input.is_action_just_released("jogador_destruir_estrutura"):
 		destruir_estrutura()
 
-func getType():
-	return "player"
-
 func ataque_corpo_a_corpo():
 	emit_signal("atacar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_ataque)
 	var instancia_espada_pena = espada_pena.instantiate()
