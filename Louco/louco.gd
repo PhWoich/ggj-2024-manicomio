@@ -71,11 +71,15 @@ func _onBodyEntered(body: Node2D):
 
 func _onBodyExited(_body: Node2D):
 	var bodies = $HitboxArea2D.get_overlapping_bodies()
+
+	target = null
+	shouldWalk = true
 	if(!bodies.is_empty()):
-		target = bodies[0]
-	else:
-		target = null
-		shouldWalk = true
+		for body in bodies:
+			if(body.getType() != 'louco'):
+				shouldWalk = false
+				target = body
+				break
 		
 func aplicarDano():
 	if(target != null && target.has_method('atualizar_vida')):

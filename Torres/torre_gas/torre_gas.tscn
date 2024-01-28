@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" path="res://Torres/torre_gas/torre_gas.gd" id="1_yuf0c"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bsr1"]
-radius = 34.0
-height = 80.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2tau"]
+size = Vector2(1, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2883a"]
 load_path = "res://.godot/imported/sprite_gas.png-bc9570a6e1ebb31d0b1eaca6e9c5a430.ctex"
@@ -68,14 +67,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="TorreGas" type="Area2D"]
+[node name="TorreGas" type="StaticBody2D"]
 script = ExtResource("1_yuf0c")
 energia = -90.0
 custo_base = 120
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 1)
-shape = SubResource("CapsuleShape2D_6bsr1")
+shape = SubResource("RectangleShape2D_n2tau")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 1)
@@ -155,7 +154,6 @@ wait_time = 1.5
 [connection signal="body_exited" from="gas_right" to="." method="_on_gas_body_exited"]
 [connection signal="body_entered" from="gas_top" to="." method="_on_gas_top_body_entered"]
 [connection signal="body_exited" from="gas_top" to="." method="_on_gas_body_exited"]
-[connection signal="area_entered" from="gas_left" to="." method="_on_gas_left_area_entered"]
 [connection signal="body_entered" from="gas_left" to="." method="_on_gas_left_body_entered"]
 [connection signal="body_exited" from="gas_left" to="." method="_on_gas_body_exited"]
 [connection signal="body_entered" from="gas_down" to="." method="_on_gas_down_body_entered"]
