@@ -52,11 +52,15 @@ text = "EXIT"
 title = "CONTROLES"
 size = Vector2i(108, 184)
 ok_button_text = "BACK"
-dialog_text = "MOVIMENTO                                                                                                         	ATAQUE
-CIMA:                                                                                                        	              CORPO A CORPO: 
-BAIXO:                                                                                                         	           A DISTÂNCIA: 
-ESQUERDA:
-DIREITA:"
+dialog_text = "MOVIMENTO: WASD OU SETINHAS                                                           	
+
+ATAQUE
+CORPO A CORPO:   K OU ESQUERDO DO MOUSE
+A DISTÂNCIA:   L  OU DIREITO DO MOUSE
+
+
+SELECIONAR ESTRUTURAS:   Q OU R
+CONSTRUIR ESTRUTURA:   E"
 script = ExtResource("2_ef33s")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
