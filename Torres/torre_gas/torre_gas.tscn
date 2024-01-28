@@ -1,14 +1,16 @@
 [gd_scene load_steps=11 format=3 uid="uid://cfl6jj7vskdxx"]
 
-[ext_resource type="Texture2D" path="res://Torres/GasDoRiso/sprite_gas.png" id="1_8fyil"]
 [ext_resource type="Script" path="res://Torres/torre_gas/torre_gas.gd" id="1_yuf0c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bsr1"]
-radius = 5.0
-height = 26.0
+radius = 34.0
+height = 80.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2883a"]
+load_path = "res://.godot/imported/sprite_gas.png-bc9570a6e1ebb31d0b1eaca6e9c5a430.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwj7t"]
-atlas = ExtResource("1_8fyil")
+atlas = SubResource("CompressedTexture2D_2883a")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hf1ki"]
@@ -23,19 +25,19 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5idk0"]
-atlas = ExtResource("1_8fyil")
+atlas = SubResource("CompressedTexture2D_2883a")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ojdv"]
-atlas = ExtResource("1_8fyil")
+atlas = SubResource("CompressedTexture2D_2883a")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2sv10"]
-atlas = ExtResource("1_8fyil")
+atlas = SubResource("CompressedTexture2D_2883a")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8t3m3"]
-atlas = ExtResource("1_8fyil")
+atlas = SubResource("CompressedTexture2D_2883a")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_thskd"]
@@ -68,17 +70,21 @@ animations = [{
 
 [node name="TorreGas" type="Area2D"]
 script = ExtResource("1_yuf0c")
+energia = -90.0
+custo_base = 120
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(-4, 1)
 shape = SubResource("CapsuleShape2D_6bsr1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 1)
-scale = Vector2(0.75, 0.71875)
+scale = Vector2(2.4, 2.302)
 sprite_frames = SubResource("SpriteFrames_hf1ki")
 
 [node name="gas_right" type="Area2D" parent="."]
+position = Vector2(4, -1)
+scale = Vector2(3.12, 3.12)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gas_right"]
 position = Vector2(31, 0)
@@ -92,9 +98,10 @@ sprite_frames = SubResource("SpriteFrames_thskd")
 animation = &"spray"
 
 [node name="gas_top" type="Area2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(3.24, 3.24)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gas_top"]
-visible = false
 position = Vector2(9, -37)
 rotation = -1.5708
 scale = Vector2(1.5, 1.5)
@@ -108,6 +115,8 @@ sprite_frames = SubResource("SpriteFrames_thskd")
 animation = &"no_spray"
 
 [node name="gas_left" type="Area2D" parent="."]
+position = Vector2(-9, -3)
+scale = Vector2(3.16, 3.16)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gas_left"]
 position = Vector2(-29, -18)
@@ -123,6 +132,8 @@ sprite_frames = SubResource("SpriteFrames_thskd")
 animation = &"no_spray"
 
 [node name="gas_down" type="Area2D" parent="."]
+position = Vector2(-7, -3)
+scale = Vector2(3.23173, 2.66755)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gas_down"]
 position = Vector2(-9.13744, 41.0708)
