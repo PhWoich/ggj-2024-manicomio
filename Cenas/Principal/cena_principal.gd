@@ -117,11 +117,15 @@ func add_estrutura(estruturaSelecionada: int, posicao:Vector2):
 	var estrutura:Estrutura = lista_estruturas[estruturaSelecionada].instantiate()
 	if recurso >= estrutura.custo_base + custo_adicional:
 		estrutura.position = posicao
-		estrutura.estrutura_destruida.connect(atualizar_energia_gerada)
-		atualizar_energia_gerada(estrutura.energia)
+		estrutura.estrutura_destruida.connect(estrutura_destruida_gui)
+		if estrutura.energia > 0:
+			atualizar_energia_gerada(estrutura.energia)
+		else:
+			atualizar_energia_consumida(-estrutura.energia)
 		atualizar_recurso(-(estrutura.custo_base + custo_adicional))
 		atualizar_custos(1)
 		add_child(estrutura)
+		#estrutura.estrutura_destruida.connect(estrutura_destruida_gui)
 
 func gerar_ataque_dist_jogador(posicao, movimento, rotacao, _cd):
 	var instancia_torta = torta_na_cara_jogador.instantiate()
@@ -134,6 +138,9 @@ func atualizar_recurso(quantidade):
 	
 func atualizar_energia_gerada(quantidade):
 	energia_atual_gerada += quantidade
+	if energia_atual_gerada > 100:
+		gui.set_max_energy_value(energia_atual_gerada)
+		gui.set_used_energy_value(energia_atual_consumida)
 	gui.set_available_energy_value(energia_atual_gerada)
 	
 func atualizar_energia_consumida(quantidade):
@@ -147,3 +154,8 @@ func atualizar_custos(quantidade: int):
 	
 func atualizar_vida_nucleo(max, value):
 	gui.set_central_tower_health(max, value)
+func estrutura_destruida_gui(energia):
+	if energia > 0:
+		atualizar_energia_gerada(-energia)
+	else:
+		atualizar_energia_consumida(energia)

@@ -146,18 +146,22 @@ func delete_estrutura():
 		inicio_ataque_baixo:
 			var body = $ShapeCast2D_down.get_collider(0)
 			if body and body.has_method("getType") and body.getType() == "estrutura":
+				body.emit_signal("estrutura_destruida", body.energia)
 				body.queue_free()
 		inicio_ataque_cima:
 			var body = $ShapeCast2D_up.get_collider(0)
 			if body and body.has_method("getType") and body.getType() == "estrutura":
+				body.emit_signal("estrutura_destruida", body.energia)
 				body.queue_free()
 		inicio_ataque_direita:
 			var body = $ShapeCast2D_right.get_collider(0)
 			if body and body.has_method("getType") and body.getType() == "estrutura":
+				body.emit_signal("estrutura_destruida", body.energia)
 				body.queue_free()
 		inicio_ataque_esquerda:
 			var body = $ShapeCast2D_left.get_collider(0)
 			if body and body.has_method("getType") and body.getType() == "estrutura":
+				body.emit_signal("estrutura_destruida", body.energia)
 				body.queue_free()
 
 func selecionar_prox_estrutura():

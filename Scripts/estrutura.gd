@@ -33,7 +33,7 @@ func atualizar_vida(value):
 	ponto_popup.add_child(instancia_popup)
 	
 	if vida_atual == 0:
-		emit_signal("estrutura_destruida", -energia)
+		emit_signal("estrutura_destruida", energia)
 		if isNucleo():
 			get_tree().change_scene_to_file("res://Menus/game_over_screen.tscn")	
 		else:
@@ -47,3 +47,4 @@ func isNucleo():
 
 func getTeam():
 	return 'player'
+	
