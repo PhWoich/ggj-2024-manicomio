@@ -24,4 +24,5 @@ shape = SubResource("RectangleShape2D_xy4ae")
 wait_time = 10.0
 autostart = true
 
+[connection signal="body_entered" from="." to="." method="_onBodyEntered"]
 [connection signal="timeout" from="Timer_vida_ataque" to="." method="_on_timer_vida_ataque_timeout"]

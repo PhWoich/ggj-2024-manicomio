@@ -56,7 +56,7 @@ func _ready():
 	atualizar_custos(0)
 
 	var instancia_louco = louco.instantiate()
-	instancia_louco.inicializar(instancia_jogador)
+	instancia_louco.inicializar(instancia_jogador, self)
 	add_child(instancia_louco)
 
 

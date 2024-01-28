@@ -9,7 +9,7 @@ var ultimo_movimento:Vector2
 
 #2. Controles dos ataques
 @export var cooldown_ataque: float = 0.5
-@export var cooldown_atirar: float = 1
+@export var cooldown_atirar: float = 2
 signal atacar(posicao_inicial, movimento, rotacao, cooldown_ataque)
 signal atirar(posicao_inicial, movimento, rotacao, cooldown_atirar)
 
@@ -104,11 +104,9 @@ func _physics_process(_delta):
 	#Ataques
 	if Input.is_action_just_released("Jogador_ataque_melee") and pode_atacar:
 		ataque_corpo_a_corpo()
-	
-	
+		
 	if Input.is_action_just_released("Jogador_ataque_distancia") and pode_atirar:
 		ataque_a_distancia()
-	
 	#Add Gerador
 	if Input.is_action_just_released("selecionar_prox_gerador"):
 		selecionar_prox_estrutura()
@@ -189,4 +187,7 @@ func pick_new_state():
 func atualizar_vida(value: float):
 	vida_atual = max(min(vida_maxima, vida_atual + value), 0)
 	emit_signal('atualizar_vida_jogador', vida_atual, vida_maxima)
+
+func getType():
+	return 'player'
 	
