@@ -85,8 +85,8 @@ tracks/1/keys = {
 "values": [ExtResource("3_ld0dc"), ExtResource("2_h4adk"), ExtResource("4_07ulu"), ExtResource("2_h4adk")]
 }
 
-[sub_resource type="Animation" id="Animation_pirj6"]
-resource_name = "walk_up"
+[sub_resource type="Animation" id="Animation_kvys8"]
+resource_name = "walk_left"
 length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
@@ -111,7 +111,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_lokxh"), ExtResource("6_s1t3e"), ExtResource("7_8abk7"), ExtResource("6_s1t3e")]
+"values": [ExtResource("3_ld0dc"), ExtResource("2_h4adk"), ExtResource("4_07ulu"), ExtResource("2_h4adk")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_r620w"]
@@ -155,8 +167,8 @@ tracks/2/keys = {
 "values": [true, true, true, true]
 }
 
-[sub_resource type="Animation" id="Animation_kvys8"]
-resource_name = "walk_left"
+[sub_resource type="Animation" id="Animation_pirj6"]
+resource_name = "walk_up"
 length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
@@ -181,19 +193,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_ld0dc"), ExtResource("2_h4adk"), ExtResource("4_07ulu"), ExtResource("2_h4adk")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [ExtResource("2_lokxh"), ExtResource("6_s1t3e"), ExtResource("7_8abk7"), ExtResource("6_s1t3e")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4nn2v"]
@@ -266,8 +266,7 @@ debug_color = Color(0.168627, 0.607843, 0.592157, 0.419608)
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("7_8abk7")
-flip_h = true
+texture = ExtResource("6_s1t3e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

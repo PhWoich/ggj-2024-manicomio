@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bks1o33n4y115"]
+[gd_scene load_steps=19 format=3 uid="uid://rq2hlp1fbc64"]
 
-[ext_resource type="Script" path="res://Louco/louco.gd" id="1_1uvoj"]
-[ext_resource type="Texture2D" uid="uid://dr8sxegn2ktvy" path="res://Louco/Louco da camisa Stark.png" id="2_6bhsr"]
+[ext_resource type="Script" path="res://Louco/louco.gd" id="1_4a1vo"]
+[ext_resource type="Texture2D" uid="uid://b1l5g3tnkydgv" path="res://Louco/Zoiudinha.png" id="2_cy354"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ex7r3"]
 radius = 174.162
@@ -24,12 +24,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7]
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_vsoxu"]
 resource_name = "walk_down"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -38,15 +38,27 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [4, 6, 5, 6]
+"values": [1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Sprite:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.785702),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
 }
 
 [sub_resource type="Animation" id="Animation_vx62e"]
 resource_name = "walk_left"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -55,15 +67,15 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [11, 7, 9, 7]
+"values": [3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_oavgf"]
 resource_name = "walk_right"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -72,15 +84,15 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [12, 8, 10, 8]
+"values": [5, 6]
 }
 
 [sub_resource type="Animation" id="Animation_k3inw"]
 resource_name = "walk_up"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -89,10 +101,10 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1, 0, 2, 0]
+"values": [2, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4nn2v"]
@@ -133,7 +145,7 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ojy1t"]
 states/End/position = Vector2(663, 100.875)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_65d3m")
-states/walk/position = Vector2(421.5, 100.438)
+states/walk/position = Vector2(421.5, 100.875)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_kixd7")]
 graph_offset = Vector2(50.43, 0)
 
@@ -141,7 +153,10 @@ graph_offset = Vector2(50.43, 0)
 position = Vector2(-1, 589)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_1uvoj")
+script = ExtResource("1_4a1vo")
+forca = 20
+speed = 35
+recursoRecompensa = 10
 
 [node name="VisionArea2D" type="Area2D" parent="."]
 
@@ -160,10 +175,9 @@ debug_color = Color(0.168627, 0.607843, 0.592157, 0.419608)
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("2_6bhsr")
-hframes = 4
-vframes = 4
-frame = 6
+texture = ExtResource("2_cy354")
+hframes = 3
+vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
