@@ -59,7 +59,6 @@ func _ready():
 	instancia_louco.inicializar(instancia_jogador, self)
 	add_child(instancia_louco)
 
-
 func _getInitialCustos():
 	custo_g1 = g1.instantiate().custo_base
 	custo_g2 = g2.instantiate().custo_base
@@ -93,6 +92,7 @@ func atualizar_recurso(quantidade):
 	gui.set_new_resource_value(recurso)
 	
 func atualizar_energia_gerada(quantidade):
+	print(quantidade)
 	energia_atual_gerada += quantidade
 	gui.set_available_energy_value(energia_atual_gerada)
 	
