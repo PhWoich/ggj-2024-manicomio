@@ -157,16 +157,13 @@ func selecionar_estrutura_anterior():
 	emit_signal("selecionar_estrutura", estrutura_selecionada)
 
 func add_gerador():
-	cena_jogo.add_gerador(estrutura_selecionada, position)
+	cena_jogo.add_estrutura(estrutura_selecionada, position)
 	
 func destruir_estrutura():
 	print('destruir')
 
-func nao_liberar_colocar_gerador():
-	pode_colocar_gerador = false
-
-func liberar_colocar_gerador():
-	pode_colocar_gerador = true
+func permitir_colocar_estrutura(value: bool):
+	pode_colocar_gerador = value
 
 func _on_timer_ataque_distancia_timeout():
 	jogador_pode_atacar()
