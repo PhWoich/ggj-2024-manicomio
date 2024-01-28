@@ -25,14 +25,12 @@ func _ready():
 
 func _on_tower_body_entered(body):
 	if tipo_alvo in body.name:
-		print("Entrou")
 		currTargets = get_node("torre").get_overlapping_bodies()
 	pass 
 
 
 func _on_tower_body_exited(body):
 	if tipo_alvo in body.name:
-		print("Saiu")
 		currTargets = get_node("torre").get_overlapping_bodies()
 	pass 
 

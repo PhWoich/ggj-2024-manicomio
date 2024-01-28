@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://duvo4pbrt14je"]
+
+[ext_resource type="Script" path="res://Torre/torre_pena/penas.gd" id="1_islqo"]
+
+[sub_resource type="Gradient" id="Gradient_5anv7"]
+offsets = PackedFloat32Array(0, 0.00460829, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.270588, 0.423529, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dyyb0"]
+gradient = SubResource("Gradient_5anv7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ubd7x"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 100.0
+radial_accel_max = 100.0
+scale_min = 8.0
+scale_max = 8.0
+color = Color(0.215686, 0.529412, 0.705882, 1)
+color_ramp = SubResource("GradientTexture1D_dyyb0")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8muc"]
+
+[node name="Penas" type="Area2D"]
+script = ExtResource("1_islqo")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_ubd7x")
+lifetime = 2.0
+explosiveness = 1.0
+collision_base_size = 0.0
+visibility_rect = Rect2(-200, -200, 400, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l8muc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

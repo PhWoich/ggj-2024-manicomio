@@ -8,7 +8,7 @@ var direcao_movimento
 var tipo_alvo = "Jogador"
 
 func entrou_louco():
-	print(target)
+	pass
 
 func _physics_process(_delta):
 	if target != null:

@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=3 uid="uid://cfl6jj7vskdxx"]
+
+[ext_resource type="Texture2D" uid="uid://cfphkv7b73mwj" path="res://Torres/GasDoRiso/sprite_gas.png" id="1_8fyil"]
+[ext_resource type="Script" path="res://Torre/torre_gas/torre_gas.gd" id="1_yuf0c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bsr1"]
+radius = 5.0
+height = 26.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwj7t"]
+atlas = ExtResource("1_8fyil")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hf1ki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwj7t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5idk0"]
+atlas = ExtResource("1_8fyil")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ojdv"]
+atlas = ExtResource("1_8fyil")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sv10"]
+atlas = ExtResource("1_8fyil")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t3m3"]
+atlas = ExtResource("1_8fyil")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thskd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5idk0")
+}],
+"loop": true,
+"name": &"no_spray",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ojdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sv10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t3m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5idk0")
+}],
+"loop": true,
+"name": &"spray",
+"speed": 5.0
+}]
+
+[node name="TorreGas" type="StaticBody2D"]
+script = ExtResource("1_yuf0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_6bsr1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 1)
+scale = Vector2(0.75, 0.71875)
+sprite_frames = SubResource("SpriteFrames_hf1ki")
+
+[node name="gas_right" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gas_right"]
+position = Vector2(31, 0)
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(-19, -6, 0, 12, 0, -25)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="gas_right"]
+position = Vector2(17, -9)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_thskd")
+animation = &"spray"
+
+[node name="gas_top" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gas_top"]
+visible = false
+position = Vector2(9, -37)
+rotation = -1.5708
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(-19, -6, 0, 12, 0, -25)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="gas_top"]
+position = Vector2(1, -23)
+rotation = -1.5708
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_thskd")
+animation = &"no_spray"
+
+[node name="gas_left" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gas_left"]
+position = Vector2(-29, -18)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(-19, -6, 0, 12, 0, -25)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="gas_left"]
+position = Vector2(-15, -9)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_thskd")
+animation = &"no_spray"
+
+[node name="gas_down" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gas_down"]
+position = Vector2(-9.13744, 41.0708)
+rotation = 1.5708
+scale = Vector2(1.49324, 1.49438)
+polygon = PackedVector2Array(0.622271, -26.1897, -12.7715, -26.1897, -32, -7.33333, -12.1018, 12.6223, 0, 12.6667, 0.622271, -6.7837)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="gas_down"]
+position = Vector2(0, 27)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_thskd")
+animation = &"spray"
+
+[node name="TimerSpray" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="body_entered" from="gas_right" to="." method="_on_gas_right_body_entered"]
+[connection signal="body_exited" from="gas_right" to="." method="_on_gas_body_exited"]
+[connection signal="body_entered" from="gas_top" to="." method="_on_gas_top_body_entered"]
+[connection signal="body_exited" from="gas_top" to="." method="_on_gas_body_exited"]
+[connection signal="area_entered" from="gas_left" to="." method="_on_gas_left_area_entered"]
+[connection signal="body_entered" from="gas_left" to="." method="_on_gas_left_body_entered"]
+[connection signal="body_exited" from="gas_left" to="." method="_on_gas_body_exited"]
+[connection signal="body_entered" from="gas_down" to="." method="_on_gas_down_body_entered"]
+[connection signal="body_exited" from="gas_down" to="." method="_on_gas_body_exited"]
+[connection signal="timeout" from="TimerSpray" to="." method="_on_timer_timeout"]

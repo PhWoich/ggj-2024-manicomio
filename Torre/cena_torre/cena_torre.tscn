@@ -1,15 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5o2474mw3wwm"]
+[gd_scene load_steps=5 format=3 uid="uid://c5o2474mw3wwm"]
 
-[ext_resource type="PackedScene" uid="uid://dmne5rhxiuvef" path="res://Torre/torre_pie/torre_pie.tscn" id="1_s0jqv"]
 [ext_resource type="Script" path="res://Torre/cena_torre/cena_torre.gd" id="1_s56fv"]
 [ext_resource type="PackedScene" uid="uid://cic8m47pqbt1j" path="res://Player/jogador.tscn" id="4_vecnk"]
+[ext_resource type="PackedScene" uid="uid://ox3fe7kurtq3" path="res://Torre/torre_pena/torre_pena.tscn" id="4_x2f75"]
+[ext_resource type="PackedScene" uid="uid://cfl6jj7vskdxx" path="res://Torre/torre_gas/torre_gas.tscn" id="4_xqpba"]
 
 [node name="cena_torre" type="Node2D"]
 position = Vector2(226, 141)
 script = ExtResource("1_s56fv")
 
-[node name="torre_pie" parent="." instance=ExtResource("1_s0jqv")]
-position = Vector2(119, 135)
-
 [node name="Jogador" parent="." instance=ExtResource("4_vecnk")]
-position = Vector2(402, 144)
+position = Vector2(267, 149)
+
+[node name="TorreGas" parent="." instance=ExtResource("4_xqpba")]
+position = Vector2(106, 113)
+scale = Vector2(4, 4)
+
+[node name="Jogador2" parent="." instance=ExtResource("4_vecnk")]
+position = Vector2(173, 318)
+
+[node name="TorrePena" parent="." instance=ExtResource("4_x2f75")]
+position = Vector2(606, 255)
+scale = Vector2(2, 2)
