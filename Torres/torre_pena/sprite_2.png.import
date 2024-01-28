@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b842oex6wfbyr"
-path="res://.godot/imported/sprite_tacatorta.png-78f412d25b4bcf449d3c15b35895f300.ctex"
+uid="uid://bwyyb2uhx2pys"
+path="res://.godot/imported/sprite_2.png-479b1601ac2c9d84ec21fb73648a42d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Torres/torre_pie/sprite_tacatorta.png"
-dest_files=["res://.godot/imported/sprite_tacatorta.png-78f412d25b4bcf449d3c15b35895f300.ctex"]
+source_file="res://Torres/torre_pena/sprite_2.png"
+dest_files=["res://.godot/imported/sprite_2.png-479b1601ac2c9d84ec21fb73648a42d3.ctex"]
 
 [params]
 
