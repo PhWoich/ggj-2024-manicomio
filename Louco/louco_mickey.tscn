@@ -238,7 +238,7 @@ states/walk/position = Vector2(421.5, 100.438)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_kixd7")]
 graph_offset = Vector2(50.43, 0)
 
-[node name="Louco" type="CharacterBody2D"]
+[node name="LoucoMickey" type="CharacterBody2D"]
 position = Vector2(249, 589)
 scale = Vector2(1, 1.00789)
 collision_layer = 3
@@ -266,7 +266,7 @@ debug_color = Color(0.168627, 0.607843, 0.592157, 0.419608)
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("6_s1t3e")
+texture = ExtResource("2_lokxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://rq2hlp1fbc64"]
+[gd_scene load_steps=19 format=3 uid="uid://cumvvx2j44wu4"]
 
 [ext_resource type="Script" path="res://Louco/louco.gd" id="1_4a1vo"]
 [ext_resource type="Texture2D" uid="uid://b1l5g3tnkydgv" path="res://Louco/Zoiudinha.png" id="2_cy354"]
@@ -149,7 +149,7 @@ states/walk/position = Vector2(421.5, 100.875)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_kixd7")]
 graph_offset = Vector2(50.43, 0)
 
-[node name="Louco" type="CharacterBody2D"]
+[node name="LoucoEsbugalhada" type="CharacterBody2D"]
 position = Vector2(-1, 589)
 collision_layer = 3
 collision_mask = 3
@@ -178,6 +178,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_cy354")
 hframes = 3
 vframes = 3
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
