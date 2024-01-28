@@ -32,8 +32,8 @@ size = Vector2(144, 145)
 
 [node name="Inalador" type="Area2D"]
 script = ExtResource("1_ltg6v")
-energia_gerada = 45.0
-custo_base = 60
+energia = 60.0
+custo_base = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)

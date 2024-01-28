@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Estrutura
 
 var tipo_alvo = "Jogador"
 var currTargets = []
