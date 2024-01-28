@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxcfcf6bbfojr"]
 
 [ext_resource type="Script" path="res://PowerUps/PowerUp_pena/power_up_pena.gd" id="1_gdfux"]
-[ext_resource type="Texture2D" uid="uid://caoci0coxser8" path="res://PowerUps/PowerUp_pena/tile_0116.png" id="2_yhina"]
+[ext_resource type="Texture2D" uid="uid://csekqlmu1j7qr" path="res://PowerUps/PowerUp_pena/lata feijao.png" id="2_q8gc1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imhtp"]
 
@@ -9,8 +9,8 @@
 script = ExtResource("1_gdfux")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("2_yhina")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_q8gc1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_imhtp")

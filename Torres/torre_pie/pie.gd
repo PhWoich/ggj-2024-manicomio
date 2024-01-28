@@ -7,6 +7,8 @@ var direcao_movimento
 
 var tipo_alvo = "Jogador"
 
+@export var forca: float = 20
+
 func _physics_process(_delta):
 	if target != null:
 		look_at(target.global_position)
@@ -14,8 +16,10 @@ func _physics_process(_delta):
 		global_position = global_position + direcao_movimento
 
 func _on_area_2d_body_entered(body):
-	if tipo_alvo in body.name:
-		queue_free()
+	if(body.has_method('getType')):
+		if(body.getType() == 'louco' && body.has_method('atualizar_vida')):
+			body.atualizar_vida(-forca)
+			queue_free()
 
 func _on_timer_timeout():
 	queue_free()

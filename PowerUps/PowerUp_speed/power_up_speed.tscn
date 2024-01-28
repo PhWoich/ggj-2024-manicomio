@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgxltitx72rmg"]
+[gd_scene load_steps=4 format=3 uid="uid://4rdgi76q2y4x"]
 
-[ext_resource type="Script" path="res://PowerUps/PowerUp_cura/power_up_cura.gd" id="1_kpnxf"]
-[ext_resource type="Texture2D" uid="uid://bija3ypa6mahs" path="res://PowerUps/PowerUp_cura/firts aid.png" id="2_1w41q"]
+[ext_resource type="Script" path="res://PowerUps/PowerUp_speed/power_up_speed.gd" id="1_ovepy"]
+[ext_resource type="Texture2D" uid="uid://dpo4wsv07fbau" path="res://PowerUps/PowerUp_speed/redbull te da asas.png" id="2_fhln4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imhtp"]
 
 [node name="PowerUp_cura" type="Area2D"]
-script = ExtResource("1_kpnxf")
+script = ExtResource("1_ovepy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_1w41q")
+texture = ExtResource("2_fhln4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_imhtp")
