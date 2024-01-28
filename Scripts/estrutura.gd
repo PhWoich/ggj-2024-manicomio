@@ -33,10 +33,16 @@ func atualizar_vida(value):
 	
 	if vida_atual == 0:
 		emit_signal("estrutura_destruida", -energia)
-		queue_free()
-
+		if isNucleo():
+			get_tree().change_scene_to_file("res://Menus/game_over_screen.tscn")	
+		else:
+			queue_free()
+			
 func getType():
 	return 'estrutura'
+
+func isNucleo():
+	return false
 
 func getTeam():
 	return 'player'

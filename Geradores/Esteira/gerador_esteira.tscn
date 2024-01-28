@@ -40,6 +40,7 @@ size = Vector2(1, 1)
 script = ExtResource("1_35hcc")
 energia = 15.0
 custo_base = 30
+vida_maxima = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
