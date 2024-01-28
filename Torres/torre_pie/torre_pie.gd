@@ -22,12 +22,12 @@ func _ready():
 func _on_tower_body_entered(body):
 	if(body.has_method('getTeam')):
 		if(body.getTeam() == 'louco' && body.has_method('atualizar_vida')):
-			currTargets = get_node("torre").get_overlapping_bodies().filter(func(_body): return (_body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
+			currTargets = get_node("torre").get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
 
 func _on_tower_body_exited(body):
 	if(body.has_method('getTeam')):
 		if(body.getTeam() == 'louco' && body.has_method('atualizar_vida')):
-			currTargets = get_node("torre").get_overlapping_bodies().filter(func(_body): return (_body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
+			currTargets = get_node("torre").get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
 
 func _on_timer_timeout():
 	for i in currTargets:

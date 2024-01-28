@@ -101,6 +101,7 @@ func atualizar_recurso(quantidade):
 	gui.set_new_resource_value(recurso)
 	
 func atualizar_energia_gerada(quantidade):
+	print(quantidade)
 	energia_atual_gerada += quantidade
 	gui.set_available_energy_value(energia_atual_gerada)
 	
