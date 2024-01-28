@@ -55,8 +55,8 @@ ok_button_text = "BACK"
 dialog_text = "MOVIMENTO: WASD OU SETINHAS                                                           	
 
 ATAQUE
-CORPO A CORPO:   K OU ESQUERDO DO MOUSE
-A DISTÂNCIA:   L  OU DIREITO DO MOUSE
+CORPO A CORPO:   K
+A DISTÂNCIA:   L 
 
 
 SELECIONAR ESTRUTURAS:   Q OU R
