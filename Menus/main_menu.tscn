@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_85u5c"]
 [ext_resource type="Script" path="res://Menus/ControlPopup.gd" id="2_ef33s"]
 [ext_resource type="AudioStream" uid="uid://b5yb4wnea38kc" path="res://Audio/Musica/TD_Gameplay_IntroEnding.mp3" id="3_mxwll"]
-[ext_resource type="Texture2D" uid="uid://bhie5r750grt2" path="res://Menus/Background_TS.png" id="4_m104n"]
+[ext_resource type="Texture2D" uid="uid://b7fxg4gqr87di" path="res://Menus/Background_TS.png" id="4_m104n"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

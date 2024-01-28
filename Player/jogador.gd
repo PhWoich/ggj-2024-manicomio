@@ -201,6 +201,8 @@ func pick_new_state():
 func atualizar_vida(value: float):
 	vida_atual = max(min(vida_maxima, vida_atual + value), 0)
 	emit_signal('atualizar_vida_jogador', vida_atual, vida_maxima)
+	if vida_atual == 0:
+		get_tree().change_scene_to_file("res://Menus/game_over_screen.tscn")	
 
 func getTeam():
 	return 'player'
