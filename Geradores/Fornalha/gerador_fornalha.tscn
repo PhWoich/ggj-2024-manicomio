@@ -33,7 +33,7 @@ sprite_frames = SubResource("SpriteFrames_tav5g")
 frame_progress = 0.104741
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, 48)
+position = Vector2(7, 12)
 shape = SubResource("RectangleShape2D_3qswj")
 
 [node name="Particula Eletricidade" parent="." instance=ExtResource("3_8x6wc")]

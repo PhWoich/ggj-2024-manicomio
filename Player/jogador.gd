@@ -144,19 +144,19 @@ func jogador_pode_atirar():
 func delete_estrutura():
 	match ultima_direcao_olhada:
 		inicio_ataque_baixo:
-			var body = $RayCast2D_down.get_collider()
+			var body = $ShapeCast2D_down.get_collider(0)
 			if body and body.has_method("getType") and body.getType() == "estrutura":
 				body.queue_free()
 		inicio_ataque_cima:
-			var body = $RayCast2D_up.get_collider()
+			var body = $ShapeCast2D_up.get_collider(0)
 			if body and body.has_method("getType") and body.getType() == "estrutura":
 				body.queue_free()
 		inicio_ataque_direita:
-			var body = $RayCast2D_right.get_collider()
+			var body = $ShapeCast2D_right.get_collider(0)
 			if body and body.has_method("getType") and body.getType() == "estrutura":
 				body.queue_free()
 		inicio_ataque_esquerda:
-			var body = $RayCast2D_left.get_collider()
+			var body = $ShapeCast2D_left.get_collider(0)
 			if body and body.has_method("getType") and body.getType() == "estrutura":
 				body.queue_free()
 

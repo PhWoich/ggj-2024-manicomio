@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cic8m47pqbt1j"]
+[gd_scene load_steps=29 format=3 uid="uid://cic8m47pqbt1j"]
 
 [ext_resource type="Script" path="res://Player/jogador.gd" id="1_dk5mm"]
 [ext_resource type="Texture2D" uid="uid://bbh2xdnvupe3i" path="res://Player/Dr. Professor .png" id="2_c5m5h"]
@@ -229,13 +229,11 @@ states/walk/position = Vector2(514, 104.5)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_nwc4v"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_vsxa4"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_yhwqq")]
 graph_offset = Vector2(50.43, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1oa75"]
+size = Vector2(36, 36)
+
 [node name="Jogador" type="CharacterBody2D"]
 script = ExtResource("1_dk5mm")
-velocidade = null
-starting_direction = null
-cooldown_ataque = null
-cooldown_atirar = null
-vida_maxima = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -295,16 +293,25 @@ one_shot = true
 
 [node name="Ponto_partida_particulas" type="Marker2D" parent="."]
 
-[node name="RayCast2D_down" type="RayCast2D" parent="."]
+[node name="ShapeCast2D_down" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_1oa75")
+target_position = Vector2(0, 32)
+max_results = 1
 
-[node name="RayCast2D_up" type="RayCast2D" parent="."]
-target_position = Vector2(0, -50)
+[node name="ShapeCast2D_right" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_1oa75")
+target_position = Vector2(32, 0)
+max_results = 1
 
-[node name="RayCast2D_left" type="RayCast2D" parent="."]
-target_position = Vector2(-50, 0)
+[node name="ShapeCast2D_up" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_1oa75")
+target_position = Vector2(0, -32)
+max_results = 1
 
-[node name="RayCast2D_right" type="RayCast2D" parent="."]
-target_position = Vector2(50, 0)
+[node name="ShapeCast2D_left" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_1oa75")
+target_position = Vector2(-32, 0)
+max_results = 1
 
 [connection signal="timeout" from="Timer_atacar" to="." method="jogador_pode_atacar"]
 [connection signal="timeout" from="Timer_atirar" to="." method="jogador_pode_atirar"]
