@@ -1,0 +1,181 @@
+[gd_scene load_steps=18 format=3 uid="uid://cued8klctc7w"]
+
+[ext_resource type="Script" path="res://Louco/louco.gd" id="1_vtbp4"]
+[ext_resource type="Texture2D" uid="uid://dr8sxegn2ktvy" path="res://Louco/Louco da camisa Stark.png" id="2_1bohk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd1f3"]
+size = Vector2(28, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snnuv"]
+size = Vector2(68, 85)
+
+[sub_resource type="Animation" id="Animation_hph3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_vsoxu"]
+resource_name = "walk_down"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 6, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_vx62e"]
+resource_name = "walk_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [11, 7, 9, 7]
+}
+
+[sub_resource type="Animation" id="Animation_oavgf"]
+resource_name = "walk_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 8, 10, 8]
+}
+
+[sub_resource type="Animation" id="Animation_k3inw"]
+resource_name = "walk_up"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nn2v"]
+_data = {
+"RESET": SubResource("Animation_hph3x"),
+"walk_down": SubResource("Animation_vsoxu"),
+"walk_left": SubResource("Animation_vx62e"),
+"walk_right": SubResource("Animation_oavgf"),
+"walk_up": SubResource("Animation_k3inw")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qyemo"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f57v5"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dhlwi"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ejdfu"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_65d3m"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_qyemo")
+blend_point_0/pos = Vector2(0, 0.9)
+blend_point_1/node = SubResource("AnimationNodeAnimation_f57v5")
+blend_point_1/pos = Vector2(0, -0.9)
+blend_point_2/node = SubResource("AnimationNodeAnimation_dhlwi")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_ejdfu")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kixd7"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ojy1t"]
+states/End/position = Vector2(663, 100.875)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_65d3m")
+states/walk/position = Vector2(421.5, 100.438)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_kixd7")]
+graph_offset = Vector2(50.43, 0)
+
+[node name="Louco" type="CharacterBody2D"]
+position = Vector2(201, 86)
+script = ExtResource("1_vtbp4")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_1bohk")
+hframes = 4
+vframes = 4
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_gd1f3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_snnuv")
+debug_color = Color(0.576471, 0.403922, 0.960784, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_4nn2v")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+deterministic = false
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_4nn2v")
+}
+tree_root = SubResource("AnimationNodeStateMachine_ojy1t")
+anim_player = NodePath("../AnimationPlayer")
+parameters/walk/blend_position = Vector2(-0.00636941, 0.894118)
+
+[node name="Timer_atacar" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_onBodyEntered"]
+[connection signal="body_exited" from="Area2D" to="." method="_onBodyExited"]
+[connection signal="timeout" from="Timer_atacar" to="." method="_onTimerAtacarTimeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u52rotimyvw7"
-path="res://.godot/imported/Cream pie Tower.png-1273588e1d6ae24ae9d281787b79c462.ctex"
+uid="uid://b4xqtxwg58c4c"
+path="res://.godot/imported/Cream pie.png-a7f9b807ec08a753e434789f0a52cf57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Torre/torre_pie/Cream pie Tower.png"
-dest_files=["res://.godot/imported/Cream pie Tower.png-1273588e1d6ae24ae9d281787b79c462.ctex"]
+source_file="res://Torres/torre_pie/Cream pie.png"
+dest_files=["res://.godot/imported/Cream pie.png-a7f9b807ec08a753e434789f0a52cf57.ctex"]
 
 [params]
 

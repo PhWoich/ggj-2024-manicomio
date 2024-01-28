@@ -9,7 +9,7 @@ var ultimo_movimento:Vector2
 
 #2. Controles dos ataques
 @export var cooldown_ataque: float = 0.5
-@export var cooldown_atirar: float = 1
+@export var cooldown_atirar: float = 2
 signal atacar(posicao_inicial, movimento, rotacao, cooldown_ataque)
 signal atirar(posicao_inicial, movimento, rotacao, cooldown_atirar)
 
@@ -34,7 +34,7 @@ var cena_jogo
 #var gerador_basico = preload("res://Geradores/Basico/gerador_basico.tscn")
 signal selecionar_estrutura(value: int)
 var estrutura_selecionada: int = 0
-var pode_colocar_gerador:bool
+var pode_colocar_estrutura:bool
 
 #4. Controle de animacoes
 @onready var animation_tree = $AnimationTree
@@ -52,7 +52,7 @@ func _ready():
 	jogador_pode_atirar()
 	ultima_direcao_olhada = inicio_ataque_direita
 	girar_animacao_ataque= false
-	pode_colocar_gerador= true
+	pode_colocar_estrutura= true
 	
 	update_animation_parameter(starting_direction)
 	atualizar_vida(0)
@@ -104,11 +104,9 @@ func _physics_process(_delta):
 	#Ataques
 	if Input.is_action_just_released("Jogador_ataque_melee") and pode_atacar:
 		ataque_corpo_a_corpo()
-	
-	
+		
 	if Input.is_action_just_released("Jogador_ataque_distancia") and pode_atirar:
 		ataque_a_distancia()
-	
 	#Add Gerador
 	if Input.is_action_just_released("selecionar_prox_gerador"):
 		selecionar_prox_estrutura()
@@ -116,11 +114,14 @@ func _physics_process(_delta):
 	if Input.is_action_just_released("selecionar_gerador_anterior"):
 		selecionar_estrutura_anterior()
 	
-	if Input.is_action_just_released("jogador_adicionar_gerador") and pode_colocar_gerador:
-		add_gerador()
+	if Input.is_action_just_released("jogador_adicionar_gerador") and pode_colocar_estrutura:
+		add_estrutura()
 		
 	if Input.is_action_just_released("jogador_destruir_estrutura"):
 		destruir_estrutura()
+
+func getType():
+	return "player"
 
 func ataque_corpo_a_corpo():
 	emit_signal("atacar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_ataque)
@@ -158,17 +159,14 @@ func selecionar_estrutura_anterior():
 		
 	emit_signal("selecionar_estrutura", estrutura_selecionada)
 
-func add_gerador():
-	cena_jogo.add_gerador(estrutura_selecionada, position)
+func add_estrutura():
+	cena_jogo.add_estrutura(estrutura_selecionada, position)
 	
 func destruir_estrutura():
 	print('destruir')
 
-func nao_liberar_colocar_gerador():
-	pode_colocar_gerador = false
-
-func liberar_colocar_gerador():
-	pode_colocar_gerador = true
+func permitir_colocar_estrutura(value: bool):
+	pode_colocar_estrutura = value
 
 func _on_timer_ataque_distancia_timeout():
 	jogador_pode_atacar()
@@ -189,4 +187,7 @@ func pick_new_state():
 func atualizar_vida(value: float):
 	vida_atual = max(min(vida_maxima, vida_atual + value), 0)
 	emit_signal('atualizar_vida_jogador', vida_atual, vida_maxima)
+
+func getType():
+	return 'player'
 	

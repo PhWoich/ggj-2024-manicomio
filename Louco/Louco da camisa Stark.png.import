@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3gpx02e4es5q"
-path="res://.godot/imported/tile_0054.png-e3d7cbeba7829809e0f71edcb0e90603.ctex"
+uid="uid://dr8sxegn2ktvy"
+path="res://.godot/imported/Louco da camisa Stark.png-a5278983dfb7aa44d8852449194bc5b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Geradores/Basico/tile_0054.png"
-dest_files=["res://.godot/imported/tile_0054.png-e3d7cbeba7829809e0f71edcb0e90603.ctex"]
+source_file="res://Louco/Louco da camisa Stark.png"
+dest_files=["res://.godot/imported/Louco da camisa Stark.png-a5278983dfb7aa44d8852449194bc5b2.ctex"]
 
 [params]
 

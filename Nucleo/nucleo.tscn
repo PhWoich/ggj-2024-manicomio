@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxusqsboxdfvv"]
+
+[ext_resource type="Texture2D" uid="uid://li6ch7ltf1bq" path="res://Nucleo/Antena.png" id="1_fd80e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1377"]
+size = Vector2(64, 64)
+
+[node name="Nucleo" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i1377")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fd80e")
+hframes = 5
+vframes = 2
+frame = 2

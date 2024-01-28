@@ -14,6 +14,8 @@ var recurso:int = 100
 @onready var torta_na_cara_jogador = preload("res://Player/Tota na Cara/torta_na_cara.tscn")
 @onready var camera = $Camera2D
 
+@onready var louco = preload("res://Louco/louco.tscn")
+
 #Geradores
 @onready var g1: PackedScene = preload("res://Geradores/Esteira/gerador_esteira.tscn")
 @onready var g2: PackedScene = preload("res://Geradores/Fornalha/gerador_fornalha.tscn")
@@ -24,7 +26,7 @@ var custo_g3: float = 0
 
 #Torres
 #TODO
-@onready var t1: PackedScene = preload("res://Geradores/Esteira/gerador_esteira.tscn")
+@onready var t1: PackedScene = preload("res://Torres/torre_pie/torre_pie.tscn")
 @onready var t2: PackedScene = preload("res://Geradores/Fornalha/gerador_fornalha.tscn")
 @onready var t3: PackedScene = preload("res://Geradores/Inalador SA/gerador_inalador_sa.tscn")
 @onready var lista_torres = [t1, t2, t3]
@@ -53,24 +55,32 @@ func _ready():
 	_getInitialCustos()
 	atualizar_custos(0)
 
+	var instancia_louco = louco.instantiate()
+	instancia_louco.inicializar(instancia_jogador, self)
+	add_child(instancia_louco)
+
 func _getInitialCustos():
 	custo_g1 = g1.instantiate().custo_base
 	custo_g2 = g2.instantiate().custo_base
 	custo_g3 = g3.instantiate().custo_base
 	
+	custo_t1 = t1.instantiate().custo_base
+	#custo_t2 = t2.instantiate().custo_base
+	#custo_t3 = t3.instantiate().custo_base
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-func add_gerador(geradorSelecionado: int, posicao:Vector2):
-	var instancia_gerador:Gerador_Basico = lista_estruturas[geradorSelecionado].instantiate()
-	if recurso >= instancia_gerador.custo_base + custo_adicional:
-		instancia_gerador.position = posicao
-		instancia_gerador.gerador_destruido.connect(atualizar_energia_gerada)
-		atualizar_energia_gerada(instancia_gerador.energia_gerada)
-		atualizar_recurso(-(instancia_gerador.custo_base + custo_adicional))
+func add_estrutura(estruturaSelecionada: int, posicao:Vector2):
+	var estrutura:Estrutura = lista_estruturas[estruturaSelecionada].instantiate()
+	if recurso >= estrutura.custo_base + custo_adicional:
+		estrutura.position = posicao
+		estrutura.estrutura_destruida.connect(atualizar_energia_gerada)
+		atualizar_energia_gerada(estrutura.energia)
+		atualizar_recurso(-(estrutura.custo_base + custo_adicional))
 		atualizar_custos(1)
-		add_child(instancia_gerador)
+		add_child(estrutura)
 
 func gerar_ataque_dist_jogador(posicao, movimento, rotacao, _cd):
 	var instancia_torta = torta_na_cara_jogador.instantiate()
@@ -82,6 +92,7 @@ func atualizar_recurso(quantidade):
 	gui.set_new_resource_value(recurso)
 	
 func atualizar_energia_gerada(quantidade):
+	print(quantidade)
 	energia_atual_gerada += quantidade
 	gui.set_available_energy_value(energia_atual_gerada)
 	
