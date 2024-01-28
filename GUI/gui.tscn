@@ -161,6 +161,10 @@ max_value = 500.0
 value = 500.0
 show_percentage = false
 
+[node name="Control" type="Control" parent="MarginContainer/MainHBox/Rows/TopRow"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
 [node name="MiddleRow" type="HBoxContainer" parent="MarginContainer/MainHBox/Rows"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -465,7 +469,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Power1Img" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -488,29 +492,8 @@ show_percentage = false
 [node name="P1Timer" type="Timer" parent="MarginContainer/MainHBox/Rows/BottomRow/Power1Img"]
 one_shot = true
 
-[node name="P1Damage" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/Power1Img"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -18.5
-offset_right = 16.0
-offset_bottom = 18.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("2_qn50h")
-theme_override_font_sizes/font_size = 64
-text = "30"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Power2Img" type="TextureRect" parent="MarginContainer/MainHBox/Rows/BottomRow"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -532,27 +515,6 @@ show_percentage = false
 
 [node name="P2Timer" type="Timer" parent="MarginContainer/MainHBox/Rows/BottomRow/Power2Img"]
 one_shot = true
-
-[node name="P2Damage" type="Label" parent="MarginContainer/MainHBox/Rows/BottomRow/Power2Img"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -18.5
-offset_right = 16.0
-offset_bottom = 18.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("2_qn50h")
-theme_override_font_sizes/font_size = 64
-text = "30"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/MainHBox/Rows/BottomRow"]
 custom_minimum_size = Vector2(20, 0)
@@ -599,7 +561,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_qn50h")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 65
 text = "030/100"
 horizontal_alignment = 1
 
