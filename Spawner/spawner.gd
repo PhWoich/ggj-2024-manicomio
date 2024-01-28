@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name Spawner
 # Para iniciar:
 # Colocar o raio e o cooldown no inspetor de propriedades
 # No Script principal

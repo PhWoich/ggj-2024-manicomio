@@ -37,6 +37,13 @@ var custo_t3: float = 100
 
 @onready var lista_estruturas = [t1, t2, t3, g1, g2, g3]
 
+
+#Spawners
+@onready var spawnerEast: Spawner = $Spawner_east
+@onready var spawnerWest: Spawner = $Spawner_west
+@onready var spawnerNorth: Spawner = $Spawner_north
+@onready var spawnerSouth: Spawner = $Spawner_south
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var instancia_jogador = jogador.instantiate()
@@ -67,6 +74,32 @@ func _ready():
 	var instancia_louco_esbugalhada = louco_esbugalhada.instantiate()
 	instancia_louco_esbugalhada.inicializar(instancia_jogador, self)
 	add_child(instancia_louco_esbugalhada)
+	
+	#Spawner
+	spawnerEast.initialize_entityHolder($enemyHolder) #pode ser compartilhado entre todos os spawners
+	spawnerEast.add_entity(louco, 3)
+	spawnerEast.add_entity(louco_esbugalhada, 2)
+	spawnerEast.add_entity(louco_mickey, 1)
+	spawnerEast.start()
+
+	spawnerWest.initialize_entityHolder($enemyHolder)
+	spawnerWest.add_entity(louco, 3)
+	spawnerWest.add_entity(louco_esbugalhada, 2)
+	spawnerWest.add_entity(louco_mickey, 1)
+	spawnerWest.start()
+
+	spawnerNorth.initialize_entityHolder($enemyHolder)
+	spawnerNorth.add_entity(louco, 3)
+	spawnerNorth.add_entity(louco_esbugalhada, 2)
+	spawnerNorth.add_entity(louco_mickey, 1)
+	spawnerNorth.start()
+
+	spawnerSouth.initialize_entityHolder($enemyHolder)
+	spawnerSouth.add_entity(louco, 3)
+	spawnerSouth.add_entity(louco_esbugalhada, 2)
+	spawnerSouth.add_entity(louco_mickey, 1)
+	spawnerSouth.start()
+	
 
 func _getInitialCustos():
 	custo_g1 = g1.instantiate().custo_base

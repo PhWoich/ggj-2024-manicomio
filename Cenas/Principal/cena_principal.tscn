@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6cmu060r4vq8"]
+[gd_scene load_steps=10 format=3 uid="uid://c6cmu060r4vq8"]
 
 [ext_resource type="Script" path="res://Cenas/Principal/cena_principal.gd" id="1_ptal3"]
 [ext_resource type="PackedScene" uid="uid://t7civ2atacxb" path="res://GUI/gui.tscn" id="2_gu4d2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bxcfcf6bbfojr" path="res://PowerUps/PowerUp_pena/power_up_pena.tscn" id="6_2rxlc"]
 [ext_resource type="PackedScene" uid="uid://dgxltitx72rmg" path="res://PowerUps/PowerUp_cura/power_up_cura.tscn" id="7_phiqv"]
 [ext_resource type="PackedScene" uid="uid://4rdgi76q2y4x" path="res://PowerUps/PowerUp_speed/power_up_speed.tscn" id="8_ak5ay"]
+[ext_resource type="PackedScene" uid="uid://os2pno41b35l" path="res://Spawner/spawner.tscn" id="9_0rsdr"]
 
 [node name="Cena Principal" type="Node2D"]
 script = ExtResource("1_ptal3")
@@ -47,3 +48,21 @@ position = Vector2(434, 428)
 
 [node name="PowerUp_cura5" parent="." instance=ExtResource("8_ak5ay")]
 position = Vector2(-1344, -195)
+
+[node name="Spawner_east" parent="." instance=ExtResource("9_0rsdr")]
+position = Vector2(1178, 3)
+radius = 96.0
+
+[node name="Spawner_north" parent="." instance=ExtResource("9_0rsdr")]
+position = Vector2(0, -1178)
+radius = 96.0
+
+[node name="Spawner_south" parent="." instance=ExtResource("9_0rsdr")]
+position = Vector2(0, 1175)
+radius = 96.0
+
+[node name="Spawner_west" parent="." instance=ExtResource("9_0rsdr")]
+position = Vector2(-1173, 7)
+radius = 96.0
+
+[node name="enemyHolder" type="Node" parent="."]
