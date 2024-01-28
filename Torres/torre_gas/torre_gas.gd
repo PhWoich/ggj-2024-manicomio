@@ -20,13 +20,13 @@ func activate_spray(lado_animated, node):
 	lado_animated.play("spray")
 	timerSpray.start()
 	
-	var currLoucos = get_node(node).get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
+	var currLoucos = get_node(node).get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
 	for loucos in currLoucos:
 		loucos.atualizar_vida(-forca)
 		
 func entrou_area_gas(lado_animated, node, body):
-	if(body.has_method('getType')):
-		if(body.getType() == 'louco' && body.has_method('atualizar_vida')):
+	if(body.has_method('getTeam')):
+		if(body.getTeam() == 'louco' && body.has_method('atualizar_vida')):
 			if gas_active:
 				_on_timer_timeout(true)
 			activate_spray(lado_animated, node)
@@ -55,19 +55,19 @@ func _on_gas_down_body_entered(body):
 
 func verifica_louco():
 	if not(gas_active):
-		tempList = get_node("gas_right").get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
+		tempList = get_node("gas_right").get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
 		if not(tempList.is_empty()):
 			activate_spray($gas_right/AnimatedSprite2D2, "gas_right")
 			return 
-		tempList = get_node("gas_left").get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
+		tempList = get_node("gas_left").get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
 		if not(tempList.is_empty()):
 			activate_spray($gas_left/AnimatedSprite2D2, "gas_left")
 			return
-		tempList = get_node("gas_top").get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
+		tempList = get_node("gas_top").get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
 		if not(tempList.is_empty()):
 			activate_spray($gas_top/AnimatedSprite2D2, "gas_top")
 			return
-		tempList = get_node("gas_down").get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
+		tempList = get_node("gas_down").get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
 		if not(tempList.is_empty()):
 			activate_spray($gas_down/AnimatedSprite2D2, "gas_down")
 

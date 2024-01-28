@@ -231,6 +231,11 @@ graph_offset = Vector2(50.43, 0)
 
 [node name="Jogador" type="CharacterBody2D"]
 script = ExtResource("1_dk5mm")
+velocidade = null
+starting_direction = null
+cooldown_ataque = null
+cooldown_atirar = null
+vida_maxima = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -239,7 +244,7 @@ scale = Vector2(1.6875, 1.6875)
 texture = ExtResource("2_c5m5h")
 hframes = 4
 vframes = 4
-frame = 7
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
@@ -289,6 +294,17 @@ one_shot = true
 one_shot = true
 
 [node name="Ponto_partida_particulas" type="Marker2D" parent="."]
+
+[node name="RayCast2D_down" type="RayCast2D" parent="."]
+
+[node name="RayCast2D_up" type="RayCast2D" parent="."]
+target_position = Vector2(0, -50)
+
+[node name="RayCast2D_left" type="RayCast2D" parent="."]
+target_position = Vector2(-50, 0)
+
+[node name="RayCast2D_right" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)
 
 [connection signal="timeout" from="Timer_atacar" to="." method="jogador_pode_atacar"]
 [connection signal="timeout" from="Timer_atirar" to="." method="jogador_pode_atirar"]

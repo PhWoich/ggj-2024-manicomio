@@ -9,7 +9,7 @@ var currLoucos
 #var tipo_alvo = "Jogador"
 
 func fire():
-	currLoucos = get_node("area_torre_pena").get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
+	currLoucos = get_node("area_torre_pena").get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
 	if not(currLoucos.is_empty()):
 		var tempBolinhas = bolinhas.instantiate()
 		$Bolinhas.add_child(tempBolinhas)
@@ -17,8 +17,8 @@ func fire():
 			louco.atualizar_vida(-forca)
 
 func _on_torre_pena_body_entered(body):
-	if(body.has_method('getType')):
-		if(body.getType() == 'louco' && body.has_method('atualizar_vida')):
+	if(body.has_method('getTeam')):
+		if(body.getTeam() == 'louco' && body.has_method('atualizar_vida')):
 			fire()
 		#currTargets = get_node("area_torre_pena").get_overlapping_bodies()
 
@@ -29,6 +29,6 @@ func _on_torre_pena_body_exited(body):
 
 
 func _on_timer_timeout():
-	currLoucos = get_node("area_torre_pena").get_overlapping_bodies().filter(func(body): return (body.has_method('getType') && (body.getType() == 'louco' && body.has_method('atualizar_vida')) ))
+	currLoucos = get_node("area_torre_pena").get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
 	if not(currLoucos.is_empty()):
 		fire()
