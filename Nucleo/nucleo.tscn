@@ -1,5 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bxusqsboxdfvv"]
 
+[ext_resource type="Script" path="res://Nucleo/nucleo.gd" id="1_1tee7"]
 [ext_resource type="Texture2D" uid="uid://li6ch7ltf1bq" path="res://Nucleo/Antena.png" id="1_fd80e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1377"]
@@ -56,6 +57,7 @@ transitions = ["Start", "antena_animation", SubResource("AnimationNodeStateMachi
 graph_offset = Vector2(103.2, -13.0275)
 
 [node name="Nucleo" type="StaticBody2D"]
+script = ExtResource("1_1tee7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 58)
