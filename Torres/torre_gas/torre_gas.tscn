@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" path="res://Torres/torre_gas/torre_gas.gd" id="1_yuf0c"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2tau"]
+size = Vector2(1, 1)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2883a"]
 load_path = "res://.godot/imported/sprite_gas.png-bc9570a6e1ebb31d0b1eaca6e9c5a430.ctex"
 
@@ -19,9 +22,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2tau"]
-size = Vector2(30, 55)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5idk0"]
 atlas = SubResource("CompressedTexture2D_2883a")
@@ -72,15 +72,14 @@ script = ExtResource("1_yuf0c")
 energia = -90.0
 custo_base = 120
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 1)
+shape = SubResource("RectangleShape2D_n2tau")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 1)
 scale = Vector2(2.4, 2.302)
 sprite_frames = SubResource("SpriteFrames_hf1ki")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 8.5)
-shape = SubResource("RectangleShape2D_n2tau")
-debug_color = Color(0, 0.54902, 0.921569, 0.419608)
 
 [node name="gas_right" type="Area2D" parent="."]
 position = Vector2(4, -1)
@@ -150,9 +149,6 @@ animation = &"spray"
 
 [node name="TimerSpray" type="Timer" parent="."]
 wait_time = 1.5
-
-[node name="Ponto Popup Dano" type="Marker2D" parent="."]
-position = Vector2(0, -51)
 
 [connection signal="body_entered" from="gas_right" to="." method="_on_gas_right_body_entered"]
 [connection signal="body_exited" from="gas_right" to="." method="_on_gas_body_exited"]
