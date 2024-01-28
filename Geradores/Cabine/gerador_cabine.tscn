@@ -60,9 +60,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qswj"]
-size = Vector2(120, 112)
+size = Vector2(1, 1)
 
-[node name="Inalador" type="Area2D"]
+[node name="Inalador" type="StaticBody2D"]
 script = ExtResource("1_lqe7y")
 energia = 45.0
 custo_base = 80
@@ -72,6 +72,7 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_tav5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 32)
 shape = SubResource("RectangleShape2D_3qswj")
 
 [node name="Particula Eletricidade" parent="." instance=ExtResource("14_m8ppo")]
@@ -79,6 +80,3 @@ position = Vector2(-16, 1)
 
 [node name="Ponto Popup Dano" type="Marker2D" parent="."]
 position = Vector2(0, -24)
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]

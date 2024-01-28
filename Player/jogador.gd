@@ -117,9 +117,6 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_released("jogador_adicionar_gerador") and pode_colocar_estrutura:
 		add_estrutura()
-		
-	if Input.is_action_just_released("jogador_destruir_estrutura"):
-		destruir_estrutura()
 
 func ataque_corpo_a_corpo():
 	emit_signal("atacar", (position + ultima_direcao_olhada.position), ultimo_movimento, ataque_dist_rotacao, cooldown_ataque)
@@ -159,9 +156,6 @@ func selecionar_estrutura_anterior():
 
 func add_estrutura():
 	cena_jogo.add_estrutura(estrutura_selecionada, position)
-	
-func destruir_estrutura():
-	print('destruir')
 
 func permitir_colocar_estrutura(value: bool):
 	pode_colocar_estrutura = value
@@ -193,6 +187,21 @@ func getType():
 func curar_vida_jogador():
 	vida_atual = vida_maxima
 	emit_signal('atualizar_vida_jogador', vida_atual, vida_maxima)
+	var penas = preload("res://Particulas/Coracao/explosao_coracao.tscn")
+	var instance_penas = penas.instantiate()
+	$Ponto_partida_particulas.add_child(instance_penas)
+	instance_penas.emitir_particula()
 
 func add_forca_pena():
 	forca_pena = forca_pena+5
+	var penas = preload("res://Particulas/Explosão Penas/explosao_penas.tscn")
+	var instance_penas = penas.instantiate()
+	$Ponto_partida_particulas.add_child(instance_penas)
+	instance_penas.emitir_particula()
+
+func add_velocidade_jogador():
+	velocidade = velocidade+25
+	var penas = preload("res://Particulas/UpSpeed/UpSpeed.tscn")
+	var instance_penas = penas.instantiate()
+	$Ponto_partida_particulas.add_child(instance_penas)
+	instance_penas.emitir_particula()
