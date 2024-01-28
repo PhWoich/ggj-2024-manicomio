@@ -3,10 +3,8 @@ extends Estrutura
 @onready var bolinhas = preload("res://Torres/torre_pena/penas.tscn")
 @onready var timer = $Timer
 
-#var currTargets = []
 var currLoucos
 @export var forca: float = 20
-#var tipo_alvo = "Jogador"
 
 func fire():
 	currLoucos = get_node("area_torre_pena").get_overlapping_bodies().filter(func(body): return (body.has_method('getTeam') && (body.getTeam() == 'louco' && body.has_method('atualizar_vida')) ))
@@ -20,12 +18,9 @@ func _on_torre_pena_body_entered(body):
 	if(body.has_method('getTeam')):
 		if(body.getTeam() == 'louco' && body.has_method('atualizar_vida')):
 			fire()
-		#currTargets = get_node("area_torre_pena").get_overlapping_bodies()
 
 func _on_torre_pena_body_exited(body):
-	#if tipo_alvo in body.name:
-	pass
-		#currTargets = get_node("area_torre_pena").get_overlapping_bodies()
+	print('')
 
 
 func _on_timer_timeout():

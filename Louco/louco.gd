@@ -76,7 +76,7 @@ func _onBodyExited(_body: Node2D):
 	shouldWalk = true
 	if(!bodies.is_empty()):
 		for body in bodies:
-			if(body.getTeam() != 'louco'):
+			if(body.has_method('getTeam') && body.getTeam() != 'louco'):
 				shouldWalk = false
 				target = body
 				break
