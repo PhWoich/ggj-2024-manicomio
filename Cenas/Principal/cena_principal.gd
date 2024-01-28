@@ -16,7 +16,7 @@ var recurso:int = 1000
 
 @onready var louco = preload("res://Louco/louco.tscn")
 @onready var louco_mickey = preload("res://Louco/louco_mickey.tscn")
-
+@onready var louco_esbugalhada = preload("res://Louco/louco_esbugalhada.tscn")
 #Geradores
 @onready var g1: PackedScene = preload("res://Geradores/Esteira/gerador_esteira.tscn")
 @onready var g2: PackedScene = preload("res://Geradores/Fornalha/gerador_fornalha.tscn")
@@ -63,6 +63,10 @@ func _ready():
 	var instancia_louco_mickey = louco_mickey.instantiate()
 	instancia_louco_mickey.inicializar(instancia_jogador, self)
 	add_child(instancia_louco_mickey)
+	
+	var instancia_louco_esbugalhada = louco_esbugalhada.instantiate()
+	instancia_louco_esbugalhada.inicializar(instancia_jogador, self)
+	add_child(instancia_louco_esbugalhada)
 
 func _getInitialCustos():
 	custo_g1 = g1.instantiate().custo_base
