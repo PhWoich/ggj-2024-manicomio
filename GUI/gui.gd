@@ -37,6 +37,9 @@ extends CanvasLayer
 @onready var energyYellowBar = $MarginContainer/MainHBox/EnergyContainer/EnergyBarContainer/YellowEnergyBar
 @onready var energyRedBar = $MarginContainer/MainHBox/EnergyContainer/EnergyBarContainer/RedEnergyBar
 
+@onready var central_tower_health_bar = $MarginContainer/MainHBox/Rows/TopRow/CentralHealthContainer/HealthBar
+@onready var central_tower_label = $MarginContainer/MainHBox/Rows/TopRow/CentralHealthContainer/HBoxContainer/HealthValue
+
 var resource = 10
 
 var max_health = 100
@@ -64,7 +67,15 @@ func set_new_health_value(new_health: float, new_max_health: float):
 	actual_health = new_health
 	healthLabel.text = "%3d / %3d" % [actual_health, max_health]
 	healthBar.value = actual_health
+
+
+func set_central_tower_health(new_health: float, new_max_health: float):
+	central_tower_health_bar.max_value = new_max_health
+	central_tower_health_bar.value = new_health
 	
+	central_tower_label.text = "%3d / %3d" % [new_health, new_max_health]
+
+
 func set_new_resource_value(new_resource: int):
 	resourceLabel.text = "%3d" % [new_resource]
 	resource = new_resource

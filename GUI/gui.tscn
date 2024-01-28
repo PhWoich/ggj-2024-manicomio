@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://t7civ2atacxb"]
+[gd_scene load_steps=21 format=3 uid="uid://t7civ2atacxb"]
 
 [ext_resource type="Texture2D" uid="uid://c0bnb5jrg6ysw" path="res://Player/tile_0085.png" id="1_ds3ek"]
 [ext_resource type="Script" path="res://GUI/gui.gd" id="1_y6usf"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bk7o5uvvdsgsc" path="res://Torres/torre_pena/sprite_3.png" id="5_rgi25"]
 [ext_resource type="Texture2D" uid="uid://cmd2cfo1aem1w" path="res://Geradores/Inalador SA/sprites/cabine4.png" id="8_bquae"]
 [ext_resource type="Texture2D" uid="uid://d0aaadfi3hq6o" path="res://GUI/icons/pie_icon.png" id="10_4kwti"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u50ql"]
+font_size = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv2ha"]
 bg_color = Color(0.494118, 0.494118, 0.494118, 1)
@@ -112,6 +115,52 @@ theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_qn50h")
 theme_override_font_sizes/font_size = 75
 text = "30"
+
+[node name="CentralHealthContainer" type="VBoxContainer" parent="MarginContainer/MainHBox/Rows/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+mouse_filter = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainHBox/Rows/TopRow/CentralHealthContainer"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/MainHBox/Rows/TopRow/CentralHealthContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_qn50h")
+theme_override_font_sizes/font_size = 75
+text = "Torre Central:"
+label_settings = SubResource("LabelSettings_u50ql")
+horizontal_alignment = 1
+
+[node name="HealthValue" type="Label" parent="MarginContainer/MainHBox/Rows/TopRow/CentralHealthContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_qn50h")
+theme_override_font_sizes/font_size = 75
+text = "30/100"
+label_settings = SubResource("LabelSettings_u50ql")
+horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/MainHBox/Rows/TopRow/CentralHealthContainer"]
+custom_minimum_size = Vector2(500, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_vv2ha")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2y125")
+max_value = 500.0
+value = 50.0
+show_percentage = false
 
 [node name="MiddleRow" type="HBoxContainer" parent="MarginContainer/MainHBox/Rows"]
 layout_mode = 2
